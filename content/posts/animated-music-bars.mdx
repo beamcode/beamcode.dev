@@ -1,0 +1,151 @@
+---
+date: "2021-01-31T15:45:00"
+title: "Animated music bars with CSS"
+image: "https://cdn.britannica.com/25/172925-050-DC7E2298/black-cat-back.jpg"
+description: "How to create an animated icon perfect for visualizing music"
+tags: "CSS, Animation"
+---
+
+import { Link } from "next/link"
+
+My site is a place to learn and try new tech, so after seeing Lee Robinsons post on [Using the Spotify API with Next.js](https://leerob.io/blog/spotify-api-nextjs) this was definitely something I wanted to try out. The goal was to add a "Now playing" widget to the footer showing what I'm currently listening to on Spotify.
+
+A few years back I purchased the first version of  Apple Watch, and I remember that the "Now playing" complication had a very pleasant animation with "bars" jumping up and down. This tutorial shows how to create a similar animation perfect for visualizing music. This is what we're building: (psst, if I'm listening to music right now you can watch a live example in the footer…)
+
+## Let's get started
+
+This animation is written in css modules with sass in a Next.js/Typescript project but can easily be adjusted to pure css by not using nesting & creating unique classes.
+
+Let's start by creating a wrapper div that will contain our bars, then we'll add a span tag for every bar:
+
+```tsx
+import styles from "./nowplaying.module.scss"
+;<div className={styles.icon}>
+  <span />
+  <span />
+  <span />
+</div>
+```
+
+We'll add some containing styles to our wrapper element and style each bar:
+
+```scss
+.icon {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 13px;
+  height: 13px;
+}
+
+span {
+  width: 3px;
+  height: 100%;
+  background-color: orange;
+  border-radius: 3px;
+  content: "";
+}
+```
+
+Which renders:
+
+<div
+  style={{
+    padding: "50px",
+    backgroundColor: "var(--boxBg)",
+    borderRadius: "5px",
+    textAlign: "center",
+  }}
+>
+  <div
+    style={{
+      position: "relative",
+      display: "inline-flex",
+      justifyContent: "space-between",
+      width: 13,
+      height: 13,
+    }}
+  >
+    <span
+      style={{
+        width: 3,
+        height: "100%",
+        backgroundColor: "var(--brand)",
+        content: "",
+        borderRadius: 3,
+      }}
+    />
+    <span
+      style={{
+        width: 3,
+        height: "100%",
+        backgroundColor: "var(--brand)",
+        content: "",
+        borderRadius: 3,
+      }}
+    />
+    <span
+      style={{
+        width: 3,
+        height: "100%",
+        backgroundColor: "var(--brand)",
+        content: "",
+        borderRadius: 3,
+      }}
+    />
+  </div>
+</div>
+
+<div
+  style={{
+    padding: "50px",
+    backgroundColor: "gray",
+    borderRadius: "5px",
+    textAlign: "center",
+  }}
+>
+  <div
+    style={{
+      position: "relative",
+      display: "inline-flex",
+      justifyContent: "space-between",
+      width: 13,
+      height: 13,
+    }}
+  >
+    <span
+      style={{
+        width: 3,
+        height: "100%",
+        backgroundColor: "red",
+        content: "",
+        borderRadius: 3,
+        animation: "bounce 2.2s ease infinite alternate",
+      }}
+    />
+    <span
+      style={{
+        width: 3,
+        height: "100%",
+        backgroundColor: "red",
+        content: "",
+        borderRadius: 3,
+        animation: "bounce 2.2s ease infinite alternate",
+      }}
+    />
+    <span
+      style={{
+        width: 3,
+        height: "100%",
+        backgroundColor: "red",
+        content: "",
+        borderRadius: 3,
+        animation: "bounce 2.2s ease infinite alternate",
+      }}
+    />
+  </div>
+</div>
+
+<Link href="https://www.html5rocks.com/en/tutorials/speed/high-performance-animations/">
+  Read more about high performance animations
+</Link>

@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+  width: 0; /* Width of the scrollbar */
+}
+
+.animate-in {
+  animation-delay: calc(var(--index) * 130ms);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html.dark {
+  /* background: #121212; */
+
+  @apply bg-zinc-900;
+}
