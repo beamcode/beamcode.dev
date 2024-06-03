@@ -24,7 +24,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       />
     ),
     pre: ({ children, ...props }) => (
-      <CodeBlock props={undefined} {...props} children={children} />
+      <CodeBlock props={undefined} {...props}>
+        {children}
+      </CodeBlock>
     ),
     Info: ({ children, ...props }) => (
       <Information {...props}>{children}</Information>

@@ -11,7 +11,7 @@ export default function CodeBlock({
   return (
     <div className="relative">
       <div className="absolute right-1 top-1 z-20">
-        <CopyCodeButtonIcon children={children} />
+        <CopyCodeButtonIcon>{children}</CopyCodeButtonIcon>
       </div>
       <pre
         {...props}

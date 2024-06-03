@@ -1,4 +1,4 @@
-// File: /Users/mac/Desktop/Repos/beamcode.dev/src/app/page.tsx
+// File: /Users/mac/Desktop/Repos/website/src/app/page.tsx
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
