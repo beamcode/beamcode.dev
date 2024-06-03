@@ -13,6 +13,20 @@ const config: Config = {
       theme: "atom-one-dark",
     },
     extend: {
+      backgroundColor: {
+        main: {
+          light: "#ffffff",
+          dark: "#141415",
+        },
+        primary: {
+          light: "#ededec",
+          dark: "#141415",
+        },
+        secondary: {
+          light: "#ededec",
+          dark: "#282826",
+        },
+      },
       textColor: {
         primary: {
           light: "#1b1b18",
@@ -21,17 +35,6 @@ const config: Config = {
         secondary: {
           light: "#706f6c",
           dark: "#a1a09a",
-        },
-      },
-      backgroundColor: {
-        primary: {
-          main: "#121212",
-          light: "#ededec",
-          dark: "#444444",
-        },
-        secondary: {
-          light: "#ededec",
-          dark: "#282826",
         },
       },
       borderColor: {

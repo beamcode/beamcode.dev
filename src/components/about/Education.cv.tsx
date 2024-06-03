@@ -1,7 +1,7 @@
 export default function EducationSection() {
   return (
     <div className="w-full">
-      <div className="mb-3 flex w-fit px-2 py-1 rounded-lg items-center gap-2 bg-zinc-100 dark:bg-zinc-800">
+      <div className="mb-3 flex w-full px-2 py-1 rounded-lg items-center gap-2 bg-primary-light dark:bg-primary-dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className=""

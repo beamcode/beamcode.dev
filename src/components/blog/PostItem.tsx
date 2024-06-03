@@ -17,7 +17,7 @@ export default function PostItem({
       style={{ "--index": index } as React.CSSProperties}
     >
       <Link href={`/blog/${post.slug}`} className="flex">
-        <div className="flex w-full h-full p-3 rounded-lg gap-4 cursor-pointer transition-all bg-gray-100 dark:bg-secondary-dark">
+        <div className="flex w-full h-full p-3 rounded-lg gap-4 cursor-pointer transition-all bg-primary-light dark:bg-primary-dark">
           <div className="space-y-4 w-full">
             <div className="flex gap-4">
               <div className="relative flex size-24 shrink-0 overflow-hidden">

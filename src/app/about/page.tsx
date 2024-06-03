@@ -1,21 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Modal from "@/components/Modal"
-import EducationSection from "@/components/Education.cv"
-import SkillsSection from "@/components/Skills.cv"
-import ExperienceSection from "@/components/Experience.cv"
-import OtherSection from "@/components/Other.cv"
+import EducationSection from "@/components/about/Education.cv"
+import SkillsSection from "@/components/about/Skills.cv"
+import ExperienceSection from "@/components/about/Experience.cv"
+import OtherSection from "@/components/about/Other.cv"
 import Image from "next/image"
-
-// import pfp from '../assets/pfp.jpg'
-
-// import MacTerminal from '../components/Terminal'
-// import RandomQuotes from '../components/RandomQuotes'
-// import UsefullLinks from '../components/Links'
-// import LinkedinButton from '../components/LinkedinButton'
-// import GithubButton from '../components/GithubButton'
-// import CvButton from '../components/CvButton'
 
 export default function AboutPage() {
   const [emailText, setEmailText] = useState("Email")

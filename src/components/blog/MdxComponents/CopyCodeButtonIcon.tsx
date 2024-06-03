@@ -51,16 +51,16 @@ export default function CopyCodeButton({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="leading-none">
+    <div className="leading-none bg-zinc-800 rounded-lg border border-zinc-700">
       <button
         onClick={handleClick}
-        className="hover:scale-110 transition-all duration-[200ms] p-2"
+        className="hover:scale-110 rounded-lg transition-all duration-[200ms] p-2"
         style={{ opacity }}
       >
         {toggled ? (
           <svg
-            height="20"
-            width="20"
+            height="18"
+            width="18"
             aria-hidden="true"
             viewBox="0 0 16 16"
             version="1.1"
@@ -70,8 +70,8 @@ export default function CopyCodeButton({ children }: { children: ReactNode }) {
           </svg>
         ) : (
           <svg
-            height="20"
-            width="20"
+            height="18"
+            width="18"
             aria-hidden="true"
             viewBox="0 0 16 16"
             version="1.1"

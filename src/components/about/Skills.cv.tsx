@@ -13,7 +13,7 @@ import {
 export default function SkillsSection() {
   return (
     <div className="w-full">
-      <div className="mb-3 w-fit px-2 flex rounded-lg items-center gap-2 bg-zinc-100 dark:bg-zinc-800">
+      <div className="mb-3 w-full px-2 flex rounded-lg items-center gap-2 bg-primary-light dark:bg-primary-dark">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className=""

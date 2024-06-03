@@ -10,7 +10,7 @@ export default function CodeBlock({
 }) {
   return (
     <div className="relative">
-      <div className="absolute right-1 top-1 z-20">
+      <div className="absolute right-2 top-2 z-20">
         <CopyCodeButtonIcon>{children}</CopyCodeButtonIcon>
       </div>
       <pre
@@ -22,5 +22,3 @@ export default function CodeBlock({
     </div>
   )
 }
-
-//flex absolute z-50 -top-[30px] right-2

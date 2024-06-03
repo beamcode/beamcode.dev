@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 export default function Information({ children }: { children: ReactNode }) {
   return (
-    <div className="flex justify-center w-full h-full p-2 gap-2 bg-orange-300 dark:bg-yellow-800 rounded-lg text-black dark:text-white not-prose">
+    <div className="flex w-full items-start h-full p-2 gap-2 bg-orange-300 dark:bg-yellow-800 rounded-lg text-black dark:text-white not-prose">
       <div className="h-full">
         <svg
           className="dark:fill-white"
@@ -18,10 +18,7 @@ export default function Information({ children }: { children: ReactNode }) {
         </svg>
       </div>
       <div>
-        <p className="text-sm">
-          This is a simple blog site built with Next.js and Tailwind CSS. The
-          content is written in Markdown and rendered using the{" "}
-        </p>
+        <p className="text-md leading-[20px]">{children}</p>
       </div>
     </div>
   )

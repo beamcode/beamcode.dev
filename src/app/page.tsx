@@ -36,7 +36,7 @@ function ProjectComponent({
 }) {
   return (
     <li>
-      <section className="flex flex-col md:flex-row gap-1 md:gap-9 text-xs bg-gray-50 dark:bg-secondary-dark rounded-lg">
+      <section className="flex flex-col md:flex-row gap-1 md:gap-9 text-xs bg-primary-light dark:bg-primary-dark rounded-lg">
         <div className="flex flex-col-reverse md:flex-row w-full rounded-lg overflow-hidden">
           <div className="flex flex-col gap-5 grow p-4 rounded-b-lg md:rounded-br-[0] md:rounded-l-lg">
             <div className="flex items-center justify-between w-full">
@@ -169,10 +169,10 @@ export default function Page() {
         </ul>
       </div>
 
-      <div>
+      {/* <div>
         <p className="font-normal pb-6">Fake terminal made with TailwindCSS</p>
         <MacTerminal />
-      </div>
+      </div> */}
     </div>
   )
 }
