@@ -46,45 +46,28 @@ function ProjectComponent({
 
             <div className="flex flex-wrap gap-2 text-[11px] dark:text-black">
               {technologies.map((tech, i) => (
-                <span
-                  key={i}
-                  className="px-3 py-1 bg-orange-200 dark:bg-orange-300 rounded-md"
-                >
+                <span key={i} className="px-3 py-1 bg-orange-200 dark:bg-orange-300 rounded-md">
                   {tech}
                 </span>
               ))}
             </div>
-            <p className="text-secondary-light dark:text-secondary-dark">
-              {description}
-            </p>
+            <p className="text-secondary-light dark:text-secondary-dark">{description}</p>
 
             <div className="flex flex-wrap gap-5 text-sm">
               {demo_link && (
-                <a
-                  href={demo_link}
-                  target="_blank"
-                  className="underline underline-offset-4"
-                >
+                <a href={demo_link} target="_blank" className="underline underline-offset-4">
                   Live Demo ↗
                 </a>
               )}
               {github_link && (
-                <a
-                  href={github_link}
-                  target="_blank"
-                  className="underline underline-offset-4"
-                >
+                <a href={github_link} target="_blank" className="underline underline-offset-4">
                   Github ↗
                 </a>
               )}
             </div>
           </div>
           <div className="flex rounded-tr-lg sm:rounded-l-[0] h-full max-h-[250px] overflow-hidden w-full md:max-w-[200px] shadow cursor-pointer">
-            <a
-              className="flex w-full"
-              href={demo_link ? demo_link : github_link}
-              target="_blank"
-            >
+            <a className="flex w-full" href={demo_link ? demo_link : github_link} target="_blank">
               <Image
                 src={image}
                 alt="Project Image"
@@ -136,13 +119,7 @@ export default function Page() {
           <ProjectComponent
             title="Bagnole"
             date="In development"
-            technologies={[
-              "Next.js",
-              "TypeScript",
-              "TailwindCSS",
-              "Prisma",
-              "React Native",
-            ]}
+            technologies={["Next.js", "TypeScript", "TailwindCSS", "Prisma", "React Native"]}
             image="/bagnole.png"
             description="Next generation car meet-up app. Find car events near you, meet new people and share your passion for cars"
             demo_link="https://bagnoleapp.fr/"
@@ -162,7 +139,7 @@ export default function Page() {
             title="BounceMaster"
             date="04 / 2021"
             technologies={["Unity", "C#"]}
-            image="/BounceMaster.png"
+            image="/bounceMaster.png"
             description="A 2D platformer game made in Unity. The player controls a ball and must reach the end of the level by bouncing off of platforms and avoiding obstacles."
             github_link="https://github.com/beamcode/bounce_master"
           />
