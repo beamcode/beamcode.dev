@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 
@@ -5,26 +7,25 @@ export default function ThemeToggleGray() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
 
-  // useEffect only runs on the client, so now we can safely show the UI
   useEffect(() => {
     setMounted(true)
   }, [])
 
   function toggleTheme() {
     if (!mounted) return
-    setTheme(theme === "light" ? "dark" : "light")
+    setTheme(theme === "light" ? "cyberpunk" : "light")
   }
 
   return (
     <div
-      className="flex-shrink-0 w-12 h-8 p-1 rounded-full bg-primary-light dark:bg-primary-dark"
+      className="flex-shrink-0 w-12 h-8 p-1 rounded-full bg-primary-bg"
       onClick={() => {
         toggleTheme()
       }}
       aria-label="Toggle Dark Mode"
       role="button"
     >
-      <div className="w-6 h-6 rounded-full shadow-md duration-[250ms] ease-in-out flex items-center justify-center dark:translate-x-4 bg-main-light dark:bg-main-dark">
+      <div className="w-6 h-6 rounded-full duration-[250ms] ease-in-out flex items-center justify-center dark:translate-x-4 bg-default-bg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

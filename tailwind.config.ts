@@ -13,39 +13,19 @@ const config: Config = {
       theme: "atom-one-dark",
     },
     extend: {
-      backgroundColor: {
-        main: {
-          light: "#ffffff",
-          dark: "#141415",
-        },
-        primary: {
-          light: "#ededec",
-          dark: "#141415",
-        },
-        secondary: {
-          light: "#ededec",
-          dark: "#282826",
-        },
-      },
-      textColor: {
-        primary: {
-          light: "#1b1b18",
-          dark: "#ededec",
-        },
-        secondary: {
-          light: "#706f6c",
-          dark: "#a1a09a",
-        },
-      },
-      borderColor: {
-        primary: {
-          light: "#d1d1d1",
-          dark: "#a1a09a",
-        },
-        secondary: {
-          light: "#d1d1d1",
-          dark: "#a1a09a",
-        },
+      colors: {
+        "default-bg": "var(--default-bg)",
+        "primary-bg": "var(--primary-bg)",
+        "secondary-bg": "var(--secondary-bg)",
+        "tertiary-bg": "var(--tertiary-bg)",
+
+        "primary-text": "var(--primary-text)",
+        "secondary-text": "var(--secondary-text)",
+        "tertiary-text": "var(--tertiary-text)",
+
+        "primary-border": "var(--primary-border)",
+        "secondary-border": "var(--secondary-border)",
+        "tertiary-border": "var(--tertiary-border)",
       },
       keyframes: {
         in: {
@@ -101,11 +81,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animated"),
-    require("tailwindcss-animate"),
-    require("@tailwindcss/typography"),
-  ],
+  plugins: [require("tailwindcss-animated"), require("@tailwindcss/typography")],
   safelist: [
     {
       pattern: /hljs+/,

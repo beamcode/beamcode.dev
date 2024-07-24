@@ -59,15 +59,15 @@ export default function NavBar() {
   }, [path])
 
   return (
-    <div className="relative">
+    <div className="relative text-sm">
       <div
         ref={markerRef}
         className={twMerge(
-          "absolute rounded-full bottom-0 left-0 transition-all duration-[500ms] will-change-auto",
+          "absolute rounded-full bottom-0 left-0 transition-all duration-500 will-change-auto",
           tmp
         )}
       >
-        <div className="w-full h-full rounded-full bg-primary-light dark:bg-primary-dark will-change-transform" />
+        <div className="w-full h-full rounded-full bg-primary-bg will-change-transform" />
       </div>
 
       <ul className="flex flex-wrap list-none gap-6 sm:justify-center">
@@ -83,10 +83,10 @@ export default function NavBar() {
             <Link
               href={link.href}
               className={twMerge(
-                "rounded-full px-4 py-[6.5px] text-sm transition-colors cursor-pointer",
+                "rounded-full px-4 py-[6.5px] transition-colors cursor-pointer",
                 currentPath === link.href
-                  ? "text-primary-light dark:text-primary-dark"
-                  : "text-secondary-light hover:text-primary-light dark:text-secondary-dark dark:hover:text-primary-dark"
+                  ? "text-primary-text"
+                  : "text-secondary-text hover:text-primary-text"
               )}
             >
               {link.label}

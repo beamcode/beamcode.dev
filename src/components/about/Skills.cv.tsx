@@ -13,7 +13,7 @@ import {
 export default function SkillsSection() {
   return (
     <div className="w-full">
-      <div className="mb-3 w-full px-2 flex rounded-lg items-center gap-2 bg-primary-light dark:bg-primary-dark">
+      <div className="mb-3 w-full px-2 flex rounded-lg items-center gap-2 bg-primary-bg ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className=""
@@ -49,8 +49,8 @@ export default function SkillsSection() {
           </div>
 
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            Development of various projects including responsive web-apps
-            (dashboards, landing pages) and mobile apps using the React library.
+            Development of various projects including responsive web-apps (dashboards, landing
+            pages) and mobile apps using the React library.
           </p>
         </li>
 
@@ -101,8 +101,8 @@ export default function SkillsSection() {
           </div>
 
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            3 years of C and C++ developement through various projects including
-            algorithms and game development.
+            3 years of C and C++ developement through various projects including algorithms and game
+            development.
           </p>
         </li>
 
@@ -125,11 +125,7 @@ export default function SkillsSection() {
         <li className="mb-6 ml-4">
           <span className="absolute -left-[6.6px] mt-[7.5px] flex h-3 w-3 items-center justify-center rounded-full bg-zinc-200 dark:bg-[gray]" />
           <div className="mb-1 flex items-center gap-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 48 48"
-              width={25}
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width={25}>
               <path
                 fill="#CFD8DC"
                 d="M15,13h25c1.104,0,2,0.896,2,2v25c0,1.104-0.896,2-2,2H26L15,13z"
@@ -156,15 +152,11 @@ export default function SkillsSection() {
             <h3 className="flex items-center whitespace-pre text-lg font-semibold text-gray-900 dark:text-gray-200">
               Bilingual Proficiency in
             </h3>
-            <h3 className="whitespace-pre text-lg font-semibold text-[#e32d3d]">
-              French
-            </h3>
+            <h3 className="whitespace-pre text-lg font-semibold text-[#e32d3d]">French</h3>
             <h3 className="flex items-center whitespace-pre text-lg font-semibold text-gray-900 dark:text-gray-200">
               /
             </h3>
-            <h3 className="whitespace-pre text-lg font-semibold text-[#e32d3d]">
-              English
-            </h3>
+            <h3 className="whitespace-pre text-lg font-semibold text-[#e32d3d]">English</h3>
           </div>
 
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">

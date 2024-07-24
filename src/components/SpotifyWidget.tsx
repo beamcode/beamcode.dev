@@ -54,7 +54,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
   return (
     <div
       className={twMerge(
-        "flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-md bg-gray-50 dark:bg-primary-dark p-3 border border-primary-light border-opacity-30 dark:border-primary-dark dark:border-opacity-10",
+        "flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-md bg-gray-50  p-3 border border-primary-light border-opacity-30 dark:border-primary-dark dark:border-opacity-10",
         className
       )}
     >
@@ -77,9 +77,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
                 <p className="break-keep text-sm font-medium text-gray-900 [overflow-wrap:anywhere] dark:text-white">
                   {data.title}
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">
-                  {data.artist}
-                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{data.artist}</p>
               </div>
               <a
                 className="text-xs text-blue-500 dark:text-blue-400"

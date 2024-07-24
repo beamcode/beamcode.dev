@@ -2,6 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
+.cyberpunk {
+  --default-bg: #000000;
+  --primary-bg: #171717;
+  --secondary-bg: #353535;
+  --tertiary-bg: #757575;
+
+  --primary-text: #2cc07d;
+  --secondary-text: #1c8c5a;
+  --tertiary-text: #073a26;
+
+  --primary-border: #bd00ff;
+  --secondary-border: #d600ff;
+  --tertiary-border: #00ff9f;
+}
+
+.light {
+  --default-bg: #ffffff;
+  --primary-bg: #f4f4f5;
+  --secondary-bg: #e6e6e6;
+  --tertiary-bg: rgb(200, 200, 200);
+
+  --primary-text: black;
+  --secondary-text: gray;
+  --tertiary-text: #9e9e9e;
+
+  --primary-border: #dadada;
+  --secondary-border: #4c4c4c;
+  --tertiary-border: #313131;
+}
+
+.dark {
+  --default-bg: #000000;
+  --primary-bg: #252525;
+  --secondary-bg: #353535;
+  --tertiary-bg: #757575;
+
+  --primary-text: white;
+  --secondary-text: #cccccc;
+  --tertiary-text: #9e9e9e;
+
+  --primary-border: #4b4b4b;
+  --secondary-border: #cccccc;
+  --tertiary-border: #9e9e9e;
+}
+
 body::-webkit-scrollbar {
   width: 0; /* Width of the scrollbar */
 }
@@ -17,7 +62,5 @@ body::-webkit-scrollbar {
 }
 
 html.dark {
-  /* background: #121212; */
-
-  @apply bg-zinc-900;
+  @apply bg-default-bg;
 }

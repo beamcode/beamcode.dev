@@ -4,20 +4,11 @@ import { Post } from "@/helpers/getPosts"
 import Tags from "./Tags"
 import Image from "next/image"
 
-export default function PostItem({
-  post,
-  index = 0,
-}: {
-  post: Post
-  index?: number
-}) {
+export default function PostItem({ post, index = 0 }: { post: Post; index?: number }) {
   return (
-    <div
-      className="animate-in"
-      style={{ "--index": index } as React.CSSProperties}
-    >
+    <div className="animate-in" style={{ "--index": index } as React.CSSProperties}>
       <Link href={`/blog/${post.slug}`} className="flex">
-        <div className="flex w-full h-full p-3 rounded-lg gap-4 cursor-pointer transition-all bg-primary-light dark:bg-primary-dark">
+        <div className="flex w-full h-full p-3 rounded-lg gap-4 cursor-pointer transition-all bg-primary-bg ">
           <div className="space-y-4 w-full">
             <div className="flex gap-4">
               <div className="relative flex size-24 shrink-0 overflow-hidden">
@@ -32,12 +23,8 @@ export default function PostItem({
               </div>
               <div className="space-y-2">
                 <div className="flex flex-col justify-between w-full">
-                  <h1 className="text-xl font-semibold leading-none">
-                    {post.title}
-                  </h1>
-                  <p className="text-[14px] text-gray-500">
-                    {formatDate(post.date)}
-                  </p>
+                  <h1 className="text-xl font-semibold leading-none">{post.title}</h1>
+                  <p className="text-[14px] text-gray-500">{formatDate(post.date)}</p>
                 </div>
                 <p className="text-sm">{post.description}</p>
                 <Tags tags={post.tags} clickable={false} />

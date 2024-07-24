@@ -14,12 +14,10 @@ export const metadata: Metadata = {
   description: "Welcome to my world wide web page",
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="">
-      <body className="">
+    <html lang="en" className="bg-default-bg">
+      <body className="text-primary-text">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <RainbowProgressBar />
           {/* <BurgerCursor /> */}
@@ -28,6 +26,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+
           <div className="fixed flex bottom-0 right-0 z-10 p-5 w-full sm:w-[400px] transition delay-300">
             {/* <SpotifyWidget className="w-full" /> */}
           </div>
@@ -37,4 +36,4 @@ export default function RootLayout({
   )
 }
 
-//dark:bg-primary-main
+//dark:bg-primary-bg-main

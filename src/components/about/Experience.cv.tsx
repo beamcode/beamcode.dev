@@ -1,7 +1,7 @@
 export default function ExperienceSection() {
   return (
     <div className="w-full">
-      <div className="mb-3 flex w-full px-2 rounded-lg items-center gap-2 bg-primary-light dark:bg-primary-dark">
+      <div className="mb-3 flex w-full px-2 rounded-lg items-center gap-2 bg-primary-bg ">
         <svg
           aria-hidden="true"
           width={25}
@@ -15,9 +15,7 @@ export default function ExperienceSection() {
             clipRule="evenodd"
           />
         </svg>
-        <h1 className="text-2xl font-semibold text-[#50649c] dark:text-[#809cbe]">
-          Experience
-        </h1>
+        <h1 className="text-2xl font-semibold text-[#50649c] dark:text-[#809cbe]">Experience</h1>
       </div>
 
       <ol className="relative ml-2 border-l border-gray-200 dark:border-[gray]">
@@ -35,10 +33,9 @@ export default function ExperienceSection() {
             Apr - Aug 2022
           </time>
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            Four-month internship working with ReactJS, ReactNative, and web
-            development projects. I gained experience in team work and mobile
-            development. Excellent learning opportunity that helped me grow as a
-            developer.
+            Four-month internship working with ReactJS, ReactNative, and web development projects. I
+            gained experience in team work and mobile development. Excellent learning opportunity
+            that helped me grow as a developer.
           </p>
         </li>
 
@@ -53,8 +50,8 @@ export default function ExperienceSection() {
             Sept - Dec 2020
           </time>
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            Internship in cloud data management, use of Google cloud platform,
-            development of tools in C# and development of dynamic SQL queries.
+            Internship in cloud data management, use of Google cloud platform, development of tools
+            in C# and development of dynamic SQL queries.
           </p>
         </li>
 
@@ -70,9 +67,8 @@ export default function ExperienceSection() {
             April 2017
           </time>
           <p className="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-            Internship onbroad private 50m motoryacht SIROCCO as an asistant
-            engineer. Learning of basic engineering and computer systems
-            onbroad.
+            Internship onbroad private 50m motoryacht SIROCCO as an asistant engineer. Learning of
+            basic engineering and computer systems onbroad.
           </p>
         </li>
       </ol>
