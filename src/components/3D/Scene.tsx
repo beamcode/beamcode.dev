@@ -22,7 +22,7 @@ function Scene({ path }: SceneProps) {
 
   useEffect(() => {
     camera.position.set(0, 6, 5) // Set the camera position
-    // camera.lookAt(0, 0, 0) // Ensure the camera looks at (0, 0, 0)
+    camera.lookAt(0, 0, 0) // Ensure the camera looks at (0, 0, 0)
   }, [camera])
 
   return (
@@ -32,7 +32,7 @@ function Scene({ path }: SceneProps) {
       </React.Suspense>
       <ambientLight intensity={1.5} />
       <pointLight position={[10, 10, 10]} />
-      <OrbitControls target={[0, 4, 0]} /> // Set the target to eye level (x, y, z)
+      <OrbitControls target={[0, 4, 0]} /> {/* Set the target to (0, 0, 0) */}
     </>
   )
 }
