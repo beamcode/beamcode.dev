@@ -4,6 +4,7 @@ import "../styles/globals.css"
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import { ThemeProvider } from "next-themes"
+import { useThemeFontClass } from "@/components/ThemeFonts"
 
 import SpotifyWidget from "@/components/SpotifyWidget"
 import RainbowProgressBar from "@/components/RainbowScrollBar"
@@ -14,13 +15,13 @@ export const metadata: Metadata = {
   description: "Welcome to my world wide web page",
 }
 
+// const test = useThemeFontClass() // This is a test
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="bg-default-bg">
       <body className="text-primary-text">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <RainbowProgressBar />
-          {/* <BurgerCursor /> */}
           <Header />
           <main className="px-4 md:px-6 pt-10 md:pt-20 pb-24 md:pb-44 max-w-[700px] mx-auto">
             {children}
@@ -35,5 +36,3 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   )
 }
-
-//dark:bg-primary-bg-main

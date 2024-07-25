@@ -1,6 +1,38 @@
 import SpotifyWidget from "@/components/SpotifyWidget"
 import MacTerminal from "@/components/Terminal"
 import Image from "next/image"
+import Link from "next/link"
+
+const projects = [
+  {
+    title: "Bagnole",
+    date: "In development",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "Prisma", "React Native"],
+    image: "/bagnole.png",
+    description:
+      "Next generation car meet-up app. Find car events near you, meet new people and share your passion for cars",
+    demo_link: "https://bagnoleapp.fr/",
+  },
+  {
+    title: "Personal Website",
+    date: "07 / 2021",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS"],
+    image: "/beamcodedev.png",
+    description:
+      "A vibrant and dynamic personal website that showcases the best of who I am, highlighting my incredible work, valuable experiences, and infectious enthusiasm.",
+    demo_link: "https://beamcode.dev",
+    github_link: "https://github.com/beamcode/beamcode.dev",
+  },
+  {
+    title: "BounceMaster",
+    date: "04 / 2021",
+    technologies: ["Unity", "C#"],
+    image: "/bounceMaster.png",
+    description:
+      "A 2D platformer game made in Unity. The player controls a ball and must reach the end of the level by bouncing off of platforms and avoiding obstacles.",
+    github_link: "https://github.com/beamcode/bounce_master",
+  },
+]
 
 function LookingForWork() {
   return (
@@ -66,8 +98,12 @@ function ProjectComponent({
               )}
             </div>
           </div>
-          <div className="flex rounded-tr-lg sm:rounded-l-[0] h-full max-h-[250px] overflow-hidden w-full md:max-w-[200px] shadow cursor-pointer">
-            <a className="flex w-full" href={demo_link ? demo_link : github_link} target="_blank">
+          <div className="flex rounded-tr-lg sm:rounded-l-[0] h-full max-h-[250px] overflow-hidden w-full md:max-w-[200px] cursor-pointer p-2">
+            <Link
+              className="flex w-full border-2n border-primary-border overflow-hidden rounded-lg"
+              href={demo_link ? demo_link : github_link ? github_link : "#"}
+              target="_blank"
+            >
               <Image
                 src={image}
                 alt="Project Image"
@@ -77,7 +113,7 @@ function ProjectComponent({
                 className="object-cover w-full h-auto transition duration-300
                 hover:scale-110"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -106,7 +142,7 @@ export default function Page() {
           <LookingForWork />
         </div>
 
-        <SpotifyWidget />
+        {/* <SpotifyWidget /> */}
       </div>
 
       <div
@@ -116,33 +152,18 @@ export default function Page() {
         <h2 className="text-xl font-extralight">Selected projects</h2>
 
         <ul className="flex flex-col gap-10">
-          <ProjectComponent
-            title="Bagnole"
-            date="In development"
-            technologies={["Next.js", "TypeScript", "TailwindCSS", "Prisma", "React Native"]}
-            image="/bagnole.png"
-            description="Next generation car meet-up app. Find car events near you, meet new people and share your passion for cars"
-            demo_link="https://bagnoleapp.fr/"
-          />
-
-          <ProjectComponent
-            title="Personal Website"
-            date="07 / 2021"
-            technologies={["Next.js", "TypeScript", "TailwindCSS"]}
-            image="/beamcodedev.png"
-            description="A vibrant and dynamic personal website that showcases the best of who I am, highlighting my incredible work, valuable experiences, and infectious enthusiasm.."
-            demo_link="https://beamcode.dev"
-            github_link="https://github.com/beamcode/beamcode.dev"
-          />
-
-          <ProjectComponent
-            title="BounceMaster"
-            date="04 / 2021"
-            technologies={["Unity", "C#"]}
-            image="/bounceMaster.png"
-            description="A 2D platformer game made in Unity. The player controls a ball and must reach the end of the level by bouncing off of platforms and avoiding obstacles."
-            github_link="https://github.com/beamcode/bounce_master"
-          />
+          {projects.map((project, index) => (
+            <ProjectComponent
+              key={index}
+              title={project.title}
+              date={project.date}
+              technologies={project.technologies}
+              image={project.image}
+              description={project.description}
+              demo_link={project.demo_link}
+              github_link={project.github_link}
+            />
+          ))}
         </ul>
       </div>
 

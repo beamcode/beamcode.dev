@@ -64,3 +64,10 @@ body::-webkit-scrollbar {
 html.dark {
   @apply bg-default-bg;
 }
+
+@font-face {
+  font-family: "MegaMan";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/Mega_Man_10.ttf") format("truetype");
+}

@@ -13,6 +13,9 @@ const config: Config = {
       theme: "atom-one-dark",
     },
     extend: {
+      fontFamily: {
+        MegaMan: ["MegaMan"],
+      },
       colors: {
         "default-bg": "var(--default-bg)",
         "primary-bg": "var(--primary-bg)",
