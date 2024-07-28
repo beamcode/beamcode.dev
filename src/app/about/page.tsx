@@ -53,6 +53,7 @@ function ImageGrid({ indexStart }: { indexStart: number }) {
           style={{ "--index": index + indexStart } as React.CSSProperties}
         >
           <Image
+            src={image.src}
             alt={image.alt}
             fetchPriority="high"
             decoding="async"
@@ -62,7 +63,6 @@ function ImageGrid({ indexStart }: { indexStart: number }) {
             width={0}
             height={0}
             sizes="(max-width: 768px) 213px, 33vw"
-            src={image.src}
           />
         </div>
       ))}

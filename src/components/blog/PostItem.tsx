@@ -18,7 +18,7 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
           alt={post.title}
           width={0}
           height={0}
-          className="absolute object-cover w-full h-full hover:scale-105 transition duration-300"
+          className="absolute object-cover w-full h-full hover:scale-105 transition duration-300 bg-secondary"
           sizes="100vw"
         />
       </div>
