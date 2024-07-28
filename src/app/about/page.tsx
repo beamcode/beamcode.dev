@@ -162,7 +162,7 @@ export default function Page() {
             <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r to-yellow-600 from-red-400">
               Sam
             </span>
-            {", a software engineer and student that is pacinate about various tech fields."}
+            {", a software engineer and student passionate about various tech fields."}
           </p>
           <p className="text-primary font-semibold">
             {
