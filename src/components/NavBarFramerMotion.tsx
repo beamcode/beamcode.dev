@@ -26,9 +26,7 @@ export default function NavBarFramerMotion() {
           <Link
             className={twMerge(
               "relative rounded-full px-4 py-[6.5px] text-sm transition-colors cursor-pointer",
-              path === link.href
-                ? "text-primary-light dark:text-primary-dark"
-                : "text-secondary-light hover:text-primary-light dark:text-secondary-dark dark:hover:text-primary-dark"
+              path === link.href ? "text-primary" : "text-secondary hover:text-primary"
             )}
             href={link.href}
           >

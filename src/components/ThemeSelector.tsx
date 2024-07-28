@@ -7,7 +7,7 @@ const themes = [
   { name: "System", themeString: "system" },
   { name: "Light", themeString: "light" },
   { name: "Dark", themeString: "dark" },
-  { name: "CyberPunk", themeString: "cyberpunk" },
+  { name: "CyberPunk (wip)", themeString: "cyberpunk" },
 ]
 
 function TestButton() {
@@ -33,7 +33,7 @@ function TestButton() {
       <div>
         <button
           type="button"
-          className="inline-flex w-full justify-center rounded-full text-sm font-semibold text-secondary-text"
+          className="inline-flex w-full justify-center rounded-full text-sm font-semibold text-secondary"
           id="menu-button"
           aria-expanded={isOpen}
           aria-haspopup="true"
@@ -69,12 +69,8 @@ function TestButton() {
 
       <div
         className={`
-          absolute transition transform right-0 z-10 mt-2 w-auto min-w-28 origin-top-right rounded-md bg-default-bg border border-primary-border p-1
-          ${
-            isOpen
-              ? "ease-out duration-100 transform opacity-100 scale-100"
-              : "ease-in duration-75 opacity-0 scale-95"
-          }
+          absolute transition transform right-0 z-10 mt-2 w-auto min-w-28 origin-top-right rounded-md bg-default border border-primary p-1
+          ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
         `}
         role="menu"
         aria-orientation="vertical"
@@ -85,7 +81,7 @@ function TestButton() {
           <button
             key={theme.themeString}
             type="button"
-            className="block w-full px-4 py-2 text-left text-sm hover:bg-secondary-bg rounded-lg"
+            className="block w-full px-4 py-2 text-left text-sm hover:bg-secondary rounded-lg"
             role="menuitem"
             tabIndex={-1}
             onClick={() => {

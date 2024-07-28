@@ -67,7 +67,7 @@ export default function NavBar() {
           tmp
         )}
       >
-        <div className="w-full h-full rounded-full bg-primary-bg will-change-transform" />
+        <div className="w-full h-full rounded-full bg-primary will-change-transform" />
       </div>
 
       <ul className="flex flex-wrap list-none gap-6 sm:justify-center">
@@ -84,9 +84,7 @@ export default function NavBar() {
               href={link.href}
               className={twMerge(
                 "rounded-full px-4 py-[6.5px] transition-colors cursor-pointer",
-                currentPath === link.href
-                  ? "text-primary-text"
-                  : "text-secondary-text hover:text-primary-text"
+                currentPath === link.href ? "text-primary" : "text-secondary hover:text-primary"
               )}
             >
               {link.label}

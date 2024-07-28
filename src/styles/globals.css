@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 .cyberpunk {
+  --test: 25, 5, 0;
   --default-bg: #000000;
   --primary-bg: #171717;
   --secondary-bg: #353535;
   --tertiary-bg: #757575;
 
   --primary-text: #2cc07d;
-  --secondary-text: #eede09;
+  --secondary-text: #5f5f5f;
   --tertiary-text: #cd3b3b;
 
-  --primary-border: #bd00ff;
+  --primary-border: #3e6095;
   --secondary-border: #d600ff;
   --tertiary-border: #00ff9f;
 }
@@ -62,7 +63,7 @@ body::-webkit-scrollbar {
 }
 
 html.dark {
-  @apply bg-default-bg;
+  @apply bg-default;
 }
 
 @font-face {

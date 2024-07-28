@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss"
+import { RecursiveKeyValuePair } from "tailwindcss/types/config"
 
 const config: Config = {
   darkMode: "class",
@@ -16,19 +17,22 @@ const config: Config = {
       fontFamily: {
         MegaMan: ["MegaMan"],
       },
-      colors: {
-        "default-bg": "var(--default-bg)",
-        "primary-bg": "var(--primary-bg)",
-        "secondary-bg": "var(--secondary-bg)",
-        "tertiary-bg": "var(--tertiary-bg)",
-
-        "primary-text": "var(--primary-text)",
-        "secondary-text": "var(--secondary-text)",
-        "tertiary-text": "var(--tertiary-text)",
-
-        "primary-border": "var(--primary-border)",
-        "secondary-border": "var(--secondary-border)",
-        "tertiary-border": "var(--tertiary-border)",
+      colors: {},
+      backgroundColor: {
+        default: "var(--default-bg)",
+        primary: "var(--primary-bg)",
+        secondary: "var(--secondary-bg)",
+        tertiary: "var(--tertiary-bg)",
+      },
+      textColor: {
+        primary: "var(--primary-text)",
+        secondary: "var(--secondary-text)",
+        tertiary: "var(--tertiary-text)",
+      },
+      borderColor: {
+        primary: "var(--primary-border)",
+        secondary: "var(--secondary-border)",
+        tertiary: "var(--tertiary-border)",
       },
       keyframes: {
         in: {

@@ -5,6 +5,15 @@ import Link from "next/link"
 
 const projects = [
   {
+    title: "BetterVoxel",
+    date: "In development",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "Rust"],
+    image: "/bettervoxel.png",
+    description:
+      "A voxel-based game engine that aims to provide a better experience with voxel based games for developers and players.",
+    demo_link: "https://bettervoxel.io/",
+  },
+  {
     title: "Bagnole",
     date: "In development",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "Prisma", "React Native"],
@@ -36,141 +45,123 @@ const projects = [
 
 function LookingForWork() {
   return (
-    <div
-      className="flex flex-row gap-2 items-center w-full text-secondary-light dark:text-secondary-dark animate-in"
-      style={{ "--index": 2 } as React.CSSProperties}
-    >
+    <div className="flex flex-row gap-2 items-center w-full text-secondary">
       <span className="relative flex h-3 w-3">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
         <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
       </span>
-      <p>Available</p>
+      <p>Available for work.</p>
     </div>
   )
 }
 
-function ProjectComponent({
-  title,
-  date,
-  image,
-  technologies,
-  description,
-  demo_link,
-  github_link,
+function ProjectCard({
+  project: { title, date, image, technologies, description, demo_link, github_link },
 }: {
-  title: string
-  date: string
-  image: string
-  technologies: string[]
-  description: string
-  demo_link?: string
-  github_link?: string
+  project: {
+    title: string
+    date: string
+    image: string
+    technologies: string[]
+    description: string
+    demo_link?: string
+    github_link?: string
+  }
 }) {
   return (
-    <li>
-      <section className="flex flex-col md:flex-row gap-1 md:gap-9 text-xs bg-primary-bg rounded-lg">
-        <div className="flex flex-col-reverse md:flex-row w-full rounded-lg overflow-hidden">
-          <div className="flex flex-col gap-5 grow p-4 rounded-b-lg md:rounded-br-[0] md:rounded-l-lg">
-            <div className="flex items-center justify-between w-full">
-              <h1 className="text-xl">{title}</h1>
-              <h2 className="text-secondary-light shrink-0">{date}</h2>
-            </div>
-
-            <div className="flex flex-wrap gap-2 text-[11px] dark:text-black">
-              {technologies.map((tech, i) => (
-                <span key={i} className="px-3 py-1 bg-orange-200 dark:bg-orange-300 rounded-md">
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <p className="text-secondary-light dark:text-secondary-dark">{description}</p>
-
-            <div className="flex flex-wrap gap-5 text-sm">
-              {demo_link && (
-                <a href={demo_link} target="_blank" className="underline underline-offset-4">
-                  Live Demo ↗
-                </a>
-              )}
-              {github_link && (
-                <a href={github_link} target="_blank" className="underline underline-offset-4">
-                  Github ↗
-                </a>
-              )}
-            </div>
-          </div>
-          <div className="flex rounded-tr-lg sm:rounded-l-[0] h-full max-h-[250px] overflow-hidden w-full md:max-w-[200px] cursor-pointer p-2">
-            <Link
-              className="flex w-full border-2n border-primary-border overflow-hidden rounded-lg"
-              href={demo_link ? demo_link : github_link ? github_link : "#"}
-              target="_blank"
-            >
-              <Image
-                src={image}
-                alt="Project Image"
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="object-cover w-full h-auto transition duration-300
-                hover:scale-110"
-              />
-            </Link>
-          </div>
+    <section className="flex flex-col-reverse sm:flex-row w-full bg-primary rounded-md p-3 gap-6">
+      <div className="flex-1 space-y-4 flex flex-col justify-between">
+        <div className="flex flex-wrap items-baseline justify-between w-full">
+          <h1 className="text-lg break-all">{title}</h1>
+          <h2 className="text-secondary text-xs">{date}</h2>
         </div>
-      </section>
-    </li>
+
+        <p className="text-secondary text-sm">{description}</p>
+
+        <div className="flex flex-wrap gap-5 text-sm">
+          {demo_link && (
+            <a
+              href={demo_link}
+              target="_blank"
+              className="underline underline-offset-4 whitespace-nowrap"
+            >
+              Live Demo ↗
+            </a>
+          )}
+          {github_link && (
+            <a
+              href={github_link}
+              target="_blank"
+              className="underline underline-offset-4 whitespace-nowrap"
+            >
+              Github ↗
+            </a>
+          )}
+        </div>
+
+        <div className="flex flex-wrap gap-2 text-[11px] dark:text-black">
+          {technologies.map((tech, i) => (
+            <span
+              key={i}
+              className="px-2 py-0.5 bg-orange-200 dark:bg-orange-300 rounded-full h-fit whitespace-nowrap"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="relative overflow-hidden rounded-md cursor-pointer h-40 sm:size-44 bg-secondary">
+        <Image
+          src={image}
+          alt="Project Image"
+          width="0"
+          height="0"
+          sizes="100vw"
+          className="absolute inset-0 object-cover w-full h-full transition duration-300 hover:scale-105"
+        />
+      </div>
+    </section>
   )
 }
 
 export default function Page() {
   return (
-    <div className="flex flex-col w-full gap-28 text-primary-light dark:text-primary-dark animate-in">
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-col">
-          <div className="flex items-center">
-            <h1 className="font-bold text-[40px] mr-2">Hi.</h1>
-            <h1 className="font-bold text-[40px] animate-wave origin-[70%_70%] hover:animate-wave-hover">
-              👋
-            </h1>
-            {/* <h1 className="font-bold text-[40px] animate-wave origin-[70%_70%] hover:animate-wave-hover">🍔</h1> */}
-          </div>
-          <p
-            className="animate-in text-secondary-light dark:text-secondary-dark whitespace-nowrap"
-            style={{ "--index": 1 } as React.CSSProperties}
-          >
-            Coding is a trap.
-          </p>
+    <>
+      <div
+        className="flex flex-col mb-10 animate-in"
+        style={{ "--index": 0 } as React.CSSProperties}
+      >
+        <div className="flex items-center">
+          <h1 className="font-bold text-[40px] mr-2">Hi.</h1>
+          <h1 className="font-bold text-[40px] animate-wave origin-[70%_70%] hover:animate-wave-hover">
+            👋
+          </h1>
+        </div>
+        <div className="animate-in" style={{ "--index": 1 } as React.CSSProperties}>
           <LookingForWork />
         </div>
-
         {/* <SpotifyWidget /> */}
       </div>
-
       <div
-        className="flex flex-col gap-20 animate-in"
-        style={{ "--index": 3 } as React.CSSProperties}
+        className="flex flex-col gap-10 animate-in"
+        style={{ "--index": 2 } as React.CSSProperties}
       >
-        <h2 className="text-xl font-extralight">Selected projects</h2>
+        <h2 className="text-xl font-extralight">Projects</h2>
 
         <ul className="flex flex-col gap-10">
           {projects.map((project, index) => (
-            <ProjectComponent
+            <li
               key={index}
-              title={project.title}
-              date={project.date}
-              technologies={project.technologies}
-              image={project.image}
-              description={project.description}
-              demo_link={project.demo_link}
-              github_link={project.github_link}
-            />
+              className="animate-in"
+              style={{ "--index": index + 3 } as React.CSSProperties}
+            >
+              {/* <ProjectComponent project={project} /> */}
+              <ProjectCard project={project} />
+            </li>
           ))}
         </ul>
       </div>
-
-      {/* <div>
-        <p className="font-normal pb-6">Fake terminal made with TailwindCSS</p>
-        <MacTerminal />
-      </div> */}
-    </div>
+    </>
   )
 }
