@@ -166,7 +166,7 @@ export default function Page() {
           </p>
           <p className="text-primary font-semibold">
             {
-              "I'm currently in my fifth year at Epitech Paris finalizing my masters and working on BetterVoxel"
+              "I'm currently in my fifth year at Epitech Paris finalizing my masters and working on BetterVoxel."
             }
           </p>
           <ContactButton />

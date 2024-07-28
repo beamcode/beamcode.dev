@@ -150,11 +150,11 @@ function DroneIcon() {
 const interestsData = [
   {
     icon: RoboticsIcon,
-    title: "Robotics/electronics enthousiast",
+    title: "Robotics/electronics enjoyer",
   },
   {
     icon: AdventurerIcon,
-    title: "Adventurous spirit, urbex enjoyer",
+    title: "Adventurous spirit, urbex explorer",
   },
   {
     icon: DroneIcon,
