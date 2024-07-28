@@ -100,10 +100,10 @@ export default function SkillsSection() {
           <div className="mb-1 flex flex-col gap-1">
             <h3 className="flex items-center whitespace-pre font-semibold text-lg">Languages</h3>
 
-            <div className="flex gap-1">
-              <p className="font-normal text-gray-500">Bilingual proficiency in</p>
+            <div className="flex gap-1 text-base font-normal text-gray-500 dark:text-gray-400">
+              <p className="">Bilingual proficiency in</p>
 
-              <h3 className="text-md font-semibold text-blue-500">French</h3>
+              <h3 className="font-semibold text-blue-500">French</h3>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 48 48"
@@ -133,7 +133,7 @@ export default function SkillsSection() {
                   d="M19.172,24h-4.36l-1.008,3H11l4.764-13h2.444L23,27h-2.805L19.172,24z M15.444,22h3.101l-1.559-4.714L15.444,22z"
                 />
               </svg>
-              <h3 className="text-md font-semibold text-blue-500">English</h3>
+              <h3 className="font-semibold text-blue-500">English</h3>
             </div>
           </div>
         </li>
