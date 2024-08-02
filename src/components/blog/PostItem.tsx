@@ -24,9 +24,9 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
       </div>
       <div className="flex flex-col justify-between h-full space-y-2 px-1 pb-1 gap-1">
         <div className="flex flex-col justify-between w-full gap-2">
-          <span className="text-[14px] text-gray-500">
+          <p className="text-sm text-gray-500 tracking-tight">
             {formatDate(post.date)} ({timeSince(post.date)})
-          </span>
+          </p>
           <h1 className="text-xl font-semibold leading-none">{post.title}</h1>
           <p className="text-sm">{post.description}</p>
         </div>
