@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { twMerge } from "tailwind-merge"
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 export default function Tags({
   tags,
@@ -7,22 +7,24 @@ export default function Tags({
   className = "",
   tagClassName = "",
 }: {
-  tags: string
-  clickable?: boolean
-  className?: string
-  tagClassName?: string
+  tags: string;
+  clickable?: boolean;
+  className?: string;
+  tagClassName?: string;
 }) {
-  const path = "/blog/tag"
+  const path = "/blog/tag";
+  const commonTagClasses = "h-fit text-black bg-orange-200 px-2 rounded-full";
 
   return (
-    <div className={twMerge("flex flex-wrap gap-1.5 text-xs", className)}>
+    <div className={twMerge("flex flex-wrap gap-1.5 text-xs")}>
       {tags.split(", ").map((tag) =>
         clickable ? (
           <Link
             href={`${path}/${tag.toLowerCase()}`}
             key={tag}
             className={twMerge(
-              "h-fit text-black bg-orange-200 px-2 py-[1.5px] rounded-full hover:bg-orange-500 transition-colors duration-300 ease-in-out",
+              commonTagClasses,
+              "hover:bg-orange-500 transition-colors duration-300 ease-in-out",
               tagClassName
             )}
           >
@@ -32,15 +34,12 @@ export default function Tags({
         ) : (
           <span
             key={tag}
-            className={twMerge(
-              "h-fit text-black bg-orange-200 px-2 py-[1.5px] rounded-full",
-              tagClassName
-            )}
+            className={twMerge(commonTagClasses, tagClassName)}
           >
             {tag}
           </span>
         )
       )}
     </div>
-  )
+  );
 }

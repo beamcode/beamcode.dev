@@ -15,6 +15,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="animate-in">
       <PostHeader post={post} />
+      <div className="border-t-4 border-dotted border-spacing-[500px] w-full -mx-1 mt-4 mb-10" />
       <Post>{post.body}</Post>
     </div>
   )

@@ -34,6 +34,11 @@ const config: Config = {
         secondary: "var(--secondary-border)",
         tertiary: "var(--tertiary-border)",
       },
+      fill: {
+        primary: "var(--primary-fill)",
+        secondary: "var(--secondary-fill)",
+        tertiary: "var(--tertiary-fill)",
+      },
       keyframes: {
         in: {
           "0%": {

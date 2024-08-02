@@ -16,13 +16,17 @@
   --primary-border: #3e6095;
   --secondary-border: #d600ff;
   --tertiary-border: #00ff9f;
+
+  --primary-fill: #171717;
+  --secondary-fill: #353535;
+  --tertiary-fill: #757575;
 }
 
 .light {
   --default-bg: #ffffff;
-  --primary-bg: #f4f4f5;
-  --secondary-bg: #e6e6e6;
-  --tertiary-bg: rgb(200, 200, 200);
+  --primary-bg: #f4f4f4;
+  --secondary-bg: #e4e4e4;
+  --tertiary-bg: #d9d9d9;
 
   --primary-text: black;
   --secondary-text: gray;
@@ -31,6 +35,10 @@
   --primary-border: #dadada;
   --secondary-border: #4c4c4c;
   --tertiary-border: #313131;
+
+  --primary-fill: #f4f4f4;
+  --secondary-fill: #e4e4e4;
+  --tertiary-fill: #d9d9d9;
 }
 
 .dark {
@@ -46,6 +54,10 @@
   --primary-border: #4b4b4b;
   --secondary-border: #cccccc;
   --tertiary-border: #9e9e9e;
+
+  --primary-fill: #252525;
+  --secondary-fill: #353535;
+  --tertiary-fill: #757575;
 }
 
 body::-webkit-scrollbar {

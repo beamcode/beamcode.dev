@@ -7,7 +7,6 @@ import ExperienceSection from "@/components/about/Experience.cv"
 import IntrestsSection from "@/components/about/Intrests.cv"
 import Image from "next/image"
 import Link from "next/link"
-import LinkedinButton from "@/components/LinkedinButton"
 
 const imageData = [
   {

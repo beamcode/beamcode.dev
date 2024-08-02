@@ -154,7 +154,7 @@ const interestsData = [
   },
   {
     icon: AdventurerIcon,
-    title: "Adventurous spirit, urbex explorer",
+    title: "Adventurous, urbex explorer",
   },
   {
     icon: DroneIcon,
