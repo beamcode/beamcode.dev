@@ -1,3 +1,5 @@
+Personal website for random stuff
+
 # beamcode.dev
 
 - **Framework**: [Next.js](https://nextjs.org/)
