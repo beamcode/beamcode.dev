@@ -17,19 +17,19 @@ import {
 export default function SkillsSection() {
   const size = 16
   const techComponents = [
-    <NextJS width={size} />,
-    <Swift width={size} />,
-    <SwiftUI width={size} />,
-    <Tailwindcss width={size} />,
-    <Nodejs width={size} />,
-    <Expressjs width={size} />,
-    <Python width={size} />,
-    <Unix width={size} />,
-    <Linux width={size} />,
-    <Macos width={size} />,
-    <Arduino width={size} />,
-    <C width={size} />,
-    <Cpp width={size} />,
+    <NextJS width={size} key="nextjs" />,
+    <Swift width={size} key="swift" />,
+    <SwiftUI width={size} key="swiftui" />,
+    <Tailwindcss width={size} key="tailwindcss" />,
+    <Nodejs width={size} key="nodejs" />,
+    <Expressjs width={size} key="expressjs" />,
+    <Python width={size} key="python" />,
+    <Unix width={size} key="unix" />,
+    <Linux width={size} key="linux" />,
+    <Macos width={size} key="macos" />,
+    <Arduino width={size} key="arduino" />,
+    <C width={size} key="c" />,
+    <Cpp width={size} key="cpp" />,
   ]
 
   return (

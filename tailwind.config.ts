@@ -94,10 +94,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animated"), require("@tailwindcss/typography")],
-  safelist: [
-    {
-      pattern: /hljs+/,
-    },
-  ],
+  safelist: [],
 }
 export default config

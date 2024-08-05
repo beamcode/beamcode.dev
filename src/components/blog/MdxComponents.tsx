@@ -14,7 +14,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       )
     },
     img: ({ ...props }) => (
-      <img className="overflow-hidden rounded-md bg-gray-300 dark:bg-gray-500" {...props} />
+      <Image
+        className="size-full overflow-hidden rounded-md bg-gray-300 dark:bg-gray-500"
+        alt={props.alt || ""}
+        src={props.src || ""}
+        width={0 as any}
+        height={0 as any}
+        sizes="100vw"
+        {...props}
+      />
     ),
     pre: ({ children, ...props }) => (
       <CodeBlock props={undefined} {...props}>
@@ -24,7 +32,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     Info: ({ children, ...props }) => <Information {...props}>{children}</Information>,
     Link: Link,
     Image: ({ ...props }) => (
-      <Image className="overflow-hidden rounded bg-gray-300 dark:bg-gray-500" {...props} />
+      <Image
+        className="size-full overflow-hidden rounded-md bg-gray-300 dark:bg-gray-500"
+        alt={props.alt || ""}
+        src={props.src || ""}
+        width={0 as any}
+        height={0 as any}
+        sizes="100vw"
+        {...props}
+      />
     ),
     ...components,
   }

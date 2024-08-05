@@ -139,7 +139,7 @@ export default function Page() {
         style={{ "--index": 0 } as React.CSSProperties}
       >
         <div className="flex items-center">
-          <h1 className="mr-2 text-2xl">hey, i'm sam</h1>
+          <h1 className="mr-2 text-2xl">{"hey, i'm sam"}</h1>
           <h1 className="origin-[70%_70%] animate-wave text-2xl hover:animate-wave-hover">👋</h1>
         </div>
         {/* <SpotifyWidget /> */}
