@@ -38,12 +38,10 @@ export default function ExperienceSection() {
         {experiences.map((experience, index) => (
           <li key={index}>
             <h3 className="flex w-fit items-center text-lg font-semibold">{experience.company}</h3>
-            <time className="mb-2 block w-fit text-sm font-normal leading-none text-gray-600 dark:text-[#b1aaa0]">
+            <time className="mb-2 block w-fit text-sm font-normal leading-none text-primary dark:text-stone-400">
               {experience.date}
             </time>
-            <p className="text-base font-normal text-gray-500 dark:text-gray-400">
-              {experience.description}
-            </p>
+            <p className="text-base font-normal text-secondary">{experience.description}</p>
           </li>
         ))}
       </ol>

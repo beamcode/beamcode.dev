@@ -12,7 +12,7 @@ import {
   SwiftUI,
   C,
   Cpp,
-} from "@/components/skillTags/tags"
+} from "@/components/about/tags"
 
 export default function SkillsSection() {
   const size = 16
@@ -50,7 +50,7 @@ export default function SkillsSection() {
             <h3 className="flex items-center text-lg font-semibold">React/React Native</h3>
           </div>
 
-          <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <p className="text-base font-normal text-secondary">
             Development of various projects including responsive web-apps (dashboards, landing
             pages) and mobile apps using the React library.
           </p>
@@ -62,7 +62,7 @@ export default function SkillsSection() {
             <Cpp width={20} />
           </div>
 
-          <p className="text-base font-normal text-gray-500 dark:text-gray-400">
+          <p className="text-base font-normal text-secondary">
             3 years of C and C++ development through various projects including algorithms and game
             development.
           </p>
@@ -72,7 +72,7 @@ export default function SkillsSection() {
           <div className="mb-1 flex flex-col gap-1">
             <h3 className="flex items-center whitespace-pre text-lg font-semibold">Languages</h3>
 
-            <div className="flex gap-1 text-base font-normal text-gray-500 dark:text-gray-400">
+            <div className="flex gap-1 text-base font-normal text-secondary">
               <p>Bilingual proficiency in</p>
 
               <h3 className="font-semibold text-blue-500">French</h3>

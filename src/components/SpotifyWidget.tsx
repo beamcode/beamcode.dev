@@ -77,7 +77,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
                 <p className="break-keep text-sm font-medium text-gray-900 [overflow-wrap:anywhere] dark:text-white">
                   {data.title}
                 </p>
-                <p className="text-xs text-gray-500 dark:text-gray-400">{data.artist}</p>
+                <p className="text-xs text-secondary">{data.artist}</p>
               </div>
               <a
                 className="text-xs text-blue-500 dark:text-blue-400"

@@ -39,10 +39,10 @@ export default function EducationSection() {
             <h3 className="flex w-fit flex-wrap items-center text-lg font-semibold">
               {education.institution}
             </h3>
-            <time className="mb-2 block w-fit text-sm font-normal leading-none text-gray-600 dark:text-[#b1aaa0]">
+            <time className="mb-2 block w-fit text-sm font-normal leading-none text-primary dark:text-stone-400">
               {education.date}
             </time>
-            <div className="text-base font-normal text-gray-500 dark:text-gray-400">
+            <div className="text-base font-normal text-secondary">
               {Array.isArray(education.description) ? (
                 <ul>
                   {education.description.map((desc, i) => (
