@@ -61,7 +61,7 @@ function ProjectCard({
     <section className="flex h-full w-full flex-col-reverse gap-2 overflow-hidden rounded-md bg-primary p-2 sm:gap-4">
       <div className="flex flex-1 flex-col justify-between space-y-3 p-2">
         <div className="flex w-full flex-wrap items-baseline justify-between">
-          <VercelBox
+          {/* <VercelBox
             marginTopLeft={[10, 10]}
             marginTopRight={[60, 10]}
             marginBottomLeft={[10, 10]}
@@ -79,7 +79,9 @@ function ProjectCard({
             colorClass="bg-secondary"
           >
             <h2 className="mx-1 text-xs text-secondary">{date}</h2>
-          </VercelBox>
+          </VercelBox> */}
+          <h1 className="break-all text-lg">{title}</h1>
+          <h2 className="text-xs text-secondary">{date}</h2>
         </div>
 
         <p className="z-10 text-sm text-secondary">{description}</p>
