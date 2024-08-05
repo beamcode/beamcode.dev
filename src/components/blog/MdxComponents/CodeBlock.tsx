@@ -15,7 +15,7 @@ export default function CodeBlock({
       </div>
       <pre
         {...props}
-        className="relative text-[14px] overflow-x-scroll rounded-md py-[15px] not-prose"
+        className="not-prose relative overflow-x-scroll rounded-md py-[15px] text-[14px]"
       >
         {children}
       </pre>

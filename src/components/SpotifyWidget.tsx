@@ -54,16 +54,16 @@ export default function SpotifyWidget({ className }: { className?: string }) {
   return (
     <div
       className={twMerge(
-        "flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-md bg-gray-50 p-3 border border-primary border-opacity-30 dark:border-opacity-10",
+        "flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-md border border-primary border-opacity-30 bg-gray-50 p-3 dark:border-opacity-10",
         className
       )}
     >
       <div className="flex gap-4 max-[332px]:flex-col">
-        <div className="min-h-[64px] min-w-[64px] rounded-md animate-pulse bg-gray-200 dark:bg-gray-600 min-[333px]:h-16 min-[333px]:w-16">
+        <div className="min-h-[64px] min-w-[64px] animate-pulse rounded-md bg-gray-200 dark:bg-gray-600 min-[333px]:h-16 min-[333px]:w-16">
           {data?.isPlaying && (
             <a href={data.songUrl} target="_blank" rel="noopener noreferrer">
               <Image
-                className="rounded-md bg-white object-contain shadow-[0px_0px_10px_1px_rgba(0,0,0,0.1)] hover:-translate-1 hover:scale-110 ease-in-out duration-300"
+                className="hover:-translate-1 rounded-md bg-white object-contain shadow-[0px_0px_10px_1px_rgba(0,0,0,0.1)] duration-300 ease-in-out hover:scale-110"
                 src={data.albumImageUrl}
                 alt=""
               />
@@ -93,7 +93,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
           )}
         </div>
       </div>
-      <div className="flex flex-col items-center justify-between w-fit">
+      <div className="flex w-fit flex-col items-center justify-between">
         <Image
           className="h-7 min-h-[28px] w-7 min-w-[28px] rounded-md object-contain"
           src="/spotify.png"

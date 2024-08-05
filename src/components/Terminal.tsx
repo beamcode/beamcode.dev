@@ -25,41 +25,24 @@ export default function MacTerminal() {
   function checkCommands() {
     var toAdd = []
 
-    toAdd.push(
-      <span className="break-all pb-1">Beam:Devprojects beam$ {command}</span>
-    )
+    toAdd.push(<span className="break-all pb-1">Beam:Devprojects beam$ {command}</span>)
     if (command === "clear" || command === "cl") {
       setHistory([])
       setCommand("")
       setCleared(true)
       return
-    } else if (command === "whoami")
-      toAdd.push(<span className="break-all pb-1">carrots</span>)
+    } else if (command === "whoami") toAdd.push(<span className="break-all pb-1">carrots</span>)
     else if (command === "mathieu")
-      toAdd.push(
-        <span className="break-all pb-1">Mathieu suce des gros chibre</span>
-      )
+      toAdd.push(<span className="break-all pb-1">Mathieu suce des gros chibre</span>)
     else if (command.indexOf("cd ", 0) === 0 || command === "cd")
-      toAdd.push(
-        <span className="break-all pb-1">
-          error: this thing is still in dev
-        </span>
-      )
+      toAdd.push(<span className="break-all pb-1">error: this thing is still in dev</span>)
     else if (command === "ls") {
       toAdd.push(
-        <span className="whitespace-pre break-all pb-1">
-          secret_stuff archive.zip docs
-        </span>
+        <span className="whitespace-pre break-all pb-1">secret_stuff archive.zip docs</span>
       )
-      toAdd.push(
-        <span className="whitespace-pre break-all pb-1">pics .ssh</span>
-      )
+      toAdd.push(<span className="whitespace-pre break-all pb-1">pics .ssh</span>)
     } else if (command && command.trim().length) {
-      toAdd.push(
-        <span className="break-all pb-1">
-          zsh: command not found: {command}
-        </span>
-      )
+      toAdd.push(<span className="break-all pb-1">zsh: command not found: {command}</span>)
     }
     // console.log(command);
     setCommand("")
@@ -70,13 +53,13 @@ export default function MacTerminal() {
     <>
       {show && (
         <div
-          className={`flex min-h-[256px] w-full flex-col ${
+          className={`flex min-h-[256px] w-full flex-col border border-gray-600 ${
             extend && "h-full"
           } rounded-lg`}
           suppressHydrationWarning
         >
           <div className="flex h-fit items-center rounded-t-lg border-b border-gray-500 bg-gray-100 px-[6px] py-[2px] text-center text-black dark:bg-[#322b2b]">
-            <div className="group flex gap-[4px] h-[10px]">
+            <div className="group flex h-[10px] gap-[4px]">
               <button
                 onClick={() => setShow((val) => !val)}
                 className="flex aspect-square items-center justify-center rounded-full border-red-900 bg-red-500 shadow-inner"
@@ -131,18 +114,14 @@ export default function MacTerminal() {
             </div>
 
             <div className="mx-auto pr-[45px]">
-              <p className="text-center text-sm font-bold dark:text-[#736c6c]">
-                Fake Terminal
-              </p>
+              <p className="text-center text-sm font-bold dark:text-[#736c6c]">Fake Terminal</p>
             </div>
           </div>
 
           <div className="relative flex grow overflow-y-scroll rounded-b-lg bg-[#242423] bg-opacity-70 subpixel-antialiased shadow-md dark:bg-[black]">
             <div className="absolute flex h-fit w-full flex-col-reverse overflow-y-scroll p-1 font-mono text-xs text-green-200">
               <div className="flex shrink">
-                <span className="whitespace-pre pb-1">
-                  Beam:Devprojects beam${" "}
-                </span>
+                <span className="whitespace-pre pb-1">Beam:Devprojects beam$ </span>
                 <input
                   className="w-full resize-none bg-transparent focus:outline-none"
                   placeholder=""
@@ -162,9 +141,7 @@ export default function MacTerminal() {
                 ))}
               </div>
 
-              {!cleared && (
-                <p className="pb-1">Last login: {timeDate} on ttys002</p>
-              )}
+              {!cleared && <p className="pb-1">Last login: {timeDate} on ttys002</p>}
             </div>
           </div>
         </div>

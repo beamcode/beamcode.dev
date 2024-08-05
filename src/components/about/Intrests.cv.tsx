@@ -154,7 +154,7 @@ const interestsData = [
   },
   {
     icon: AdventurerIcon,
-    title: "Adventurous, urbex explorer",
+    title: "Adventurous, Urbex explorer",
   },
   {
     icon: DroneIcon,
@@ -162,7 +162,7 @@ const interestsData = [
   },
   {
     icon: SkiingIcon,
-    title: "Excellent skiier",
+    title: "Excellent skier",
   },
   {
     icon: SurfingIcon,
@@ -176,12 +176,12 @@ const interestsData = [
 
 export default function IntrestsSection() {
   return (
-    <div className="flex flex-col md:flex-row gap-6 w-full">
-      <div className="w-full md:w-32 h-fit bg-primary rounded-sm px-2">
-        <h1 className="text-xl">Intrests</h1>
+    <div className="flex w-full flex-col gap-6 md:flex-row">
+      <div className="h-fit w-full rounded-sm bg-primary px-2 md:w-32">
+        <h1 className="text-xl">Interests</h1>
       </div>
 
-      <ol className="relative border-gray-200 dark:border-[gray] flex-1 space-y-3">
+      <ol className="relative flex-1 space-y-3 border-gray-200 dark:border-[gray]">
         {interestsData.map((interest, index) => (
           <li key={index} className="flex items-center gap-2">
             <interest.icon />

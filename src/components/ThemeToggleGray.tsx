@@ -18,20 +18,20 @@ export default function ThemeToggleGray() {
 
   return (
     <div
-      className="flex-shrink-0 w-12 h-8 p-1 rounded-full bg-primary"
+      className="h-8 w-12 flex-shrink-0 rounded-full bg-primary p-1"
       onClick={() => {
         toggleTheme()
       }}
       aria-label="Toggle Dark Mode"
       role="button"
     >
-      <div className="w-6 h-6 rounded-full duration-[250ms] ease-in-out flex items-center justify-center dark:translate-x-4 bg-default">
+      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-default duration-[250ms] ease-in-out dark:translate-x-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
           stroke="currentColor"
-          className="block dark:hidden w-4 h-4 text-gray-400 dark:text-gray-200"
+          className="block h-4 w-4 text-gray-400 dark:hidden dark:text-gray-200"
         >
           <path
             strokeLinecap="round"
@@ -45,7 +45,7 @@ export default function ThemeToggleGray() {
           viewBox="0 0 24 24"
           fill="currentColor"
           stroke="currentColor"
-          className="hidden dark:block w-4 h-4 text-gray-400 dark:text-gray-400"
+          className="hidden h-4 w-4 text-gray-400 dark:block dark:text-gray-400"
         >
           <path
             strokeLinecap="round"

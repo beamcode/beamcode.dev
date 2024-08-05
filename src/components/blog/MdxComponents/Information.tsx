@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 
 export default function Information({ children }: { children: ReactNode }) {
   return (
-    <div className="flex w-full items-start h-full p-2 gap-2 bg-orange-300 dark:bg-yellow-800 rounded-lg text-black dark:text-white not-prose">
+    <div className="not-prose flex h-full w-full items-start gap-2 rounded-lg bg-orange-300 p-2 text-black dark:bg-yellow-800 dark:text-white">
       <div className="h-full">
         <svg
           className="dark:fill-white"

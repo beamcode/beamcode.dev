@@ -27,10 +27,8 @@ export default function FollowCursor() {
   useEffect(() => {
     const updateSvgPosition = () => {
       const delayFactor = 0.05 // Adjust the delay factor here (lower value for slower movement)
-      const newX =
-        svgPosition.x + (cursorPosition.x - svgPosition.x) * delayFactor
-      const newY =
-        svgPosition.y + (cursorPosition.y - svgPosition.y) * delayFactor
+      const newX = svgPosition.x + (cursorPosition.x - svgPosition.x) * delayFactor
+      const newY = svgPosition.y + (cursorPosition.y - svgPosition.y) * delayFactor
       setSvgPosition({ x: newX + 0.0, y: newY + 1.4 })
     }
 

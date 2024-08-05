@@ -20,14 +20,14 @@ export default function VercelBox({
   return (
     <div className="relative">
       {/* Top Left */}
-      <span className="absolute z-20 -translate-x-[calc(50%-0.5px)] w-2 h-px bg-tertiary" />
-      <span className="absolute z-20 -translate-y-[calc(50%-0.5px)] h-2 w-px bg-tertiary" />
+      <span className="absolute z-10 h-px w-2 -translate-x-[calc(50%-0.5px)] bg-tertiary" />
+      <span className="absolute z-10 h-2 w-px -translate-y-[calc(50%-0.5px)] bg-tertiary" />
       {/* Top Right */}
       {/* <span className="absolute right-0 z-20 translate-x-[calc(50%-0.5px)] w-2 h-px bg-tertiary" />
       <span className="absolute right-0 z-20 -translate-y-[calc(50%-0.5px)] h-2 w-px bg-tertiary" /> */}
       {/* Bottom Left */}
-      <span className="absolute bottom-0 right-0 z-20 translate-x-[calc(50%-0.5px)] w-2 h-px bg-tertiary" />
-      <span className="absolute bottom-0 right-0 z-20 translate-y-[calc(50%-0.5px)] h-2 w-px bg-tertiary" />
+      <span className="absolute bottom-0 right-0 z-10 h-px w-2 translate-x-[calc(50%-0.5px)] bg-tertiary" />
+      <span className="absolute bottom-0 right-0 z-10 h-2 w-px translate-y-[calc(50%-0.5px)] bg-tertiary" />
       {/* Bottom Right */}
       {/* <span className="absolute bottom-0 z-20 -translate-x-[calc(50%-0.5px)] w-2 h-px bg-tertiary" />
       <span className="absolute bottom-0 z-20 translate-y-[calc(50%-0.5px)] h-2 w-px bg-tertiary" /> */}
@@ -40,7 +40,7 @@ export default function VercelBox({
         }}
       />
       <span
-        className={`absolute bottom-0 inset-x-0 h-px ${colorClass}`}
+        className={`absolute inset-x-0 bottom-0 h-px ${colorClass}`}
         style={{
           left: `-${marginBottomLeft[0]}px`,
           right: `-${marginBottomRight[0]}px`,
@@ -54,7 +54,7 @@ export default function VercelBox({
         }}
       />
       <span
-        className={`absolute right-0 inset-y-0 w-px ${colorClass}`}
+        className={`absolute inset-y-0 right-0 w-px ${colorClass}`}
         style={{
           top: `-${marginTopRight[1]}px`,
           bottom: `-${marginBottomRight[1]}px`,

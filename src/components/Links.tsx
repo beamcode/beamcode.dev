@@ -2,7 +2,7 @@ export default function CoolLinks() {
   return (
     <div className="flex h-fit w-full flex-col items-center rounded-md bg-[white] p-5 pt-4 shadow-md dark:bg-[#181A1B]">
       <h1 className="text-md w-full pb-2.5 font-bold dark:text-white">Links</h1>
-      <div className="flex flex-col w-full gap-1 text-sm rounded-md grow">
+      <div className="flex w-full grow flex-col gap-1 rounded-md text-sm">
         <a
           className="text-gray-500 underline hover:text-[orange]"
           target="_blank"
@@ -45,5 +45,5 @@ export default function CoolLinks() {
         </a>
       </div>
     </div>
-  );
+  )
 }

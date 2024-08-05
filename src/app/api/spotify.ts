@@ -7,8 +7,7 @@ const client_secret = process.env.SPOTIFY_CLIENT_SECRET as string
 const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN as string
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64")
-const NOW_PLAYING_ENDPOINT =
-  "https://api.spotify.com/v1/me/player/currently-playing"
+const NOW_PLAYING_ENDPOINT = "https://api.spotify.com/v1/me/player/currently-playing"
 const TOKEN_ENDPOINT = "https://accounts.spotify.com/api/token"
 
 // Helper function to get an access token
@@ -34,10 +33,7 @@ async function getAccessToken() {
 }
 
 // Main handler function
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const { access_token } = await getAccessToken()
     const response = await fetch(NOW_PLAYING_ENDPOINT, {
@@ -60,9 +56,7 @@ export default async function handler(
     const result = {
       isPlaying: data.is_playing,
       title: data.item.name,
-      artist: data.item.artists
-        .map((artist: { name: any }) => artist.name)
-        .join(", "),
+      artist: data.item.artists.map((artist: { name: any }) => artist.name).join(", "),
       albumImageUrl: data.item.album.images[0].url,
       songUrl: data.item.external_urls.spotify,
     }

@@ -18,14 +18,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </h1>
       </div>
 
-      <div
-        className="space-y-10 animate-in"
-        style={{ "--index": 2 } as React.CSSProperties}
-      >
+      <div className="animate-in space-y-10" style={{ "--index": 2 } as React.CSSProperties}>
         {posts
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          )
+          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .map((post, index) => (
             <PostItem key={post.slug} post={post} index={index + 2} />
           ))}

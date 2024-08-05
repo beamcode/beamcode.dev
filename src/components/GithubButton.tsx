@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { twMerge } from "tailwind-merge"
 
 export default function GithubButton({ className }: { className: string }) {
   return (
@@ -11,7 +11,7 @@ export default function GithubButton({ className }: { className: string }) {
       rel="noreferrer"
       href="https://github.com/beamcode"
     >
-      <div className="relative items-center justify-center flex h-[24px] w-[24px]">
+      <div className="relative flex h-[24px] w-[24px] items-center justify-center">
         <div className="z-[1]">
           <svg
             width={25}
@@ -34,8 +34,8 @@ export default function GithubButton({ className }: { className: string }) {
           </svg>
         </div>
       </div>
-      <div className="absolute top-0 block w-1/2 h-full transform -skew-x-12 z-5 -inset-full bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+      <div className="z-5 group-hover:animate-shine absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent to-white opacity-40" />
       {/* <h1 className="text-white text-md">Github</h1> */}
     </a>
-  );
+  )
 }

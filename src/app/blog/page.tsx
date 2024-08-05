@@ -6,21 +6,19 @@ export default async function Page() {
 
   return (
     <div>
-      <div className="mb-8">
-        <h1 className="mb-2 animate-in">Blog - {posts.length} posts</h1>
-        <p className="text-gray-500 animate-in" style={{ "--index": 2 } as React.CSSProperties}>
-          My blog posts in no particular order.
-        </p>
+      <div className="mb-8 flex animate-in items-center gap-2">
+        <h1 className="text-2xl font-medium">read my blog</h1>
+        <p className="text-secondary">({posts.length} posts)</p>
       </div>
 
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 gap-5 animate-in"
-        style={{ "--index": 3 } as React.CSSProperties}
+        className="grid animate-in grid-cols-2 gap-5 sm:grid-cols-3"
+        style={{ "--index": 1 } as React.CSSProperties}
       >
         {posts
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .map((post, index) => (
-            <PostItem key={post.slug} post={post} index={index + 3} />
+            <PostItem key={post.slug} post={post} index={index + 1} />
           ))}
       </div>
     </div>

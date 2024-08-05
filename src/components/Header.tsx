@@ -1,22 +1,21 @@
 "use client"
 
 import NavBar from "./NavBar"
-import ThemeToggleGray from "./ThemeToggleGray"
 import Link from "next/link"
 import Image from "next/image"
+import ThemeSelector from "@/components/ThemeSelector"
 import NavBarFramerMotion from "./NavBarFramerMotion"
-import TestButton from "@/components/ThemeSelector"
 // import ThemeToggle from "./ThemeToggle";
 // import ThemeButtonEmoji from "./ThemeButtonEmoji";
 // import ThemeButton from "./ThemeButton";
 
 export default function Header() {
   return (
-    <header className="sticky z-10">
-      <div className="mx-auto flex max-w-[700px] items-center justify-between px-4 py-4 md:px-6 md:py-2 rounded-lg">
-        <Link
+    <header className="z-10 sm:mt-16">
+      <div className="mx-auto flex max-w-[700px] items-center justify-between rounded-lg px-4 py-4 md:px-6 md:py-2">
+        {/* <Link
           href="/"
-          className="hidden shrink-0 sm:block h-8 w-8 rounded-full overflow-hidden transition hover:scale-110"
+          className="hidden h-8 w-8 shrink-0 overflow-hidden rounded-full transition hover:scale-110 sm:block"
         >
           <Image
             src="/pfp_small.jpg"
@@ -24,15 +23,14 @@ export default function Header() {
             width={0}
             height={0}
             sizes="100vw"
-            className="hover:animate-spin w-full h-full"
+            className="size-full hover:animate-spin"
           />
-        </Link>
-        <nav className="flex items-center">
+        </Link> */}
+        <nav className="flex flex-col items-center">
           <NavBar />
           {/* <NavBarFramerMotion /> */}
         </nav>
-        {/* <ThemeToggleGray /> */}
-        <TestButton />
+        <ThemeSelector />
       </div>
     </header>
   )

@@ -1,4 +1,4 @@
-import "./musicbars.css";
+import "./musicbars.css"
 
 export default function MusicBars() {
   return (
@@ -7,5 +7,5 @@ export default function MusicBars() {
       <span />
       <span />
     </div>
-  );
+  )
 }

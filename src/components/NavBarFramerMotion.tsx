@@ -17,15 +17,15 @@ const links: LinkItem[] = [
 ]
 
 export default function NavBarFramerMotion() {
-  const path = usePathname().split("/")[1]
+  const path = "/" + usePathname().split("/")[1]
 
   return (
-    <ul className="flex flex-wrap gap-6 list-none sm:justify-center]">
+    <ul className="sm:justify-center] flex list-none flex-wrap gap-2">
       {links.map((link) => (
         <li key={link.href} className="flex">
           <Link
             className={twMerge(
-              "relative rounded-full px-4 py-[6.5px] text-sm transition-colors cursor-pointer",
+              "relative cursor-pointer rounded-full px-4 py-[6.5px] text-sm transition-colors",
               path === link.href ? "text-primary" : "text-secondary hover:text-primary"
             )}
             href={link.href}
@@ -34,7 +34,7 @@ export default function NavBarFramerMotion() {
             {link.href === path && (
               <motion.div
                 layoutId="underline"
-                className="absolute left-0 top-0 bottom-0 right-0 -z-20 bg-[gray]/15 rounded-full"
+                className="absolute inset-0 -z-20 rounded-full bg-primary"
                 transition={{ duration: 0.48 }}
               />
             )}

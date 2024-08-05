@@ -1,19 +1,25 @@
-import { useState, useEffect, useRef } from "react";
-import * as THREE from "three";
+import { useState, useEffect, useRef } from "react"
+import * as THREE from "three"
 
 // Ignore type checking for the 'vanta/dist/vanta.net.min' module
 //@ts-ignore
-import NET from "vanta/dist/vanta.net.min";
+// import 5 diffrent background effects from vantajs
+import FOG from "vanta/dist/vanta.fog.min"
 
-
-export default function AnimBg({ children, className }: { children: string, className: string }) {
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
-  const myRef = useRef(null);
+export default function AnimBg({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className: string
+}) {
+  const [vantaEffect, setVantaEffect] = useState<any>(null)
+  const myRef = useRef(null)
 
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
-        NET({
+        FOG({
           el: myRef.current,
           THREE: THREE,
           mouseControls: true,
@@ -24,21 +30,21 @@ export default function AnimBg({ children, className }: { children: string, clas
           scale: 1.0,
           scaleMobile: 1.0,
           color: 0x220000,
-          backgroundColor: 'white',
+          backgroundColor: "white",
           spacing: 23.0,
           points: 5.0,
           maxDistance: 30.0,
         })
-      );
+      )
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
+      if (vantaEffect) vantaEffect.destroy()
+    }
+  }, [vantaEffect])
 
   return (
     <div className={className} ref={myRef}>
       {children}
     </div>
-  );
+  )
 }

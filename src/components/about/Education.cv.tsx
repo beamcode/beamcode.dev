@@ -5,7 +5,7 @@ const educationData = [
     institution: "Shibaura Institute of Technology (SIT), Tokyo Japan",
     date: "2022 - 2023",
     description:
-      "International exchange program at a renowned private science and engineering university known for its innovation, excellence and focus on hands-on IT training",
+      "International exchange program at a renowned private science and engineering university known for its innovation, excellence, and focus on hands-on IT training",
   },
   {
     institution: "Epitech, Paris France",
@@ -28,18 +28,18 @@ const educationData = [
 
 export default function EducationSection() {
   return (
-    <div className="flex flex-col md:flex-row gap-6 w-full">
-      <div className="w-full md:w-32 h-fit bg-primary rounded-sm px-2">
+    <div className="flex w-full flex-col gap-6 md:flex-row">
+      <div className="h-fit w-full rounded-sm bg-primary px-2 md:w-32">
         <h1 className="text-xl">Education</h1>
       </div>
 
-      <ol className="relative border-gray-200 dark:border-[gray] space-y-6 flex-1">
+      <ol className="relative flex-1 space-y-6 border-gray-200 dark:border-[gray]">
         {educationData.map((education, index) => (
           <li key={index}>
-            <h3 className="flex flex-wrap items-center text-lg font-semibold w-fit">
+            <h3 className="flex w-fit flex-wrap items-center text-lg font-semibold">
               {education.institution}
             </h3>
-            <time className="mb-2 block text-sm font-normal leading-none text-gray-600 dark:text-[#b1aaa0] w-fit">
+            <time className="mb-2 block w-fit text-sm font-normal leading-none text-gray-600 dark:text-[#b1aaa0]">
               {education.date}
             </time>
             <div className="text-base font-normal text-gray-500 dark:text-gray-400">

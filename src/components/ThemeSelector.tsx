@@ -10,7 +10,7 @@ const themes = [
   { name: "CyberPunk (wip)", themeString: "cyberpunk" },
 ]
 
-function TestButton() {
+export default function ThemeSelector() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
@@ -39,13 +39,13 @@ function TestButton() {
           aria-haspopup="true"
           onClick={toggleMenu}
         >
-          <div className="w-6 h-6 rounded-full duration-[250ms] ease-in-out flex items-center justify-center">
+          <div className="flex h-6 w-6 items-center justify-center rounded-full duration-[250ms] ease-in-out">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="currentColor"
-              className="block dark:hidden w-5 h-5"
+              className="block h-5 w-5 dark:hidden"
             >
               <path
                 strokeLinecap="round"
@@ -59,7 +59,7 @@ function TestButton() {
               viewBox="0 0 24 24"
               fill="currentColor"
               stroke="currentColor"
-              className="hidden dark:block w-5 h-5"
+              className="hidden h-5 w-5 dark:block"
             >
               <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
@@ -68,10 +68,7 @@ function TestButton() {
       </div>
 
       <div
-        className={`
-          absolute transition transform right-0 z-10 mt-2 w-auto min-w-28 origin-top-right rounded-md bg-default border border-primary p-1
-          ${isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
-        `}
+        className={`absolute right-0 z-10 mt-2 w-auto min-w-28 origin-top-right transform rounded-md border border-primary bg-default p-1 transition ${isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"} `}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
@@ -81,7 +78,7 @@ function TestButton() {
           <button
             key={theme.themeString}
             type="button"
-            className="block w-full px-4 py-2 text-left text-sm hover:bg-secondary rounded-lg"
+            className="block w-full rounded-lg px-4 py-2 text-left text-sm hover:bg-secondary"
             role="menuitem"
             tabIndex={-1}
             onClick={() => {
@@ -96,5 +93,3 @@ function TestButton() {
     </div>
   )
 }
-
-export default TestButton

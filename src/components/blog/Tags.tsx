@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { twMerge } from "tailwind-merge";
+import Link from "next/link"
+import { twMerge } from "tailwind-merge"
 
 export default function Tags({
   tags,
@@ -7,13 +7,13 @@ export default function Tags({
   className = "",
   tagClassName = "",
 }: {
-  tags: string;
-  clickable?: boolean;
-  className?: string;
-  tagClassName?: string;
+  tags: string
+  clickable?: boolean
+  className?: string
+  tagClassName?: string
 }) {
-  const path = "/blog/tag";
-  const commonTagClasses = "h-fit text-black bg-orange-200 px-2 rounded-full";
+  const path = "/blog/tag"
+  const commonTagClasses = "h-fit text-black bg-orange-200 px-2 rounded-full"
 
   return (
     <div className={twMerge("flex flex-wrap gap-1.5 text-xs")}>
@@ -24,7 +24,7 @@ export default function Tags({
             key={tag}
             className={twMerge(
               commonTagClasses,
-              "hover:bg-orange-500 transition-colors duration-300 ease-in-out",
+              "transition-colors duration-300 ease-in-out hover:bg-orange-500",
               tagClassName
             )}
           >
@@ -32,14 +32,11 @@ export default function Tags({
             <span> ↗</span>
           </Link>
         ) : (
-          <span
-            key={tag}
-            className={twMerge(commonTagClasses, tagClassName)}
-          >
+          <span key={tag} className={twMerge(commonTagClasses, tagClassName)}>
             {tag}
           </span>
         )
       )}
     </div>
-  );
+  )
 }

@@ -14,6 +14,7 @@ const links: LinkItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "Amy", href: "/amy" },
 ]
 
 export default function NavBar() {
@@ -47,10 +48,8 @@ export default function NavBar() {
         handleIndicator(currentIndex, currentLink!.href)
       }
     }
-
     updateIndicator()
     setTmp("visible")
-
     window.addEventListener("resize", updateIndicator)
 
     return () => {
@@ -63,18 +62,16 @@ export default function NavBar() {
       <div
         ref={markerRef}
         className={twMerge(
-          "absolute rounded-full bottom-0 left-0 transition-all duration-500 will-change-auto",
+          "absolute rounded-full bg-primary transition-all duration-500 will-change-auto",
           tmp
         )}
-      >
-        <div className="w-full h-full rounded-full bg-primary will-change-transform" />
-      </div>
+      />
 
-      <ul className="flex flex-wrap list-none gap-6 sm:justify-center">
+      <ul className="flex list-none flex-wrap gap-1.5 sm:justify-center">
         {links.map((link, id) => (
           <li
             key={id}
-            className="flex z-10 m-0"
+            className="z-10 flex"
             ref={(el) => {
               itemRefs.current[id] = el
             }}
@@ -83,7 +80,7 @@ export default function NavBar() {
             <Link
               href={link.href}
               className={twMerge(
-                "rounded-full px-4 py-[6.5px] transition-colors cursor-pointer",
+                "cursor-pointer rounded-full px-4 py-[6.5px] transition-colors",
                 currentPath === link.href ? "text-primary" : "text-secondary hover:text-primary"
               )}
             >

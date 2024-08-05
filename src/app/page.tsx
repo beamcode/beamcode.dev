@@ -1,8 +1,8 @@
+import { Fragment } from "react"
+import Image from "next/image"
+import VercelBox from "@/components/VercelBox"
 import SpotifyWidget from "@/components/SpotifyWidget"
 import MacTerminal from "@/components/Terminal"
-import Image from "next/image"
-import { Fragment } from "react"
-import VercelBox from "@/components/VercelBox"
 
 const projects = [
   {
@@ -44,18 +44,6 @@ const projects = [
   },
 ]
 
-function LookingForWork() {
-  return (
-    <div className="flex flex-row gap-2 w-full text-secondary items-center">
-      <span className="relative flex h-3 w-3">
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 " />
-        <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 duration-500" />
-      </span>
-      <p>Software engineer</p>
-    </div>
-  )
-}
-
 function ProjectCard({
   project: { title, date, image, technologies, description, demo_link, github_link },
 }: {
@@ -70,11 +58,9 @@ function ProjectCard({
   }
 }) {
   return (
-    <section className="flex flex-col-reverse sm:flex-row w-full bg-primary rounded-md p-2 gap-2 sm:gap-4 overflow-hidden">
-      <div className="flex-1 flex flex-col justify-between p-2 space-y-3">
-        <div className="flex flex-wrap items-baseline justify-between w-full">
-          {/* <h1 className="text-lg break-all">{title}</h1> */}
-
+    <section className="flex h-full w-full flex-col-reverse gap-2 overflow-hidden rounded-md bg-primary p-2 sm:gap-4">
+      <div className="flex flex-1 flex-col justify-between space-y-3 p-2">
+        <div className="flex w-full flex-wrap items-baseline justify-between">
           <VercelBox
             marginTopLeft={[10, 10]}
             marginTopRight={[60, 10]}
@@ -82,7 +68,7 @@ function ProjectCard({
             marginBottomRight={[30, 10]}
             colorClass="bg-secondary"
           >
-            <h1 className="text-lg break-all mx-1">{title}</h1>
+            <h1 className="mx-1 break-all text-lg">{title}</h1>
           </VercelBox>
 
           <VercelBox
@@ -92,18 +78,18 @@ function ProjectCard({
             marginBottomRight={[15, 80]}
             colorClass="bg-secondary"
           >
-            <h2 className="text-secondary text-xs mx-1">{date}</h2>
+            <h2 className="mx-1 text-xs text-secondary">{date}</h2>
           </VercelBox>
         </div>
 
-        <p className="text-secondary text-sm z-10">{description}</p>
+        <p className="z-10 text-sm text-secondary">{description}</p>
 
         <div className="flex flex-wrap gap-5 text-sm">
           {demo_link && (
             <a
               href={demo_link}
               target="_blank"
-              className="underline underline-offset-4 whitespace-nowrap"
+              className="whitespace-nowrap underline underline-offset-4"
             >
               Live Demo ↗
             </a>
@@ -112,7 +98,7 @@ function ProjectCard({
             <a
               href={github_link}
               target="_blank"
-              className="underline underline-offset-4 whitespace-nowrap"
+              className="whitespace-nowrap underline underline-offset-4"
             >
               Github ↗
             </a>
@@ -123,7 +109,7 @@ function ProjectCard({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="px-2 bg-orange-200 dark:bg-orange-300 rounded-full h-fit whitespace-nowrap"
+              className="h-fit whitespace-nowrap rounded-full bg-orange-200 px-2 dark:bg-orange-300"
             >
               {tech}
             </span>
@@ -131,14 +117,14 @@ function ProjectCard({
         </div>
       </div>
 
-      <div className="relative overflow-hidden rounded-md cursor-pointer h-40 sm:h-auto sm:w-40 bg-secondary">
+      <div className="relative h-40 cursor-pointer overflow-hidden rounded-md bg-secondary">
         <Image
           src={image}
           alt="Project Image"
           width="0"
           height="0"
           sizes="100vw"
-          className="absolute inset-0 object-cover w-full h-full transition duration-300 hover:scale-105"
+          className="absolute inset-0 size-full object-cover transition duration-300 hover:scale-105"
         />
       </div>
     </section>
@@ -149,34 +135,28 @@ export default function Page() {
   return (
     <Fragment>
       <div
-        className="flex flex-col mb-10 animate-in"
+        className="mb-20 flex animate-in flex-col"
         style={{ "--index": 0 } as React.CSSProperties}
       >
         <div className="flex items-center">
-          <h1 className="font-bold text-3xl mr-2">Hi.</h1>
-          <h1 className="font-bold text-3xl animate-wave origin-[70%_70%] hover:animate-wave-hover">
-            👋
-          </h1>
+          <h1 className="mr-2 text-2xl">hey, i'm sam</h1>
+          <h1 className="origin-[70%_70%] animate-wave text-2xl hover:animate-wave-hover">👋</h1>
         </div>
-        {/* <div className="animate-in" style={{ "--index": 1 } as React.CSSProperties}>
-          <LookingForWork />
-        </div> */}
         {/* <SpotifyWidget /> */}
       </div>
       <div
-        className="flex flex-col gap-10 animate-in"
+        className="flex animate-in flex-col gap-5"
         style={{ "--index": 2 } as React.CSSProperties}
       >
         <h2 className="text-xl font-extralight">Projects</h2>
 
-        <ul className="flex flex-col gap-10">
+        <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {projects.map((project, index) => (
             <li
               key={index}
               className="animate-in"
               style={{ "--index": index + 3 } as React.CSSProperties}
             >
-              {/* <ProjectComponent project={project} /> */}
               <ProjectCard project={project} />
             </li>
           ))}

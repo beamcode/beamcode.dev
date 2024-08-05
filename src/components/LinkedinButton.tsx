@@ -23,7 +23,7 @@ export default function LinkedinButton({ className }: { className: string }) {
           </svg>
         </div>
       </div>
-      <div className="z-5 absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent to-white opacity-40 group-hover:animate-shine" />
+      <div className="z-5 group-hover:animate-shine absolute -inset-full top-0 block h-full w-1/2 -skew-x-12 transform bg-gradient-to-r from-transparent to-white opacity-40" />
       {/* <h1 className="text-white text-md">LinkedIn</h1> */}
     </a>
   )

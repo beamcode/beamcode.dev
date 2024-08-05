@@ -2,9 +2,15 @@ export default function CvButton({ mobile }: { mobile: boolean }) {
   return (
     <button
       type="button"
-      onClick={() => alert("Please send me a LinkedIn message or email me at samuel.palmer@epitech.eu for a pdf copy of my CV with contact details! Thank you")}
-      className={` ${mobile && "h-full min-w-[230px] md:hidden"
-        } flex h-full items-center justify-between gap-2 rounded-lg bg-[#C55300] py-1 px-3 pr-4 shadow-md transition duration-100 hover:scale-[0.98]`}>
+      onClick={() =>
+        alert(
+          "Please send me a LinkedIn message or email me at samuel.palmer@epitech.eu for a pdf copy of my CV with contact details! Thank you"
+        )
+      }
+      className={` ${
+        mobile && "h-full min-w-[230px] md:hidden"
+      } flex h-full items-center justify-between gap-2 rounded-lg bg-[#C55300] px-3 py-1 pr-4 shadow-md transition duration-100 hover:scale-[0.98]`}
+    >
       {!mobile && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -25,5 +31,5 @@ export default function CvButton({ mobile }: { mobile: boolean }) {
         CV
       </span>
     </button>
-  );
+  )
 }

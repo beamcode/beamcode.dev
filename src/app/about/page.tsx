@@ -44,11 +44,11 @@ const imageData = [
 
 function ImageGrid({ indexStart }: { indexStart: number }) {
   return (
-    <div className="grid grid-cols-2 grid-rows-4 sm:grid-rows-3 sm:grid-cols-3 gap-4 my-8 group">
+    <div className="group my-8 grid grid-cols-2 grid-rows-4 gap-4 sm:grid-cols-3 sm:grid-rows-3">
       {imageData.map((image, index) => (
         <div
           key={index}
-          className={`${image.className} relative hover:z-50 hover:!opacity-100 hover:scale-110 group-hover:opacity-70 hover:cursor-pointer transition-all duration-300 rounded-lg`}
+          className={`${image.className} relative rounded-lg transition-all duration-300 hover:z-50 hover:scale-110 hover:cursor-pointer hover:!opacity-100 group-hover:opacity-70`}
           style={{ "--index": index + indexStart } as React.CSSProperties}
         >
           <Image
@@ -56,7 +56,7 @@ function ImageGrid({ indexStart }: { indexStart: number }) {
             alt={image.alt}
             fetchPriority="high"
             decoding="async"
-            className={`animate-in w-full h-full rounded-md object-cover absolute bg-primary ${
+            className={`absolute size-full animate-in rounded-md bg-primary object-cover ${
               image.objectPosition || ""
             }`}
             width={0}
@@ -88,54 +88,33 @@ function ContactButton() {
   }
 
   return (
-    <section className="flex flex-wrap gap-5 justify-between text-primary">
-      <ul className="flex flex-wrap gap-2 animated-list">
+    <section className="flex flex-wrap justify-between gap-5 text-primary">
+      <ul className="animated-list flex flex-wrap gap-2">
         <li className="transition-opacity">
           <button
-            className={`flex items-center gap-1 px-3 py-1 rounded-sm transition-all duration-300 ease-in-out transform hover:bg-blue-400 ${
+            className={`flex transform items-center gap-2 rounded-md bg-primary px-4 py-[3px] transition-all duration-300 ease-in-out hover:bg-secondary ${
               emailText === "Copied!" ? "bg-green-300 dark:bg-green-500" : "bg-primary"
             }`}
             onClick={() => handleCopyEmail()}
           >
-            <Image
-              src="/mail.gif"
-              alt="Email Logo"
-              width={20}
-              height={20}
-              className="inline-block"
-            />
             {emailText}
           </button>
         </li>
         <li>
           <Link
-            className="flex items-center gap-1 bg-primary px-3 py-1 rounded-sm transition-all duration-300 ease-in-out transform hover:bg-blue-400"
+            className="flex transform items-center gap-2 rounded-md bg-primary px-4 py-[3px] transition-all duration-300 ease-in-out hover:bg-secondary"
             target="_blank"
             href="https://www.linkedin.com/in/samuel-palmer1/"
           >
-            <Image
-              src="/linkedin.gif"
-              alt="LinkedIn Logo"
-              width={18}
-              height={18}
-              className="inline-block"
-            />
             LinkedIn/CV
           </Link>
         </li>
         <li className="transition-opacity">
           <Link
-            className="flex items-center gap-1 bg-primary px-3 py-1 rounded-sm transition-all duration-300 ease-in-out transform hover:bg-blue-400"
+            className="flex transform items-center gap-2 rounded-md bg-primary px-4 py-[3px] transition-all duration-300 ease-in-out hover:bg-secondary"
             target="_blank"
             href="https://github.com/beamcode"
           >
-            <Image
-              src="/github.gif"
-              alt="GitHub Logo"
-              width={20}
-              height={20}
-              className="inline-block"
-            />
             GitHub
           </Link>
         </li>
@@ -148,22 +127,22 @@ export default function Page() {
   return (
     <div className="space-y-16">
       <div
-        className="flex flex-col md:flex-row gap-6 w-full animate-in"
+        className="flex w-full animate-in flex-col gap-6 md:flex-row"
         style={{ "--index": 1 } as React.CSSProperties}
       >
-        <div className="w-full md:w-32 h-fit bg-primary rounded-sm px-2">
+        <div className="h-fit w-full rounded-sm bg-primary px-2 md:w-32">
           <h1 className="text-xl">Whoami</h1>
         </div>
 
         <div className="flex-1 space-y-4">
-          <p className="text-primary font-semibold">
+          <p className="font-semibold text-primary">
             {"Hi there! I'm "}
-            <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r to-yellow-600 from-red-400">
+            <span className="bg-gradient-to-r from-red-400 to-yellow-600 bg-clip-text font-extrabold text-transparent">
               Sam
             </span>
             {", a software engineer and student passionate about various tech fields."}
           </p>
-          <p className="text-primary font-semibold">
+          <p className="font-semibold text-primary">
             {
               "I'm currently in my fifth year at Epitech Paris finalizing my masters and working on BetterVoxel."
             }

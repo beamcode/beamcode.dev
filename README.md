@@ -1,23 +1,27 @@
 # beamcode.dev
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com)
+<!-- - **Analytics**: [Vercel Analytics](https://vercel.com/analytics) -->
 
-Beamcode's personal website running on NextJS.
+## Running Locally
 
-**Note**: The source for this site was not created to be a template or theme, but for my own use. Feel free to take whatever inspiration from it that you want. As such, I do not provide support or guidance for doing that.
+This application requires Node.js
+
+```bash
+git clone https://github.com/beamcode/beamcode.dev.git
+cd beamcode.dev
+npm install
+npm run dev
+```
 
 ## License
 
-This project is open source and available under the [MIT License](LICENSE).
-
-## Stack
-
-- Next.js
-- Typescript
-- TailwindCSS
-- next-mdx-remote
-- MDX
-- Vercel
+1. You are free to use this code as inspiration.
+2. Please do not copy it directly.
+3. Crediting the author is appreciated.
+4. You must remove all my personal info before using.
 
 ## TODO
 

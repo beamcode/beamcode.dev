@@ -9,22 +9,22 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="flex flex-col p-2 rounded-md space-y-3 cursor-pointer transition-all bg-primary hover:bg-secondary animate-in group"
+      className="group flex animate-in cursor-pointer flex-col space-y-3 rounded-md bg-primary p-2 transition-all hover:bg-secondary"
       style={{ "--index": index } as React.CSSProperties}
     >
-      <div className="relative flex w-full h-32 shrink-0 overflow-hidden rounded-md">
+      <div className="relative flex h-32 w-full shrink-0 overflow-hidden rounded-md">
         <Image
           src={post.image}
           alt={post.title}
           width={0}
           height={0}
-          className="absolute inset-0 object-cover w-full h-full group-hover:scale-105 transition duration-300 bg-secondary"
+          className="absolute inset-0 size-full bg-secondary object-cover transition duration-300 group-hover:scale-105"
           sizes="100vw"
         />
       </div>
-      <div className="flex flex-col justify-between h-full space-y-2 px-1 pb-1 gap-1">
-        <div className="flex flex-col justify-between w-full gap-2">
-          <p className="text-sm text-gray-500 tracking-tight">
+      <div className="flex h-full flex-col justify-between gap-1 space-y-2 px-1 pb-1">
+        <div className="flex w-full flex-col justify-between gap-2">
+          <p className="text-sm tracking-tight text-gray-500">
             {formatDate(post.date)} ({timeSince(post.date)})
           </p>
           <h1 className="text-xl font-semibold leading-none">{post.title}</h1>

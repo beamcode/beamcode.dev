@@ -4,7 +4,7 @@ export default function ThemeButton({ clicked }: { clicked: () => void }) {
       onClick={() => clicked()}
       aria-label="Toggle Dark Mode"
       type="button"
-      className="flex h-fit w-fit items-center justify-center rounded-full hover:bg-gray-200 p-2 transition-all dark:hover:bg-[#444444]"
+      className="flex h-fit w-fit items-center justify-center rounded-full p-2 transition-all hover:bg-gray-200 dark:hover:bg-[#444444]"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

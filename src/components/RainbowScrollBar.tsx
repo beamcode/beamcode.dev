@@ -27,7 +27,7 @@ export default function RainbowScrollBar() {
   return (
     <div
       ref={progressRef}
-      className="z-50 fixed top-0 right-0 w-[10px] rounded-b-[5px] animate-rainbow bg-gradient-to-t from-[#008aff] to-[#00ffe7]"
+      className="fixed right-0 top-0 z-50 w-[10px] animate-rainbow rounded-b-[5px] bg-gradient-to-t from-[#008aff] to-[#00ffe7]"
     />
   )
 }

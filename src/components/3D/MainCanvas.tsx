@@ -6,7 +6,7 @@ import Scene from "./Scene"
 
 export default function MainCanvas() {
   return (
-    <div className="border-2 border-gray-200 rounded-lg">
+    <div className="rounded-lg border border-primary">
       <Canvas
         style={{ height: "50vh", width: "100%" }}
         camera={{

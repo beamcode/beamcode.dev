@@ -8,35 +8,23 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     a: ({ children, ...props }) => {
       return (
-        <a
-          {...props}
-          className="underline hover:text-blue-600 duration-100"
-          target="_blank"
-        >
+        <a {...props} className="underline duration-100 hover:text-blue-600" target="_blank">
           {children}
         </a>
       )
     },
     img: ({ ...props }) => (
-      <img
-        className="rounded-md overflow-hidden bg-gray-300 dark:bg-gray-500"
-        {...props}
-      />
+      <img className="overflow-hidden rounded-md bg-gray-300 dark:bg-gray-500" {...props} />
     ),
     pre: ({ children, ...props }) => (
       <CodeBlock props={undefined} {...props}>
         {children}
       </CodeBlock>
     ),
-    Info: ({ children, ...props }) => (
-      <Information {...props}>{children}</Information>
-    ),
+    Info: ({ children, ...props }) => <Information {...props}>{children}</Information>,
     Link: Link,
     Image: ({ ...props }) => (
-      <Image
-        className="rounded overflow-hidden bg-gray-300 dark:bg-gray-500"
-        {...props}
-      />
+      <Image className="overflow-hidden rounded bg-gray-300 dark:bg-gray-500" {...props} />
     ),
     ...components,
   }
