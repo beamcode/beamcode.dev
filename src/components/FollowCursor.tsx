@@ -48,7 +48,7 @@ export default function FollowCursor() {
         top: svgPosition.y,
         filter: "drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.3))",
       }}
-      className="text-[40px]"
+      className="text-[2.5rem]"
     >
       🥭
     </div>

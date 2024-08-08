@@ -7,19 +7,19 @@ code[data-line-numbers] > [data-line]::before {
   content: counter(line);
 
   /* Other styling */
-  @apply mr-4 inline-block w-4 text-right text-gray-500;
+  @apply mr-4 inline-block w-3 text-right text-gray-500;
 }
 
 code[data-line-numbers-max-digits="2"] > [data-line]::before {
-  @apply w-[16px];
+  @apply w-5;
 }
 
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
-  @apply w-[28px];
+  @apply w-7;
 }
 
 code[data-line-numbers-max-digits="4"] > [data-line]::before {
-  @apply w-[35px];
+  @apply w-9;
 }
 
 [data-chars-id="v"] {

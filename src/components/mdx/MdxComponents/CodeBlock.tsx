@@ -13,10 +13,7 @@ export default function CodeBlock({
       <div className="absolute right-2 top-2 z-20">
         <CopyCodeButtonIcon>{children}</CopyCodeButtonIcon>
       </div>
-      <pre
-        {...props}
-        className="not-prose relative overflow-x-scroll rounded-md py-[15px] text-[14px]"
-      >
+      <pre {...props} className="not-prose relative overflow-x-scroll rounded-md py-[15px] text-sm">
         {children}
       </pre>
     </div>

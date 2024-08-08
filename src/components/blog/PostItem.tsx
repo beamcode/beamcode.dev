@@ -9,7 +9,7 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex animate-in cursor-pointer flex-col rounded-md bg-primary p-1 transition-all"
+      className="group flex animate-in cursor-pointer flex-col space-y-2 rounded-md bg-primary p-1 transition-all"
       style={{ "--index": index } as React.CSSProperties}
     >
       <div className="relative flex h-32 w-full shrink-0 overflow-hidden rounded-md">
