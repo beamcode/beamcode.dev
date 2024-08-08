@@ -1,0 +1,181 @@
+---
+date: "2024-04-28T15:45:00"
+title: "Exploring a React Mobile Menu Component"
+image: "/cat.jpg"
+description: "A detailed walkthrough of building a dynamic mobile menu in React."
+tags: "React, Web Development, Programming"
+---
+
+# Building a Dynamic Mobile Menu in React
+
+Today we're going to break down a mobile menu component in React. We'll explore how the menu's visibility and interactions are controlled by React's state management and CSS properties.
+
+![React Mobile Menu Concept](/mobile-nav.png)
+
+## Component Structure and Props
+
+The `Mobile` component is designed to be dynamic, controlling its display based on the `isOpen` and `toggle` props. Here's how we define the component with TypeScript for type safety:
+
+```tsx
+function Mobile({ isOpen, toggle }: { isOpen: boolean; toggle: () => void }) {
+  // Component implementation will go here
+}
+```
+
+We pass `isOpen` as a boolean to control the menu's visibility and `toggle` as a function to change the visibility state.
+
+## Styling Based on State
+
+The core functionality of this menu relies on its ability to appear and disappear based on the `isOpen` state. We define a `style` object that updates based on the state:
+
+```tsx
+const style = {
+  opacity: isOpen ? 1 : 0,
+  visibility: isOpen ? "visible" : "hidden",
+  pointerEvents: isOpen ? "auto" : "none",
+  transition: isOpen
+    ? "opacity 0.2s ease-in-out, visibility 0s 0s"
+    : "opacity 0.9s ease-in-out, visibility 0s 0.9s",
+}
+```
+
+Here, `opacity` and `visibility` ensure the menu is interactable only when open. The `pointerEvents` style prevents the menu from capturing clicks when it's invisible.
+
+## Dropdown Animation
+
+Using the index we can determin values for the animation and make each dropdown item appear one after the other.
+
+```tsx
+<li
+  key={index}
+  className="absolute w-full inset-y-0"
+  style={{
+    zIndex: navItems.length + index,
+    transition: `transform 250ms ease-in-out ${
+      isOpen ? index * 50 : (navItems.length - index) * 100
+      }ms, opacity 250ms ease-in-out ${
+      isOpen ? index * 50 : (navItems.length - index) * 30
+    }ms`,
+    transform: isOpen
+    ? `translateY(${index * 75}px)`
+    : "translateY(0)",
+    opacity: isOpen ? 1 : 0,
+  }}
+>
+```
+
+## The Return Statement
+
+In the return statement of our component, we use a `div` that includes all our styling and functionality:
+
+```tsx
+return (
+  <div data-open={isOpen} style={style as React.CSSProperties}>
+    {/* Further content and components go here */}
+  </div>
+)
+```
+
+The `data-open` attribute can be useful for debugging or specific CSS targeting. The styling is dynamically applied based on the current state of `isOpen`.
+
+## Navigation Links and Interaction
+
+Inside our `div`, we use a `Link` component to navigate. We also include an SVG icon within the `Link`. This is an example of how you might include a login or profile icon:
+
+```tsx
+<Link href="/login" className="your-login-button-styles">
+  <svg> {/* SVG path goes here */} </svg>
+</Link>
+```
+
+This component is flexible enough to include various navigational elements, styled appropriately for mobile use.
+
+## Final code
+
+Here is the final code for the `Mobile` component:
+
+```tsx
+function Mobile({ isOpen, toggle }: { isOpen: boolean; toggle: () => void }) {
+  const style = {
+    opacity: isOpen ? 1 : 0,
+    visibility: isOpen ? "visible" : "hidden",
+    pointerEvents: isOpen ? "auto" : "none", // This ensures the menu does not capture clicks when closed
+    transition: isOpen
+      ? "opacity 0.2s ease-in-out, visibility 0s 0s"
+      : "opacity 0.9s ease-in-out, visibility 0s 0.9s", // Delay the visibility transition when closing
+  }
+
+  return (
+    <div
+      data-open={isOpen}
+      className="dark:bg-black-100 fixed left-0 right-0 top-[65px] z-10 box-border h-[calc(100vh-65px)] w-screen overflow-hidden bg-white p-5 lg:hidden dark:bg-black"
+      style={style as React.CSSProperties} // Apply dynamic style here
+    >
+      <div className="flex cursor-pointer justify-end pb-5">
+        <Link
+          href="/login"
+          className="group h-10 w-10 rounded-full border-2 hover:bg-[gray] hover:bg-opacity-10 dark:border-zinc-700"
+        >
+          <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+            <path
+              clipRule="evenodd"
+              fillRule="evenodd"
+              className="group-hover:fill-primary-text fill-[gray]"
+              d="M16 9.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM12.25 12a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0Zm.39 6.75a1.25 1.25 0 0 0-1.226 1.005l-.678 3.392a.75.75 0 1 1-1.471-.294l.678-3.392a2.75 2.75 0 0 1 2.697-2.211h6.72a2.75 2.75 0 0 1 2.697 2.21l.679 3.393a.75.75 0 0 1-1.471.294l-.679-3.392a1.25 1.25 0 0 0-1.226-1.005h-6.72Z"
+            />
+          </svg>
+        </Link>
+      </div>
+      <ul className="relative flex h-full w-full list-none flex-col">
+        {navItemsMobile.map((item, index) => (
+          <li
+            key={index}
+            className="absolute inset-y-0 w-full"
+            style={{
+              zIndex: navItems.length + index,
+              transition: `transform 250ms ease-in-out ${
+                isOpen ? index * 50 : (navItems.length - index) * 100
+              }ms, opacity 250ms ease-in-out ${
+                isOpen ? index * 50 : (navItems.length - index) * 30
+              }ms`,
+              transform: isOpen ? `translateY(${index * 75}px)` : "translateY(0)",
+              opacity: isOpen ? 1 : 0,
+            }}
+          >
+            <Link
+              onClick={toggle}
+              href={item.href}
+              passHref
+              className={`flex w-full items-center justify-between rounded-xl p-4 transition dark:border-none ${
+                item.color
+                  ? "bg-[#27BBFF] text-[#101015] hover:bg-[#60cdff]"
+                  : "bg-gray-100 hover:bg-gray-300 dark:bg-[#202024] dark:hover:bg-[#303034]"
+              } `}
+            >
+              {item.label}
+
+              <svg
+                className="h-3 dark:fill-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="7.23 4.25 6.83 11.52"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.47 4.47a.75.75 0 0 0 0 1.06L11.94 10l-4.47 4.47a.75.75 0 1 0 1.06 1.06L14.06 10 8.53 4.47a.75.75 0 0 0-1.06 0Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+```
+
+## Conclusion
+
+This breakdown covers the essentials of building a dynamic mobile menu in React. By understanding each part of the component, you can customize and expand upon the menu to fit your specific needs.
+
+Stay tuned for more tutorials on React components and happy coding!

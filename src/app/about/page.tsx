@@ -10,33 +10,33 @@ import Link from "next/link"
 
 const imageData = [
   {
-    alt: "Me speaking on stage at React Summit about the future of Next.js",
+    alt: "Selfie with MrBeast",
     src: "/mrbeast.png",
     className: "h-40",
   },
   {
-    alt: "Me standing on stage at Reactathon delivering the keynote",
+    alt: "Ski in japan",
     src: "/japan2.jpg",
     className: "sm:row-span-2 row-span-1",
     objectPosition: "object-top sm:object-center",
   },
   {
-    alt: "Me and Guillermo Rauch on stage for Vercel Ship, answering questions from the Next.js community",
+    alt: "Vietnam scuba diving with a friend",
     src: "/vietnam4.jpg",
     className: "",
   },
   {
-    alt: "Me, Lydia, and Delba filming the Next.js Conf keynote",
+    alt: "Hicking in the mountains in Vietnam",
     src: "/vietnam3.jpg",
     className: "row-span-2",
   },
   {
-    alt: "My badge on top of a pile of badges from a Vercel meetup we held",
+    alt: "Mt. Fuji climb badge",
     src: "/japan.jpg",
     className: "row-span-2",
   },
   {
-    alt: "Me standing on stage at SmashingConf giving a talk about my optimism for the web",
+    alt: "Selfie with cool scenery in Vietnam",
     src: "/vietnam2.jpg",
     className: "h-40",
   },

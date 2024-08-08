@@ -3,9 +3,8 @@
 import MainCanvas from "@/components/3D/MainCanvas"
 import SpotifyPlayer from "@/components/SpotifyEmbed"
 import MacTerminal from "@/components/Terminal"
-import ThemeButtonEmoji from "@/components/ThemeButtonEmoji"
-import ThemeButton from "@/components/ThemeButton"
-import ThemeToggleFancy from "@/components/ThemeToggle"
+
+import ThemeToggleCustom from "@/components/ThemeToggleCustom"
 import SpotifyWidget from "@/components/SpotifyWidget"
 import VercelBox from "@/components/VercelBox"
 import AnimBg from "@/components/VantaBackground"
@@ -18,9 +17,8 @@ export default function Page() {
       <MainCanvas />
       <SpotifyPlayer />
       <MacTerminal />
-      <ThemeButtonEmoji clicked={() => {}} />
-      <ThemeButton clicked={() => {}} />
-      <ThemeToggleFancy clicked={() => {}} />
+
+      <ThemeToggleCustom clicked={() => {}} />
       <ThemeSelector />
       <SpotifyWidget />
       <VercelBox

@@ -1,5 +1,5 @@
 import { getPost, getPosts } from "@/helpers/getPosts"
-import { MDX as Post } from "@/components/blog/Mdx"
+import { MDX as Post } from "@/components/mdx/Mdx"
 import { notFound } from "next/navigation"
 import PostHeader from "@/components/blog/PostHeader"
 
@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <div className="animate-in">
       <PostHeader post={post} />
-      <div className="-mx-1 mb-10 mt-4 w-full border-spacing-[500px] border-t-4 border-dotted" />
+      <div className="my-20" />
       <Post>{post.body}</Post>
     </div>
   )

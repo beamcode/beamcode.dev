@@ -1,4 +1,4 @@
-export default function ThemeToggleFancy({
+export default function ThemeToggleCustom({
   size = 30,
   clicked,
 }: {

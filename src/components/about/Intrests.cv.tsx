@@ -170,7 +170,7 @@ const interestsData = [
   },
   {
     icon: MarineIcon,
-    title: "7+ years in the marine and boating sectors",
+    title: "7+ years in the marine and boating fields",
   },
 ]
 
