@@ -16,8 +16,8 @@ export default function PostHeader({ post }: { post: Post }) {
           </span>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          <p className="text-gray-400">Tags: </p>
+        <div className="flex gap-2 text-sm">
+          <p className="leading-none text-gray-400">Tags: </p>
           <Tags tags={post.tags} clickable className="text-xs" />
         </div>
       </div>
