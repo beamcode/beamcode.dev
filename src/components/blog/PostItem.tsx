@@ -9,7 +9,7 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex animate-in cursor-pointer flex-col space-y-3 rounded-md bg-primary p-2 transition-all hover:bg-secondary"
+      className="group flex animate-in cursor-pointer flex-col rounded-md bg-primary p-1 transition-all hover:bg-secondary"
       style={{ "--index": index } as React.CSSProperties}
     >
       <div className="relative flex h-32 w-full shrink-0 overflow-hidden rounded-md">
@@ -22,12 +22,12 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
           sizes="100vw"
         />
       </div>
-      <div className="flex h-full flex-col justify-between gap-1 space-y-2 px-1 pb-1">
-        <div className="flex w-full flex-col justify-between gap-2">
-          <p className="text-sm tracking-tight text-gray-500">
+      <div className="h-full justify-between space-y-2 p-2">
+        <div className="flex w-full flex-col justify-between gap-1">
+          <p className="font-mono text-sm tracking-tighter text-gray-500">
             {formatDate(post.date)} ({timeSince(post.date)})
           </p>
-          <h1 className="text-xl font-semibold leading-none">{post.title}</h1>
+          <h1 className="text-lg font-semibold leading-none">{post.title}</h1>
           <p className="text-sm">{post.description}</p>
         </div>
 

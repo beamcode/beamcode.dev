@@ -42,10 +42,10 @@
 }
 
 .dark {
-  --default-bg: #000000;
-  --primary-bg: #252525;
-  --secondary-bg: #353535;
-  --tertiary-bg: #757575;
+  --default-bg: black;
+  --primary-bg: #353535;
+  --secondary-bg: #727272;
+  --tertiary-bg: #888888;
 
   --primary-text: white;
   --secondary-text: #cccccc;

@@ -12,7 +12,7 @@ export default async function Page() {
       </div>
 
       <div
-        className="grid animate-in grid-cols-1 gap-5 min-[480px]:grid-cols-2 sm:grid-cols-3"
+        className="grid animate-in grid-cols-1 gap-5 min-[480px]:grid-cols-2 sm:grid-cols-2"
         style={{ "--index": 1 } as React.CSSProperties}
       >
         {posts
