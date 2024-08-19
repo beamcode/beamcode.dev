@@ -11,13 +11,15 @@ export default function PostHeader({ post }: { post: Post }) {
         <div>
           <h1 className="text-3xl font-semibold">{post.title}</h1>
 
-          <span className="text-sm text-gray-400">
+          <span className="text-sm text-secondary">
             Published on {formatDate(post.date)} ({timeSince(post.date)})
           </span>
+
+          <p className="mt-2 text-sm text-primary">{post.description}</p>
         </div>
 
         <div className="flex gap-2 text-sm">
-          <p className="leading-none text-gray-400">Tags: </p>
+          <p className="leading-none text-secondary">Tags: </p>
           <Tags tags={post.tags} clickable className="text-xs" />
         </div>
       </div>

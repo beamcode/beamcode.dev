@@ -17,19 +17,19 @@ import {
 export default function SkillsSection() {
   const size = 16
   const techComponents = [
-    <NextJS width={size} key="nextjs" />,
-    <Swift width={size} key="swift" />,
-    <SwiftUI width={size} key="swiftui" />,
-    <Tailwindcss width={size} key="tailwindcss" />,
-    <Nodejs width={size} key="nodejs" />,
-    <Expressjs width={size} key="expressjs" />,
-    <Python width={size} key="python" />,
-    <Unix width={size} key="unix" />,
-    <Linux width={size} key="linux" />,
-    <Macos width={size} key="macos" />,
-    <Arduino width={size} key="arduino" />,
-    <C width={size} key="c" />,
-    <Cpp width={size} key="cpp" />,
+    <NextJS width={size} key="nextjs" className="fill-default-svg" />,
+    <Swift width={size} key="swift" className="" />,
+    <SwiftUI width={size} key="swiftui" className="" />,
+    <Tailwindcss width={size} key="tailwindcss" className="" />,
+    <Nodejs width={size} key="nodejs" className="" />,
+    <Expressjs width={size} key="expressjs" className="fill-default-svg" />,
+    <Python width={size} key="python" className="" />,
+    <Unix width={size} key="unix" className="fill-default-svg" />,
+    <Linux width={size} key="linux" className="fill-default-svg" />,
+    <Macos width={size} key="macos" className="fill-default-svg" />,
+    <Arduino width={size} key="arduino" className="" />,
+    <C width={size} key="c" className="" />,
+    <Cpp width={size} key="cpp" className="" />,
   ]
 
   return (

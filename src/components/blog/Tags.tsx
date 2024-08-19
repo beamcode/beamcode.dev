@@ -14,10 +14,11 @@ export default function Tags({
   tagClassName?: string
 }) {
   const path = "/blog/tag"
-  const commonClasses = "h-fit text-black bg-orange-200 px-2 rounded-full text-xs"
+  const commonClasses =
+    "h-fit text-black bg-accent-primary px-2 rounded-full text-xs transition-none"
 
   return (
-    <div className={twMerge("flex flex-wrap gap-1.5 text-xs")}>
+    <div className={twMerge("flex flex-wrap gap-1.5")}>
       {tags.split(", ").map((tag) =>
         clickable ? (
           <Link
@@ -25,7 +26,7 @@ export default function Tags({
             key={tag}
             className={twMerge(
               commonClasses,
-              "flex flex-nowrap items-center gap-1 transition-colors duration-300 ease-in-out hover:bg-orange-500",
+              "hover:bg-accent-secondary flex flex-nowrap items-center gap-1 duration-300 hover:scale-105",
               className
             )}
           >

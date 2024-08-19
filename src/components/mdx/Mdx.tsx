@@ -39,7 +39,7 @@ export function MDX({ children }: { children: string }) {
   const Markdown = useMDXComponents({})
 
   return (
-    <article className="prose text-primary dark:prose-invert prose-headings:text-primary">
+    <article className="prose text-primary dark:prose-invert prose-headings:text-primary prose-strong:text-primary">
       <MDXRemote
         source={children}
         options={{

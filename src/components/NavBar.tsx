@@ -14,7 +14,6 @@ const links: LinkItem[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Amy", href: "/amy" },
 ]
 
 export default function NavBar() {

@@ -12,7 +12,7 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
       className="group flex animate-in cursor-pointer flex-col space-y-2 rounded-md bg-primary p-1 transition-all"
       style={{ "--index": index } as React.CSSProperties}
     >
-      <div className="relative flex h-32 w-full shrink-0 overflow-hidden rounded-md">
+      <div className="relative flex h-28 w-full shrink-0 overflow-hidden rounded-md">
         <Image
           src={post.image}
           alt={post.title}
@@ -22,16 +22,13 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
           sizes="100vw"
         />
       </div>
-      <div className="h-full justify-between space-y-2 p-2">
+      <div className="h-full justify-between space-y-2 p-2 pt-0.5">
         <div className="flex w-full flex-col justify-between gap-1">
-          <p className="font-mono text-sm tracking-tighter text-gray-500">
-            {formatDate(post.date)} ({timeSince(post.date)})
-          </p>
           <h1 className="text-lg font-semibold leading-none">{post.title}</h1>
-          <p className="text-sm">{post.description}</p>
+          <p className="whitespace-nowrap text-[13px] text-tertiary">{formatDate(post.date)}</p>
+          <p className="text-[13px]">{post.description}</p>
         </div>
-
-        <Tags tags={post.tags} className="text-xs" />
+        <Tags tags={post.tags} className="text-[10px]" />
       </div>
     </Link>
   )

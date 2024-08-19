@@ -17,7 +17,12 @@ const config: Config = {
       fontFamily: {
         MegaMan: ["MegaMan"],
       },
-      colors: {},
+      colors: {
+        "accent-primary": "var(--primary-accent)",
+        "accent-secondary": "var(--secondary-accent)",
+        "accent-tertiary": "var(--tertiary-accent)",
+        "default-svg": "var(--default-svg)",
+      },
       backgroundColor: {
         default: "var(--default-bg)",
         primary: "var(--primary-bg)",
