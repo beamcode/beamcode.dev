@@ -3,9 +3,9 @@ import { useMDXComponents } from "./MdxComponents"
 import rehypePrettyCode from "rehype-pretty-code"
 
 const classes = {
-  title: `bg-zinc-700 text-neutral-300 text-md pl-4 py-2 rounded-t-md`,
+  title: `bg-zinc-700 text-gray-300 text-sm pl-3 py-2 rounded-t-md`,
   line: `px-4`,
-  lineHighlighted: `bg-teal-100/10 relative border-l-[5px] pl-[11px] border-orange-500`,
+  lineHighlighted: `bg-teal-100/10 relative border-l-[0.3rem] pl-3 border-orange-500`,
   lineHighlightedChar: `box-border`,
 }
 
