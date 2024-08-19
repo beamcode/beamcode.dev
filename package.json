@@ -29,7 +29,7 @@
     "react-dom": "^18",
     "rehype-pretty-code": "^0.13.2",
     "shiki": "^1.12.1",
-    "tailwind-merge": "^2.4.0",
+    "tailwind-merge": "^2.5.2",
     "tailwindcss-animated": "^1.1.2",
     "three": "^0.167.1",
     "three-stdlib": "^2.32.1",
