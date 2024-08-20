@@ -15,6 +15,7 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
+        default: "var(--default-font)",
         MegaMan: ["MegaMan"],
       },
       colors: {

@@ -26,6 +26,7 @@
   --tertiary-accent: #5b144e;
 
   --default-svg: white;
+  --default-font: "OCR-A", sans-serif;
 }
 
 .light {
@@ -51,6 +52,7 @@
   --tertiary-accent: #c6920f;
 
   --default-svg: black;
+  --default-font: sans-serif;
 }
 
 .dark {
@@ -76,6 +78,7 @@
   --tertiary-accent: #a04a0d;
 
   --default-svg: white;
+  --default-font: sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -101,4 +104,11 @@ html.dark {
   font-weight: 400;
   font-style: normal;
   src: url("/fonts/Mega_Man_10.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OCR-A";
+  font-weight: 400;
+  font-style: normal;
+  src: url("/fonts/OCR-A_BT.ttf") format("truetype");
 }

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="bg-default">
-      <body className="text-primary">
+      <body className="font-default text-primary">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="mx-auto max-w-[700px] px-4 pb-24 pt-10 md:px-6 md:pb-44 md:pt-20">
