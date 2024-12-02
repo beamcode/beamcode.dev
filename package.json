@@ -31,7 +31,7 @@
     "shiki": "^1.12.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animated": "^1.1.2",
-    "three": "^0.167.1",
+    "three": "^0.171.0",
     "three-stdlib": "^2.32.1",
     "vanta": "^0.5.24"
   },
