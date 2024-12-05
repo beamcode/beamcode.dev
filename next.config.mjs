@@ -2,6 +2,7 @@ import withMDX from "@next/mdx"
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ["next-mdx-remote"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
     mdxRs: false,

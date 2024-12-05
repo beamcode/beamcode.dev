@@ -1,20 +1,30 @@
 import PostItem from "@/components/blog/PostItem"
-import { getPostsByTag, getPostsAvailableTags } from "@/helpers/getPosts"
+import { getPostsAvailableTags, getPosts } from "@/utils/getPosts"
 
 export async function generateStaticParams() {
   const tags = await getPostsAvailableTags()
   return tags.map((tag) => ({ slug: tag }))
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
-  const posts = await getPostsByTag(params.slug)
+export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const decodedTag = decodeURIComponent(slug).toLowerCase()
+
+  const posts = await getPosts()
+  const filteredPosts = posts.filter((post) =>
+    post.tags.some((tag) => tag.toLowerCase() === decodedTag)
+  )
+  // same as above but diffrent way lol
+  // const filteredPosts = posts.filter((post) => post.tags.includes(decodedTag))
+
+  const uniqueTags = Array.from(new Set(posts.flatMap((post) => post.tags)))
 
   return (
     <div>
       <div className="mb-8">
         <h1 className="mb-2 animate-in">
           {posts.length} {posts.length == 1 ? "post" : "posts"} tagged with
-          <span className="font-bold">{` "${params.slug}"`}</span>
+          <span className="font-bold">{` "${slug}"`}</span>
         </h1>
       </div>
 

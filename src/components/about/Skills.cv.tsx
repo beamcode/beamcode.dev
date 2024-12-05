@@ -13,23 +13,76 @@ import {
   C,
   Cpp,
 } from "@/components/about/tags"
+import Link from "next/link"
 
 export default function SkillsSection() {
   const size = 16
-  const techComponents = [
-    <NextJS width={size} key="nextjs" className="fill-default-svg" />,
-    <Swift width={size} key="swift" className="" />,
-    <SwiftUI width={size} key="swiftui" className="" />,
-    <Tailwindcss width={size} key="tailwindcss" className="" />,
-    <Nodejs width={size} key="nodejs" className="" />,
-    <Expressjs width={size} key="expressjs" className="fill-default-svg" />,
-    <Python width={size} key="python" className="" />,
-    <Unix width={size} key="unix" className="fill-default-svg" />,
-    <Linux width={size} key="linux" className="fill-default-svg" />,
-    <Macos width={size} key="macos" className="fill-default-svg" />,
-    <Arduino width={size} key="arduino" className="" />,
-    <C width={size} key="c" className="" />,
-    <Cpp width={size} key="cpp" className="" />,
+  const languages = [
+    {
+      name: "NextJS",
+      component: <NextJS width={size} key="nextjs" className="fill-default-svg" />,
+      url: "https://nextjs.org/",
+    },
+    {
+      name: "Swift",
+      component: <Swift width={size} key="swift" className="" />,
+      url: "https://developer.apple.com/swift/",
+    },
+    {
+      name: "SwiftUI",
+      component: <SwiftUI width={size} key="swiftui" className="" />,
+      url: "https://developer.apple.com/xcode/swiftui/",
+    },
+    {
+      name: "TailwindCSS",
+      component: <Tailwindcss width={size} key="tailwindcss" className="" />,
+      url: "https://tailwindcss.com/",
+    },
+    {
+      name: "NodeJS",
+      component: <Nodejs width={size} key="nodejs" className="" />,
+      url: "https://nodejs.org/",
+    },
+    {
+      name: "ExpressJS",
+      component: <Expressjs width={size} key="expressjs" className="fill-default-svg" />,
+      url: "https://expressjs.com/",
+    },
+    {
+      name: "Python",
+      component: <Python width={size} key="python" className="" />,
+      url: "https://www.python.org/",
+    },
+    {
+      name: "Unix",
+      component: <Unix width={size} key="unix" className="fill-default-svg" />,
+      url: "https://en.wikipedia.org/wiki/Unix",
+    },
+    {
+      name: "Linux",
+      component: <Linux width={size} key="linux" className="fill-default-svg" />,
+      url: "https://www.linux.org/",
+    },
+    {
+      name: "MacOS",
+      component: <Macos width={size} key="macos" className="fill-default-svg" />,
+      url: "https://www.apple.com/macos/",
+    },
+    {
+      name: "Arduino",
+      component: <Arduino width={size} key="arduino" className="" />,
+      url: "https://www.arduino.cc/",
+    },
+    {
+      name: "C",
+      component: <C width={size} key="c" className="" />,
+      url: "https://en.wikipedia.org/wiki/C_(programming_language)",
+    },
+    {
+      name: "C++",
+      component: <Cpp width={size} key="cpp" className="" />,
+      url: "https://en.wikipedia.org/wiki/C%2B%2B",
+    },
   ]
 
   return (
@@ -111,13 +164,20 @@ export default function SkillsSection() {
         </li>
 
         <li className="mb-1 flex flex-wrap items-center gap-2">
-          {techComponents.map((Component, index) => (
-            <div
+          {languages.map((language, index) => (
+            <Link
               key={index}
-              className="cursor-pointer rounded-[4px] bg-primary px-1.5 py-0.5 hover:bg-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={language.url}
+              className="group inline-flex cursor-pointer items-center rounded-[4px] bg-primary px-1.5 py-0.5 transition-all duration-300 hover:bg-secondary"
             >
-              {Component}
-            </div>
+              <span className="text-md mr-2 flex font-normal">{language.name}</span>
+              {language.component}
+              <span className="inline-block w-0 overflow-hidden text-xs font-normal transition-all duration-300 group-hover:ml-2 group-hover:w-4">
+                ↗
+              </span>
+            </Link>
           ))}
         </li>
       </ul>

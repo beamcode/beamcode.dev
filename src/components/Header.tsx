@@ -13,20 +13,8 @@ export default function Header() {
   return (
     <header className="z-10 sm:mt-16">
       <div className="mx-auto flex max-w-[700px] items-center justify-between rounded-lg px-4 py-4 md:px-6 md:py-2">
-        {/* <Link
-          href="/"
-          className="hidden h-8 w-8 shrink-0 overflow-hidden rounded-full transition hover:scale-110 sm:block"
-        >
-          <Image
-            src="/pfp_small.jpg"
-            alt="Samuel Palmer avatar"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="size-full hover:animate-spin"
-          />
-        </Link> */}
         <nav className="flex flex-col items-center">
+          {/* I preffer my super cluncky navbar animation than the framer motion one */}
           <NavBar />
           {/* <NavBarFramerMotion /> */}
         </nav>

@@ -1,7 +1,7 @@
 import Link from "next/link"
-import { formatDate } from "@/helpers/formatDate"
-import { timeSince } from "@/helpers/timeSince"
-import { Post } from "@/helpers/getPosts"
+import { formatDate } from "@/utils/formatDate"
+import { timeSince } from "@/utils/timeSince"
+import { Post } from "@/types/mdxblog"
 import Tags from "./Tags"
 import Image from "next/image"
 
@@ -14,7 +14,7 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
     >
       <div className="relative flex h-28 w-full shrink-0 overflow-hidden rounded-md">
         <Image
-          src={post.image}
+          src={post.thumbnail}
           alt={post.title}
           width={0}
           height={0}
@@ -22,12 +22,13 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
           sizes="100vw"
         />
       </div>
-      <div className="h-full justify-between space-y-2 p-2 pt-0.5">
+      <div className="flex h-full flex-col justify-between gap-2 p-2 pt-1.5">
         <div className="flex w-full flex-col justify-between gap-1">
           <h1 className="text-lg font-semibold leading-none">{post.title}</h1>
           <p className="whitespace-nowrap text-[13px] text-tertiary">{formatDate(post.date)}</p>
           <p className="text-[13px]">{post.description}</p>
         </div>
+
         <Tags tags={post.tags} className="text-[10px]" />
       </div>
     </Link>

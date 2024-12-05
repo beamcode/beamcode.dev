@@ -1,6 +1,10 @@
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { useMDXComponents } from "./MdxComponents"
 import rehypePrettyCode from "rehype-pretty-code"
+import remarkUnwrapImages from "remark-unwrap-images"
+import remarkGfm from "remark-gfm"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeSlug from "rehype-slug"
 
 const classes = {
   title: `bg-zinc-700 text-gray-300 text-sm pl-3 py-2 rounded-t-md`,
@@ -39,13 +43,13 @@ export function MDX({ children }: { children: string }) {
   const Markdown = useMDXComponents({})
 
   return (
-    <article className="prose text-primary dark:prose-invert prose-headings:text-primary prose-strong:text-primary">
+    <article className="prose max-w-full max-w-none text-primary dark:prose-invert prose-headings:text-primary prose-p:text-secondary">
       <MDXRemote
         source={children}
         options={{
           mdxOptions: {
-            rehypePlugins: [[rehypePrettyCode as any, options]],
-            remarkPlugins: [],
+            rehypePlugins: [[rehypePrettyCode, options], rehypeSlug],
+            remarkPlugins: [remarkUnwrapImages, remarkGfm],
           },
           // scope: customData
         }}

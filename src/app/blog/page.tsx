@@ -1,4 +1,4 @@
-import { getPosts } from "@/helpers/getPosts"
+import { getPosts } from "@/utils/getPosts"
 import PostItem from "@/components/blog/PostItem"
 
 export default async function Page() {

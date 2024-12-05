@@ -11,33 +11,33 @@ import Link from "next/link"
 const imageData = [
   {
     alt: "Selfie with MrBeast",
-    src: "/mrbeast.png",
+    src: "/images/mrbeast.png",
     className: "h-40",
   },
   {
     alt: "Ski in japan",
-    src: "/japan2.jpg",
+    src: "/images/japan2.jpg",
     className: "sm:row-span-2 row-span-1",
     objectPosition: "object-top sm:object-center",
   },
   {
     alt: "Vietnam scuba diving with a friend",
-    src: "/vietnam4.jpg",
+    src: "/images/vietnam4.jpg",
     className: "",
   },
   {
     alt: "Hicking in the mountains in Vietnam",
-    src: "/vietnam3.jpg",
+    src: "/images/vietnam3.jpg",
     className: "row-span-2",
   },
   {
     alt: "Mt. Fuji climb badge",
-    src: "/japan.jpg",
+    src: "/images/japan.jpg",
     className: "row-span-2",
   },
   {
     alt: "Selfie with cool scenery in Vietnam",
-    src: "/vietnam2.jpg",
+    src: "/images/vietnam2.jpg",
     className: "h-40",
   },
 ]
@@ -102,20 +102,20 @@ function ContactButton() {
         </li>
         <li>
           <Link
-            className="flex transform items-center gap-2 rounded-md bg-primary px-4 py-[3px] transition-all duration-300 ease-in-out hover:bg-secondary"
+            className="flex transform items-center gap-2 rounded-md bg-primary py-[3px] pl-4 pr-3 transition-all duration-300 ease-in-out hover:bg-secondary"
             target="_blank"
             href="https://www.linkedin.com/in/samuel-palmer1/"
           >
-            LinkedIn/CV
+            LinkedIn/CV ↗
           </Link>
         </li>
         <li className="transition-opacity">
           <Link
-            className="flex transform items-center gap-2 rounded-md bg-primary px-4 py-[3px] transition-all duration-300 ease-in-out hover:bg-secondary"
+            className="flex transform items-center gap-2 rounded-md bg-primary py-[3px] pl-4 pr-3 transition-all duration-300 ease-in-out hover:bg-secondary"
             target="_blank"
             href="https://github.com/beamcode"
           >
-            GitHub
+            GitHub ↗
           </Link>
         </li>
       </ul>

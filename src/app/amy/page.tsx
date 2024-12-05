@@ -9,17 +9,19 @@ import SpotifyWidget from "@/components/SpotifyWidget"
 import VercelBox from "@/components/VercelBox"
 import AnimBg from "@/components/VantaBackground"
 import ThemeSelector from "@/components/ThemeSelector"
+import ThemeToggleGray from "@/components/ThemeToggleGray"
 
 export default function Page() {
   return (
     <div className="space-y-6">
       <h1 className="mb-10 font-medium">This is amy, plz be nice to her</h1>
-      <MainCanvas />
+      {/* <MainCanvas /> */}
       <SpotifyPlayer />
       <MacTerminal />
 
       <ThemeToggleCustom clicked={() => {}} />
       <ThemeSelector />
+      <ThemeToggleGray />
       <SpotifyWidget />
       <VercelBox
         marginTopLeft={[10, 10]}

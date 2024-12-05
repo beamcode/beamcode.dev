@@ -9,7 +9,7 @@ const projects = [
     title: "BetterVoxel",
     date: "In development",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "Rust"],
-    image: "/bettervoxel.png",
+    image: "/images/bettervoxel.png",
     description:
       "A voxel-based game engine that aims to provide a better experience with voxel based games for developers and players.",
     demo_link: "https://bettervoxel.io/",
@@ -18,7 +18,7 @@ const projects = [
     title: "Personal Website",
     date: "07 / 2021",
     technologies: ["Next.js", "TypeScript", "TailwindCSS"],
-    image: "/beamcodedev.png",
+    image: "/images/beamcodedev.png",
     description:
       "A vibrant and dynamic personal website that showcases the best of who I am, highlighting my incredible work, valuable experiences, and infectious enthusiasm.",
     demo_link: "https://beamcode.dev",
@@ -28,7 +28,7 @@ const projects = [
     title: "Bagnole",
     date: "In development",
     technologies: ["Next.js", "TypeScript", "TailwindCSS", "Prisma", "React Native"],
-    image: "/bagnole.png",
+    image: "/images/bagnole.png",
     description:
       "Next generation car meet-up app. Find car events near you, meet new people and share your passion for cars",
     demo_link: "https://bagnoleapp.fr/",
@@ -37,7 +37,7 @@ const projects = [
     title: "BounceMaster",
     date: "04 / 2021",
     technologies: ["Unity", "C#"],
-    image: "/bounceMaster.png",
+    image: "/images/bounceMaster.png",
     description:
       "A 2D platformer game made in Unity. The player controls a ball and must reach the end of the level by bouncing off of platforms and avoiding obstacles.",
     github_link: "https://github.com/beamcode/bounce_master",
@@ -92,7 +92,7 @@ function ProjectCard({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="bg-accent-primary h-fit whitespace-nowrap rounded-full px-2 text-black"
+              className="h-fit whitespace-nowrap rounded-full bg-accent-primary px-2 text-black"
             >
               {tech}
             </span>
@@ -123,7 +123,7 @@ export default function Page() {
       >
         <div className="flex items-center">
           <h1 className="mr-2 text-2xl">{"hey, i'm sam"}</h1>
-          <h1 className="origin-[70%_70%] animate-wave text-2xl hover:animate-wave-hover">👋</h1>
+          <h1 className="origin-[70%_70%] animate-wave text-2xl hover:animate-wave">👋</h1>
         </div>
         {/* <SpotifyWidget /> */}
       </div>

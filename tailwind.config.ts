@@ -74,16 +74,6 @@ const config: Config = {
           "60%": { transform: "rotate(0.0deg)" },
           "100%": { transform: "rotate(0.0deg)" },
         },
-        "wave-animation-hover": {
-          "0%": { transform: "rotate(0.0deg)" },
-          "10%": { transform: "rotate(14.0deg)" },
-          "20%": { transform: "rotate(-8.0deg)" },
-          "30%": { transform: "rotate(14.0deg)" },
-          "40%": { transform: "rotate(-4.0deg)" },
-          "50%": { transform: "rotate(10.0deg)" },
-          "60%": { transform: "rotate(0.0deg)" },
-          "100%": { transform: "rotate(0.0deg)" },
-        },
         fade: {
           "0%, 100%": { opacity: "0" },
           "50%": { opacity: "1" },
@@ -93,7 +83,6 @@ const config: Config = {
       animation: {
         in: "in .6s both",
         wave: "wave-animation 1s",
-        "wave-hover": "wave-animation-hover 1s",
         rainbow: "animate-scrollbar 5s linear infinite",
         "fade-in-out": "fade 1s ease-in-out",
       },
@@ -101,5 +90,6 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animated"), require("@tailwindcss/typography")],
   safelist: [],
-}
+} satisfies Config
+
 export default config

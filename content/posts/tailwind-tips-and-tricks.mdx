@@ -1,0 +1,210 @@
+---
+date: "2024-12-02T11:02:00+09:00"
+title: "TailwindCSS tips and tricks"
+thumbnail: "/images/blog/tailwind-tips-and-tricks/tailwindcss.webp"
+description: "TailwindCSS tips and tricks for better development"
+tags:
+  - TailwindCSS
+  - CSS
+  - Web Development
+---
+
+### Apply a style to all child elements regardless of depth:
+
+```html
+<div class="[&_*]:bg-gray-300">
+    ...
+</div>
+
+<div class="[&_p]:text-red-500">
+  <p>This paragraph will be red.</p>
+  <p>So will this one!</p>
+</div>
+```
+
+### Apply a style to only direct child elements:
+
+```html
+<div class="[&>*]:bg-gray-300">
+  <div>This direct child will have a gray background.</div>
+  <div>
+    <span>This nested element will NOT have a gray background.</span>
+  </div>
+</div>
+
+<div class="[&>p]:text-blue-500">
+  <p>This direct child paragraph will be blue.</p>
+  <div>
+    <p>This nested paragraph will NOT be blue.</p>
+  </div>
+</div>
+```
+
+### Targeting Specific Attributes
+  
+```html
+<div class="[&[data-active='true']]:bg-green-500">
+  This element is styled if it has `data-active="true"`.
+</div>
+```
+
+### Apply any css with arbitrary brackets:
+    
+```html
+<div class="[display:flex]">
+  ...
+</div>
+
+<div class="[&::before]:content-['🔥'] [&::before]:mr-2">
+  Custom content with a flame emoji
+</div>
+
+<div class="[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:bg-blue-500 [&::-webkit-scrollbar-thumb]:rounded-md">
+  Custom scrollbar example
+</div>
+
+<div class="[clip-path:polygon(50%_0%,_100%_100%,_0%_100%)] bg-red-500 w-32 h-32">
+  Custom clipped shape
+</div>
+```
+
+### Combining State and Custom Selectors:
+  
+```html
+<button class="hover:[&>span]:text-green-500">
+  <span>Hover over me!</span>
+</button>
+
+<div class="hover:[&>*]:text-blue-500">
+  <p>This will turn blue on hover.</p>
+</div>
+```
+
+### Target pseudo-elements like ::after or ::before for custom styles:
+
+```html
+<div class="[&::after]:content-['→'] [&::after]:ml-2">
+  Navigate
+</div>
+```
+
+### Custom Keyframes and Animation
+
+```html
+<div class="animate-[wiggle_1s_ease-in-out_infinite]">
+  Wiggling element!
+</div>
+```
+
+```css
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+```
+
+### Target Specific Child Types
+
+```html
+<div class="[&>*:nth-child(2)]:text-red-500">
+  <p>First child</p>
+  <p>Second child (this one is red)</p>
+  <p>Third child</p>
+</div>
+```
+
+### CSS Variables with Arbitrary Values
+
+```html
+<div style="--main-color: #00f;" class="bg-[var(--main-color)]">
+  The background color comes from a custom variable.
+</div>
+```
+
+### Advanced Pseudo-Classes like :focus-within, :first-of-type, :last-child, :has, :not, :is, :where, :matches
+
+```html
+<!-- Focus within -->
+<div class="[&:focus-within]:bg-blue-500 p-4">
+  <input type="text" placeholder="Focus on me!" />
+</div>
+
+<!-- First of type -->
+<div>
+  <p class="[&:first-of-type]:text-red-500">This is the first paragraph (red).</p>
+  <p>Second paragraph (default style).</p>
+</div>
+
+<!-- Last child -->
+<div>
+  <p>First paragraph (default style).</p>
+  <p class="[&:last-child]:text-green-500">This is the last paragraph (green).</p>
+</div>
+
+<!-- Has -->
+<div class="[&:has(p)]:bg-gray-300 p-4">
+  <p>This div has a paragraph inside (gray background).</p>
+</div>
+
+<!-- Not -->
+<div class="[&:not(p)]:bg-gray-300 p-4">
+  This div does not have a paragraph inside (gray background).
+</div>
+
+<!-- Is -->
+<p class="[&:is(p)]:bg-gray-300 p-4">
+  This paragraph has a gray background because it's a paragraph.
+</p>
+
+<!-- Where -->
+<p class="[&:where(p)]:bg-gray-300 p-4">
+  This paragraph has a gray background because it's matched with `where`.
+</p>
+
+<!-- Matches -->
+<p class="[&:matches(p)]:bg-gray-300 p-4">
+  This paragraph has a gray background because it's matched with `matches`.
+</p>
+
+<!-- Combine not -->
+<div class="[&:not(p):not(div)]:bg-gray-300 p-4">
+  This is neither a paragraph nor a div (gray background).
+</div>
+
+<!-- Combine is -->
+<div class="[&:is(p):is(div)]:bg-gray-300 p-4">
+  This is either a paragraph or a div (gray background).
+</div>
+
+<!-- Combine where -->
+<div class="[&:where(p):where(div)]:bg-gray-300 p-4">
+  This is either a paragraph or a div (gray background).
+</div>
+
+```
+
+### Target Specific Sibling Elements with +, ~, and >
+
+```html
+<!-- Adjacent Sibling (+) -->
+<div class="[&>+div]:text-red-500">
+  <div>First sibling (unstyled)</div>
+  <div>Second sibling (this one is red, adjacent to the first)</div>
+  <div>Third sibling (unstyled, not immediately adjacent to another)</div>
+</div>
+
+<!-- General Sibling (~) -->
+<div class="[&~div]:text-blue-500">
+  <div>First sibling (unstyled)</div>
+  <div>Second sibling (blue, general sibling after the first)</div>
+  <div>Third sibling (blue, general sibling after the first)</div>
+</div>
+
+<!-- Direct Child (>) -->
+<div class="[&>div]:text-green-500">
+  <div>Direct child (green)</div>
+  <div>
+    <div>Nested child (unstyled, not a direct child)</div>
+  </div>
+</div>
+```

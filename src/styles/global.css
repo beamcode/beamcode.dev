@@ -56,13 +56,13 @@
 }
 
 .dark {
-  --default-bg: black;
-  --primary-bg: #353535;
+  --default-bg: #1f1f1f;
+  --primary-bg: #303030;
   --secondary-bg: #727272;
   --tertiary-bg: #888888;
 
   --primary-text: white;
-  --secondary-text: #cccccc;
+  --secondary-text: #cbd5e1;
   --tertiary-text: #9e9e9e;
 
   --primary-border: #4b4b4b;
@@ -95,8 +95,8 @@ body::-webkit-scrollbar {
   }
 }
 
-html.dark {
-  @apply bg-default;
+html {
+  @apply bg-default font-sans antialiased;
 }
 
 @font-face {
