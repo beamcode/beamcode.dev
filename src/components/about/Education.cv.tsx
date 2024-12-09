@@ -9,7 +9,7 @@ const educationData = [
   },
   {
     institution: "Epitech, Paris France",
-    date: "2019 - 2024",
+    date: "2019 - 2025",
     description: [
       "Information Technology Expert Title",
       "Master's Degree, learning by practice through projects",

@@ -9,9 +9,9 @@ const experiences = [
   },
   {
     company: "Weel",
-    date: "Apr - Aug 2022 (5 mo)",
+    date: "Mar - Aug 2022 (6 mo)",
     description:
-      "Four-month internship working with React, React Native, and web development projects. I gained experience in teamwork and mobile development. Excellent learning opportunity that helped me grow as a developer.",
+      "Six-month internship working with React, React Native, and web development projects. I gained experience in teamwork and mobile development. Excellent learning opportunity that helped me grow as a developer.",
   },
   {
     company: "Denarius",

@@ -64,7 +64,7 @@ export default function SkillsSection() {
       url: "https://www.linux.org/",
     },
     {
-      name: "MacOS",
+      name: "macOS",
       component: <Macos width={size} key="macos" className="fill-default-svg" />,
       url: "https://www.apple.com/macos/",
     },
