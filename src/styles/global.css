@@ -117,6 +117,10 @@ html {
   @apply bg-default font-sans antialiased;
 }
 
+button {
+  @apply cursor-pointer;
+}
+
 @font-face {
   font-family: "MegaMan";
   font-weight: 400;
