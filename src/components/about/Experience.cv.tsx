@@ -30,7 +30,7 @@ const experiences = [
 export default function ExperienceSection() {
   return (
     <div className="flex w-full flex-col gap-6 md:flex-row">
-      <div className="h-fit w-full rounded-sm bg-primary px-2 md:w-32">
+      <div className="h-fit w-full rounded-xs bg-primary px-2 md:w-32">
         <h1 className="text-xl">Experience</h1>
       </div>
 

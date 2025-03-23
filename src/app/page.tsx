@@ -58,14 +58,14 @@ function ProjectCard({
   }
 }) {
   return (
-    <section className="flex h-full w-full flex-col-reverse gap-2 overflow-hidden rounded-md bg-primary p-1.5 sm:gap-4">
+    <section className="bg-primary flex h-full w-full flex-col-reverse gap-2 overflow-hidden rounded-md p-1.5 sm:gap-4">
       <div className="flex flex-1 flex-col justify-between space-y-3 p-2 sm:pt-0">
         <div className="flex w-full flex-wrap items-center justify-between">
-          <h1 className="break-all text-lg">{title}</h1>
-          <h2 className="text-xs text-secondary">{date}</h2>
+          <h1 className="text-lg break-all">{title}</h1>
+          <h2 className="text-secondary text-xs">{date}</h2>
         </div>
 
-        <p className="z-10 text-sm text-secondary">{description}</p>
+        <p className="text-secondary z-10 text-sm">{description}</p>
 
         <div className="flex flex-wrap gap-5 text-sm">
           {demo_link && (
@@ -92,7 +92,7 @@ function ProjectCard({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="h-fit whitespace-nowrap rounded-full bg-accent-primary px-2 text-black"
+              className="bg-accent-primary h-fit rounded-full px-2 whitespace-nowrap text-black"
             >
               {tech}
             </span>
@@ -100,7 +100,7 @@ function ProjectCard({
         </div>
       </div>
 
-      <div className="relative h-40 cursor-pointer overflow-hidden rounded-md bg-secondary">
+      <div className="bg-secondary relative h-40 cursor-pointer overflow-hidden rounded-md">
         <Image
           src={image}
           alt="Project Image"
@@ -118,17 +118,18 @@ export default function Page() {
   return (
     <Fragment>
       <div
-        className="mb-20 flex animate-in flex-col"
+        className="animate-in mb-20 flex flex-col gap-4"
         style={{ "--index": 0 } as React.CSSProperties}
       >
         <div className="flex items-center">
           <h1 className="mr-2 text-2xl">{"hey, i'm sam"}</h1>
-          <h1 className="origin-[70%_70%] animate-wave text-2xl hover:animate-wave">👋</h1>
+          <h1 className="animate-wave hover:animate-wave origin-[70%_70%] text-2xl">👋</h1>
         </div>
-        {/* <SpotifyWidget /> */}
+
+        <SpotifyWidget />
       </div>
       <div
-        className="flex animate-in flex-col gap-5"
+        className="animate-in flex flex-col gap-5"
         style={{ "--index": 2 } as React.CSSProperties}
       >
         <h2 className="text-xl font-extralight">Projects</h2>

@@ -20,7 +20,7 @@ export default function NavBarFramerMotion() {
   const path = "/" + usePathname().split("/")[1]
 
   return (
-    <ul className="sm:justify-center] flex list-none flex-wrap gap-2">
+    <ul className="flex list-none flex-wrap gap-2 sm:justify-center">
       {links.map((link) => (
         <li key={link.href} className="flex">
           <Link

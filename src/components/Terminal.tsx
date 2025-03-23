@@ -123,7 +123,7 @@ export default function MacTerminal() {
               <div className="flex shrink">
                 <span className="whitespace-pre pb-1">Beam:Devprojects beam$ </span>
                 <input
-                  className="w-full resize-none bg-transparent focus:outline-none"
+                  className="w-full resize-none bg-transparent focus:outline-hidden"
                   placeholder=""
                   name="command"
                   value={command}

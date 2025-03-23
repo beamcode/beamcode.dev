@@ -12,7 +12,7 @@ tags:
 ### Apply a style to all child elements regardless of depth:
 
 ```html
-<div class="[&_*]:bg-gray-300">
+<div class="**:bg-gray-300">
     ...
 </div>
 
@@ -25,7 +25,7 @@ tags:
 ### Apply a style to only direct child elements:
 
 ```html
-<div class="[&>*]:bg-gray-300">
+<div class="*:bg-gray-300">
   <div>This direct child will have a gray background.</div>
   <div>
     <span>This nested element will NOT have a gray background.</span>
@@ -43,7 +43,7 @@ tags:
 ### Targeting Specific Attributes
   
 ```html
-<div class="[&[data-active='true']]:bg-green-500">
+<div class="data-[active='true']:bg-green-500">
   This element is styled if it has `data-active="true"`.
 </div>
 ```
@@ -71,11 +71,11 @@ tags:
 ### Combining State and Custom Selectors:
   
 ```html
-<button class="hover:[&>span]:text-green-500">
+<button class="[&>span]:hover:text-green-500">
   <span>Hover over me!</span>
 </button>
 
-<div class="hover:[&>*]:text-blue-500">
+<div class="*:hover:text-blue-500">
   <p>This will turn blue on hover.</p>
 </div>
 ```
@@ -125,20 +125,20 @@ tags:
 
 ```html
 <!-- Focus within -->
-<div class="[&:focus-within]:bg-blue-500 p-4">
+<div class="focus-within:bg-blue-500 p-4">
   <input type="text" placeholder="Focus on me!" />
 </div>
 
 <!-- First of type -->
 <div>
-  <p class="[&:first-of-type]:text-red-500">This is the first paragraph (red).</p>
+  <p class="first-of-type:text-red-500">This is the first paragraph (red).</p>
   <p>Second paragraph (default style).</p>
 </div>
 
 <!-- Last child -->
 <div>
   <p>First paragraph (default style).</p>
-  <p class="[&:last-child]:text-green-500">This is the last paragraph (green).</p>
+  <p class="last:text-green-500">This is the last paragraph (green).</p>
 </div>
 
 <!-- Has -->

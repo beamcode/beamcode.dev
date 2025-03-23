@@ -45,7 +45,7 @@ export default function ThemeSelector() {
     <div className="relative inline-block text-left" ref={menuRef}>
       <button
         type="button"
-        className={`font-semibol inline-flex w-full justify-center rounded-full p-1 text-sm ${isOpen ? "bg-primary text-primary" : "text-secondary hover:text-primary"}`}
+        className={`font-semibol inline-flex w-full cursor-pointer justify-center rounded-full p-1 text-sm ${isOpen ? "bg-primary text-primary" : "text-secondary hover:text-primary"}`}
         id="menu-button"
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -79,7 +79,7 @@ export default function ThemeSelector() {
       </button>
 
       <ul
-        className={`border-0.5 absolute right-0 z-10 mt-2 w-auto min-w-28 origin-top-right transform rounded-md border-[0.1px] border-primary bg-primary p-2 shadow-xl transition ${isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"} `}
+        className={`border-0.5 border-primary bg-primary absolute right-0 z-10 mt-2 w-auto min-w-28 origin-top-right transform rounded-md border-[0.1px] p-2 shadow-xl transition ${isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"} `}
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="menu-button"
@@ -89,7 +89,7 @@ export default function ThemeSelector() {
           <li key={themeItem.themeId}>
             <button
               type="button"
-              className="flex w-full items-center gap-2 rounded-md p-2 text-left text-sm hover:bg-secondary"
+              className="hover:bg-secondary flex w-full cursor-pointer items-center gap-2 rounded-md p-2 text-left text-sm"
               role="menuitem"
               tabIndex={-1}
               onClick={() => {

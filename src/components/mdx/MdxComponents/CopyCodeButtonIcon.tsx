@@ -8,8 +8,11 @@ function getTextContent(child: ReactNode): string {
     return child // Direct string children
   } else if (Array.isArray(child)) {
     return child.map(getTextContent).join("") // Recursively process array children
-  } else if (child && React.isValidElement(child) && child.props && child.props.children) {
-    return getTextContent(child.props.children) // Recursively dive into component children
+  } else if (child && React.isValidElement(child)) {
+    const element = child as React.ReactElement<{ children?: ReactNode }>
+    if ("children" in element.props) {
+      return getTextContent(element.props.children) // Recursively dive into component children
+    }
   }
   return ""
 }

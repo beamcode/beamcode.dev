@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss"
-import { RecursiveKeyValuePair } from "tailwindcss/types/config"
 
 const config: Config = {
   darkMode: "class",
@@ -89,7 +88,6 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animated"), require("@tailwindcss/typography")],
-  safelist: [],
 } satisfies Config
 
 export default config

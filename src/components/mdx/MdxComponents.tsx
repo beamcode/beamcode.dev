@@ -63,7 +63,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
               }}
             />
             <Image
-              className="absolute m-0 h-full w-full rounded object-contain"
+              className="absolute m-0 h-full w-full rounded-sm object-contain"
               alt={alt || ""}
               src={src || ""}
               width={width ? Number(width) : 0}

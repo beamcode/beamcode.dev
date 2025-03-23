@@ -48,7 +48,7 @@ function ImageGrid({ indexStart }: { indexStart: number }) {
       {imageData.map((image, index) => (
         <div
           key={index}
-          className={`${image.className} relative rounded-lg transition-all duration-300 hover:z-50 hover:scale-110 hover:cursor-pointer hover:!opacity-100 group-hover:opacity-70`}
+          className={`${image.className} relative rounded-lg transition-all duration-300 hover:z-50 hover:scale-110 hover:cursor-pointer hover:opacity-100! group-hover:opacity-70`}
           style={{ "--index": index + indexStart } as React.CSSProperties}
         >
           <Image
@@ -130,14 +130,14 @@ export default function Page() {
         className="flex w-full animate-in flex-col gap-6 md:flex-row"
         style={{ "--index": 1 } as React.CSSProperties}
       >
-        <div className="h-fit w-full rounded-sm bg-primary px-2 md:w-32">
+        <div className="h-fit w-full rounded-xs bg-primary px-2 md:w-32">
           <h1 className="text-xl">Whoami</h1>
         </div>
 
         <div className="flex-1 space-y-4">
           <p className="font-semibold text-primary">
             {"Hi there! I'm "}
-            <span className="bg-gradient-to-r from-red-400 to-yellow-600 bg-clip-text font-extrabold text-transparent">
+            <span className="bg-linear-to-r from-red-400 to-yellow-600 bg-clip-text font-extrabold text-transparent">
               Sam
             </span>
             {", a software engineer and student passionate about various tech fields."}

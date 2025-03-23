@@ -18,7 +18,7 @@ export default function ThemeToggleGray() {
 
   return (
     <div
-      className="h-8 w-12 flex-shrink-0 rounded-full bg-primary p-1"
+      className="h-8 w-12 shrink-0 rounded-full bg-primary p-1"
       onClick={() => {
         toggleTheme()
       }}

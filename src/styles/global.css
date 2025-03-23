@@ -1,97 +1,115 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-.terminal {
-  --test: 25, 5, 0;
-  --default-bg: #000000;
-  --primary-bg: #171717;
-  --secondary-bg: #353535;
-  --tertiary-bg: #757575;
+@config '../../tailwind.config.ts';
 
-  --primary-text: #2cc07d;
-  --secondary-text: #1c7c50;
-  --tertiary-text: #145b3b;
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
 
-  --primary-border: #4b4b4b;
-  --secondary-border: #cccccc;
-  --tertiary-border: #9e9e9e;
-
-  --primary-fill: #171717;
-  --secondary-fill: #353535;
-  --tertiary-fill: #757575;
-
-  --primary-accent: #c652cd;
-  --secondary-accent: #b12d9e;
-  --tertiary-accent: #5b144e;
-
-  --default-svg: white;
-  --default-font: "OCR-A", sans-serif;
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
 }
 
-.light {
-  --default-bg: #ffffff;
-  --primary-bg: #f4f4f4;
-  --secondary-bg: #e4e4e4;
-  --tertiary-bg: #d9d9d9;
-
-  --primary-text: black;
-  --secondary-text: gray;
-  --tertiary-text: #9e9e9e;
-
-  --primary-border: #dadada;
-  --secondary-border: #4c4c4c;
-  --tertiary-border: #313131;
-
-  --primary-fill: #f4f4f4;
-  --secondary-fill: #e4e4e4;
-  --tertiary-fill: #d9d9d9;
-
-  --primary-accent: #f9b916;
-  --secondary-accent: #e3a814;
-  --tertiary-accent: #c6920f;
-
-  --default-svg: black;
-  --default-font: sans-serif;
-}
-
-.dark {
-  --default-bg: #1f1f1f;
-  --primary-bg: #303030;
-  --secondary-bg: #727272;
-  --tertiary-bg: #888888;
-
-  --primary-text: white;
-  --secondary-text: #cbd5e1;
-  --tertiary-text: #9e9e9e;
-
-  --primary-border: #4b4b4b;
-  --secondary-border: #cccccc;
-  --tertiary-border: #9e9e9e;
-
-  --primary-fill: #252525;
-  --secondary-fill: #353535;
-  --tertiary-fill: #757575;
-
-  --primary-accent: #fb8a39;
-  --secondary-accent: #cb6b27;
-  --tertiary-accent: #a04a0d;
-
-  --default-svg: white;
-  --default-font: sans-serif;
-}
-
-body::-webkit-scrollbar {
-  width: 0; /* Width of the scrollbar */
-}
-
-.animate-in {
-  animation-delay: calc(var(--index) * 130ms);
+@utility text-balance {
+  text-wrap: balance;
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .terminal {
+    --test: 25, 5, 0;
+    --default-bg: #000000;
+    --primary-bg: #171717;
+    --secondary-bg: #353535;
+    --tertiary-bg: #757575;
+
+    --primary-text: #2cc07d;
+    --secondary-text: #1c7c50;
+    --tertiary-text: #145b3b;
+
+    --primary-border: #4b4b4b;
+    --secondary-border: #cccccc;
+    --tertiary-border: #9e9e9e;
+
+    --primary-fill: #171717;
+    --secondary-fill: #353535;
+    --tertiary-fill: #757575;
+
+    --primary-accent: #c652cd;
+    --secondary-accent: #b12d9e;
+    --tertiary-accent: #5b144e;
+
+    --default-svg: white;
+    --default-font: "OCR-A", sans-serif;
+  }
+
+  .light {
+    --default-bg: #ffffff;
+    --primary-bg: #f4f4f4;
+    --secondary-bg: #e4e4e4;
+    --tertiary-bg: #d9d9d9;
+
+    --primary-text: black;
+    --secondary-text: gray;
+    --tertiary-text: #9e9e9e;
+
+    --primary-border: #dadada;
+    --secondary-border: #4c4c4c;
+    --tertiary-border: #313131;
+
+    --primary-fill: #f4f4f4;
+    --secondary-fill: #e4e4e4;
+    --tertiary-fill: #d9d9d9;
+
+    --primary-accent: #f9b916;
+    --secondary-accent: #e3a814;
+    --tertiary-accent: #c6920f;
+
+    --default-svg: black;
+    --default-font: sans-serif;
+  }
+
+  .dark {
+    --default-bg: #1f1f1f;
+    --primary-bg: #303030;
+    --secondary-bg: #727272;
+    --tertiary-bg: #888888;
+
+    --primary-text: white;
+    --secondary-text: #cbd5e1;
+    --tertiary-text: #9e9e9e;
+
+    --primary-border: #4b4b4b;
+    --secondary-border: #cccccc;
+    --tertiary-border: #9e9e9e;
+
+    --primary-fill: #252525;
+    --secondary-fill: #353535;
+    --tertiary-fill: #757575;
+
+    --primary-accent: #fb8a39;
+    --secondary-accent: #cb6b27;
+    --tertiary-accent: #a04a0d;
+
+    --default-svg: white;
+    --default-font: sans-serif;
+  }
+
+  body::-webkit-scrollbar {
+    width: 0; /* Width of the scrollbar */
+  }
+
+  .animate-in {
+    animation-delay: calc(var(--index) * 130ms);
   }
 }
 

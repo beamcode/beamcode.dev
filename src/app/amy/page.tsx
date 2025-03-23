@@ -10,6 +10,7 @@ import VercelBox from "@/components/VercelBox"
 import AnimBg from "@/components/VantaBackground"
 import ThemeSelector from "@/components/ThemeSelector"
 import ThemeToggleGray from "@/components/ThemeToggleGray"
+import Calendar from "@/components/Calendar"
 
 export default function Page() {
   return (
@@ -34,6 +35,8 @@ export default function Page() {
           <AnimBg className={"p-2"}>{""}</AnimBg>
         </div>
       </VercelBox>
+
+      <Calendar />
     </div>
   )
 }

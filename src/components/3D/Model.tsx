@@ -10,7 +10,7 @@ interface ModelProps {
 export default function Model({ path }: ModelProps) {
   const fbx = useLoader(FBXLoader, path)
   const modelRef = useRef<THREE.Group>(null)
-  const mixer = useRef<THREE.AnimationMixer>()
+  const mixer = useRef<THREE.AnimationMixer>(null)
 
   useEffect(() => {
     if (fbx.animations.length && modelRef.current) {

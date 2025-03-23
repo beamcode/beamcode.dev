@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react"
 import { twMerge } from "tailwind-merge"
 import Image from "next/image"
+import Link from "next/link"
 import MusicBars from "./musicBars/MusicBars"
-
-const endpoint = "http://localhost:3000/api/spotify/nowplaying"
+import { SquareArrowOutUpRight } from "lucide-react"
 
 interface SpotifyData {
   isPlaying: boolean
@@ -13,23 +13,31 @@ interface SpotifyData {
   albumImageUrl: string
   title: string
   artist: string
+  durationMs: number
+  progressMs: number
 }
 
 export default function SpotifyWidget({ className }: { className?: string }) {
-  const [data, setData] = useState<SpotifyData | undefined>()
-  const [failedAttempts, setFailedAttempts] = useState<number>(0)
+  const [data, setData] = useState<SpotifyData>()
+  const [failedAttempts, setFailedAttempts] = useState(0)
 
-  const fetchData = () => {
-    fetch(endpoint)
-      .then((response) => response.json())
-      .then((json: SpotifyData) => {
-        setData(json)
-        setFailedAttempts(0)
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error)
-        setFailedAttempts((prevAttempts) => prevAttempts + 1)
-      })
+  const fetchData = async () => {
+    try {
+      const res = await fetch("/api/spotify/nowplaying")
+      const json = await res.json()
+      setData(json)
+      setFailedAttempts(0)
+    } catch (error) {
+      console.error("Error fetching data:", error)
+      setFailedAttempts((prev) => prev + 1)
+    }
+  }
+
+  function formatTime(ms: number) {
+    const totalSeconds = Math.floor(ms / 1000)
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = totalSeconds % 60
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`
   }
 
   useEffect(() => {
@@ -40,69 +48,81 @@ export default function SpotifyWidget({ className }: { className?: string }) {
         clearInterval(interval)
       }
     }, 1000)
-
-    return () => {
-      clearInterval(interval)
-    }
+    return () => clearInterval(interval)
   }, [failedAttempts])
 
-  if (failedAttempts >= 3 || !data || !data?.isPlaying) {
-    // Don't render anything if data is undefined
-    return null
-  }
-
   return (
-    <div
+    <Link
+      href={data?.songUrl || "#"}
+      target="_blank"
+      rel="noopener noreferrer"
       className={twMerge(
-        "flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-md border border-primary border-opacity-30 bg-gray-50 p-3 dark:border-opacity-10",
+        "dark:border-opacity-10 group flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-gray-50 p-3 transition-all hover:scale-[1.02] dark:border-zinc-800 dark:bg-zinc-900",
         className
       )}
     >
-      <div className="flex gap-4 max-[332px]:flex-col">
-        <div className="min-h-[64px] min-w-[64px] animate-pulse rounded-md bg-gray-200 dark:bg-gray-600 min-[333px]:h-16 min-[333px]:w-16">
-          {data?.isPlaying && (
-            <a href={data.songUrl} target="_blank" rel="noopener noreferrer">
-              <Image
-                className="hover:-translate-1 rounded-md bg-white object-contain shadow-[0px_0px_10px_1px_rgba(0,0,0,0.1)] duration-300 ease-in-out hover:scale-110"
-                src={data.albumImageUrl}
-                alt=""
-              />
-            </a>
-          )}
-        </div>
-        <div className="flex flex-col justify-between">
-          {data?.isPlaying ? (
-            <div className="">
-              <div className="">
-                <p className="break-keep text-sm font-medium text-gray-900 [overflow-wrap:anywhere] dark:text-white">
-                  {data.title}
-                </p>
-                <p className="text-xs text-secondary">{data.artist}</p>
-              </div>
-              <a
-                className="text-xs text-blue-500 dark:text-blue-400"
-                href={data.songUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Listen on Spotify
-              </a>
-            </div>
-          ) : (
-            <p className="text-sm font-medium text-secondary">Not listening to any music.</p>
-          )}
-        </div>
+      {/* Album Image */}
+      <div
+        className={`aspect-square size-24 rounded-md bg-gray-200 dark:bg-gray-600 ${!data?.isPlaying ? "animate-pulse" : ""}`}
+      >
+        {data?.isPlaying && (
+          <a href={data.songUrl} target="_blank" rel="noopener noreferrer">
+            <Image
+              className="size-full rounded-md object-contain"
+              src={data.albumImageUrl}
+              alt="Album art"
+              sizes="100vw"
+              width={0}
+              height={0}
+            />
+          </a>
+        )}
       </div>
-      <div className="flex w-fit flex-col items-center justify-between">
+
+      {/* Song Info */}
+      <div className="flex w-full flex-col">
+        {data?.isPlaying ? (
+          <div className="flex h-full flex-col justify-between gap-2">
+            <div>
+              <h1 className="text-lg font-medium text-gray-900 dark:text-white">{data.title}</h1>
+              <p className="text-base text-gray-500 dark:text-gray-400">{data.artist}</p>
+            </div>
+            <div className="flex h-fit items-center gap-2">
+              <span className="text-xs text-gray-400">{formatTime(data.progressMs)}</span>
+              <div className="h-1.5 w-full gap-1 rounded-full bg-gray-300 dark:bg-gray-700">
+                <div
+                  className="h-full rounded-full bg-gray-700 transition-all dark:bg-gray-300"
+                  style={{
+                    width: `${(data.progressMs / data.durationMs) * 100}%`,
+                  }}
+                />
+              </div>
+              <span className="text-xs text-gray-400">{formatTime(data.durationMs)}</span>
+            </div>
+          </div>
+        ) : (
+          <div className="flex grow flex-col items-center justify-center">
+            <p className="text-base font-medium text-gray-500 dark:text-gray-400">
+              No music playing
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Spotify Logo and Bars */}
+      <div className="flex max-w-6 flex-col items-center justify-between">
         <Image
-          className="h-7 min-h-[28px] w-7 min-w-[28px] rounded-md object-contain"
-          src="/spotify.png"
+          src="/images/spotify.png"
           alt="Spotify logo"
-          width={28}
-          height={28}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="size-fit object-contain"
         />
         {data?.isPlaying && <MusicBars />}
+
+        <SquareArrowOutUpRight size={20} />
       </div>
-    </div>
+    </Link>
   )
 }

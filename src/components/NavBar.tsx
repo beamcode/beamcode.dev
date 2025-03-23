@@ -45,17 +45,17 @@ export default function NavBar() {
     setCurrentPath(path)
   }
 
-  const updateIndicator = () => {
-    console.log("updateIndicator called")
-    const currentLink = links.find((link) => link.href === path)
-    const currentIndex = currentLink ? links.indexOf(currentLink) : -1
-
-    if (currentIndex !== -1) {
-      handleIndicator(currentIndex, currentLink!.href)
-    }
-  }
-
   useLayoutEffect(() => {
+    const updateIndicator = () => {
+      console.log("updateIndicator called")
+      const currentLink = links.find((link) => link.href === path)
+      const currentIndex = currentLink ? links.indexOf(currentLink) : -1
+
+      if (currentIndex !== -1) {
+        handleIndicator(currentIndex, currentLink!.href)
+      }
+    }
+
     setTimeout(() => {
       updateIndicator()
     }, 1)
@@ -71,7 +71,7 @@ export default function NavBar() {
       <div
         ref={markerRef}
         id="indicator"
-        className="absolute rounded-full bg-primary transition-all duration-500 will-change-auto"
+        className="bg-primary absolute rounded-full transition-all duration-500 will-change-auto"
       />
 
       <ul className="flex list-none flex-wrap gap-1.5 sm:justify-center">
