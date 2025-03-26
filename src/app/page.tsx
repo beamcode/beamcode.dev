@@ -3,6 +3,7 @@ import Image from "next/image"
 import VercelBox from "@/components/VercelBox"
 import SpotifyWidget from "@/components/SpotifyWidget"
 import MacTerminal from "@/components/Terminal"
+import { Disc } from "lucide-react"
 
 const projects = [
   {
@@ -118,7 +119,7 @@ export default function Page() {
   return (
     <Fragment>
       <div
-        className="animate-in mb-20 flex flex-col gap-4"
+        className="animate-in mb-20 flex flex-col gap-20"
         style={{ "--index": 0 } as React.CSSProperties}
       >
         <div className="flex items-center">
@@ -126,7 +127,13 @@ export default function Page() {
           <h1 className="animate-wave hover:animate-wave origin-[70%_70%] text-2xl">👋</h1>
         </div>
 
-        <SpotifyWidget />
+        <div className="flex flex-col gap-3">
+          <h1 className="flex items-center gap-2 text-xl">
+            <Disc />
+            my live spotify status
+          </h1>
+          <SpotifyWidget />
+        </div>
       </div>
       <div
         className="animate-in flex flex-col gap-5"

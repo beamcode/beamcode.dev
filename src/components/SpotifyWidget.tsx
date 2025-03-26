@@ -20,9 +20,12 @@ interface SpotifyData {
 export default function SpotifyWidget({ className }: { className?: string }) {
   const [data, setData] = useState<SpotifyData>()
   const [failedAttempts, setFailedAttempts] = useState(0)
+  const [isLoading, setIsLoading] = useState(true)
+  const [isInitialLoad, setIsInitialLoad] = useState(true)
 
   const fetchData = async () => {
     try {
+      setIsLoading(true)
       const res = await fetch("/api/spotify/nowplaying")
       const json = await res.json()
       setData(json)
@@ -30,6 +33,9 @@ export default function SpotifyWidget({ className }: { className?: string }) {
     } catch (error) {
       console.error("Error fetching data:", error)
       setFailedAttempts((prev) => prev + 1)
+    } finally {
+      setIsLoading(false)
+      setIsInitialLoad(false)
     }
   }
 
@@ -47,82 +53,119 @@ export default function SpotifyWidget({ className }: { className?: string }) {
       } else {
         clearInterval(interval)
       }
-    }, 1000)
+    }, 2000)
     return () => clearInterval(interval)
   }, [failedAttempts])
 
   return (
-    <Link
-      href={data?.songUrl || "#"}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={twMerge(
-        "dark:border-opacity-10 group flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-gray-50 p-3 transition-all hover:scale-[1.02] dark:border-zinc-800 dark:bg-zinc-900",
-        className
-      )}
-    >
-      {/* Album Image */}
-      <div
-        className={`aspect-square size-24 rounded-md bg-gray-200 dark:bg-gray-600 ${!data?.isPlaying ? "animate-pulse" : ""}`}
-      >
-        {data?.isPlaying && (
-          <a href={data.songUrl} target="_blank" rel="noopener noreferrer">
+    <>
+      {data?.isPlaying ? (
+        <Link
+          href={data.songUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={twMerge(
+            "dark:border-opacity-10 group flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-gray-50 p-3 transition-all hover:scale-[1.02] dark:border-zinc-800 dark:bg-zinc-900",
+            className
+          )}
+        >
+          {/* Album Image */}
+          <div className="aspect-square size-24 rounded-md bg-gray-200 dark:bg-gray-600">
+            <a href={data.songUrl} target="_blank" rel="noopener noreferrer">
+              <Image
+                className="size-full rounded-md object-contain"
+                src={data.albumImageUrl}
+                alt="Album art"
+                sizes="100vw"
+                width={0}
+                height={0}
+              />
+            </a>
+          </div>
+
+          {/* Song Info */}
+          <div className="flex w-full flex-col">
+            <div className="flex h-full flex-col justify-between gap-2">
+              <div>
+                <h1 className="text-lg font-medium text-gray-900 dark:text-white">{data.title}</h1>
+                <p className="text-base text-gray-500 dark:text-gray-400">{data.artist}</p>
+              </div>
+              <div className="flex h-fit items-center gap-2">
+                <span className="text-xs text-gray-400">{formatTime(data.progressMs)}</span>
+                <div className="h-1.5 w-full gap-1 rounded-full bg-gray-300 dark:bg-gray-700">
+                  <div
+                    className="h-full rounded-full bg-gray-700 transition-all dark:bg-gray-300"
+                    style={{
+                      width: `${(data.progressMs / data.durationMs) * 100}%`,
+                    }}
+                  />
+                </div>
+                <span className="text-xs text-gray-400">{formatTime(data.durationMs)}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Spotify Logo and Bars */}
+          <div className="flex max-w-6 flex-col items-center justify-between">
             <Image
-              className="size-full rounded-md object-contain"
-              src={data.albumImageUrl}
-              alt="Album art"
-              sizes="100vw"
+              src="/images/spotify.png"
+              alt="Spotify logo"
               width={0}
               height={0}
+              sizes="100vw"
+              className="size-fit object-contain"
             />
-          </a>
-        )}
-      </div>
+            <MusicBars />
+            <SquareArrowOutUpRight size={20} />
+          </div>
+        </Link>
+      ) : (
+        <div
+          className={twMerge(
+            "dark:border-opacity-10 flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-gray-50 p-3 dark:border-zinc-800 dark:bg-zinc-900",
+            className
+          )}
+        >
+          {/* Album Image */}
+          <div className="aspect-square size-24 rounded-md bg-gray-200 dark:bg-gray-600" />
 
-      {/* Song Info */}
-      <div className="flex w-full flex-col">
-        {data?.isPlaying ? (
-          <div className="flex h-full flex-col justify-between gap-2">
-            <div>
-              <h1 className="text-lg font-medium text-gray-900 dark:text-white">{data.title}</h1>
-              <p className="text-base text-gray-500 dark:text-gray-400">{data.artist}</p>
-            </div>
-            <div className="flex h-fit items-center gap-2">
-              <span className="text-xs text-gray-400">{formatTime(data.progressMs)}</span>
-              <div className="h-1.5 w-full gap-1 rounded-full bg-gray-300 dark:bg-gray-700">
-                <div
-                  className="h-full rounded-full bg-gray-700 transition-all dark:bg-gray-300"
-                  style={{
-                    width: `${(data.progressMs / data.durationMs) * 100}%`,
-                  }}
-                />
+          {/* Song Info */}
+          <div className="flex w-full flex-col">
+            {isInitialLoad && isLoading ? (
+              <div className="flex h-full flex-col justify-between gap-2">
+                <div className="space-y-2">
+                  <div className="h-6 w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-5 w-32 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                </div>
+                <div className="flex h-fit items-center gap-2">
+                  <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-1.5 w-full animate-pulse rounded-full bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                </div>
               </div>
-              <span className="text-xs text-gray-400">{formatTime(data.durationMs)}</span>
-            </div>
+            ) : (
+              <div className="flex grow flex-col items-center justify-center">
+                <p className="text-base font-medium text-gray-500 dark:text-gray-400">
+                  Music paused.
+                </p>
+              </div>
+            )}
           </div>
-        ) : (
-          <div className="flex grow flex-col items-center justify-center">
-            <p className="text-base font-medium text-gray-500 dark:text-gray-400">
-              No music playing
-            </p>
+
+          {/* Spotify Logo */}
+          <div className="flex max-w-6 flex-col items-center justify-between">
+            <Image
+              src="/images/spotify.png"
+              alt="Spotify logo"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="size-fit object-contain"
+            />
+            <SquareArrowOutUpRight size={20} />
           </div>
-        )}
-      </div>
-
-      {/* Spotify Logo and Bars */}
-      <div className="flex max-w-6 flex-col items-center justify-between">
-        <Image
-          src="/images/spotify.png"
-          alt="Spotify logo"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="size-fit object-contain"
-        />
-        {data?.isPlaying && <MusicBars />}
-
-        <SquareArrowOutUpRight size={20} />
-      </div>
-    </Link>
+        </div>
+      )}
+    </>
   )
 }
