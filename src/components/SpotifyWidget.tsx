@@ -129,13 +129,13 @@ export default function SpotifyWidget({ className }: { className?: string }) {
           {/* Album Image */}
           <div className="aspect-square size-24 rounded-md bg-gray-200 dark:bg-gray-600" />
 
-          {/* Song Info */}
+          {/* Skeleton */}
           <div className="flex w-full flex-col">
-            {isInitialLoad && isLoading ? (
+            {1 ? (
               <div className="flex h-full flex-col justify-between gap-2">
                 <div className="space-y-2">
-                  <div className="h-6 w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
-                  <div className="h-5 w-32 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-6 max-w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+                  <div className="h-5 max-w-32 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                 </div>
                 <div className="flex h-fit items-center gap-2">
                   <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
@@ -162,7 +162,11 @@ export default function SpotifyWidget({ className }: { className?: string }) {
               sizes="100vw"
               className="size-fit object-contain"
             />
-            <SquareArrowOutUpRight size={20} />
+            {isInitialLoad && isLoading ? (
+              <SquareArrowOutUpRight size={20} />
+            ) : (
+              <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
+            )}
           </div>
         </div>
       )}
