@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "@/styles/global.css"
+import { Analytics } from "@vercel/analytics/react"
 
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
@@ -21,11 +22,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="font-default text-primary" suppressHydrationWarning>
         <Providers>
           <Header />
-          <main className="mx-auto max-w-[700px] px-4 pb-24 pt-10 md:px-6 md:pb-44 md:pt-20">
+          <main className="mx-auto max-w-[700px] px-4 pt-10 pb-24 md:px-6 md:pt-20 md:pb-44">
             {children}
           </main>
           {/* <Footer /> */}
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
