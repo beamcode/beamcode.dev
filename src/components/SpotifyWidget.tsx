@@ -131,13 +131,13 @@ export default function SpotifyWidget({ className }: { className?: string }) {
 
           {/* Skeleton */}
           <div className="flex w-full flex-col">
-            {1 ? (
+            {isInitialLoad && isLoading ? (
               <div className="flex h-full flex-col justify-between gap-2">
                 <div className="space-y-2">
                   <div className="h-6 max-w-48 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                   <div className="h-5 max-w-32 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                 </div>
-                <div className="flex h-fit items-center gap-2">
+                <div className="flex h-fit items-center gap-2 overflow-hidden">
                   <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
                   <div className="h-1.5 w-full animate-pulse rounded-full bg-gray-200 dark:bg-gray-700" />
                   <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
@@ -162,11 +162,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
               sizes="100vw"
               className="size-fit object-contain"
             />
-            {isInitialLoad && isLoading ? (
-              <SquareArrowOutUpRight size={20} />
-            ) : (
-              <div className="h-4 w-12 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
-            )}
+            {isInitialLoad && !isLoading && <SquareArrowOutUpRight size={20} />}
           </div>
         </div>
       )}
