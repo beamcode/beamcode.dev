@@ -20,7 +20,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children, ...props }) => (
       <p
         {...props}
-        className="rounded-md [&_strong]:rounded-[0.25rem] [&_strong]:bg-primary [&_strong]:px-1 [&_strong]:py-0.5 [&_strong]:text-accent-primary"
+        className="[&_strong]:bg-primary [&_strong]:text-accent-primary rounded-md [&_strong]:rounded-[0.25rem] [&_strong]:px-1 [&_strong]:py-0.5"
       >
         {children}
       </p>
@@ -31,50 +31,35 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h4: heading("h4"),
     h5: heading("h5"),
     h6: heading("h6"),
-    img: ({ alt, title, src, width, height, ...props }) => (
-      <>
-        {title ? (
-          <figure className="my-10">
-            <div className="relative flex max-h-[80vh] min-h-[4rem] w-full justify-center overflow-hidden rounded-md bg-primary">
-              <div
-                className="absolute inset-0 z-0 bg-cover bg-center blur-md filter"
-                style={{
-                  backgroundImage: `url(${src})`,
-                }}
-              />
-              <Image
-                alt={alt || ""}
-                src={src || ""}
-                width={width ? Number(width) : 0}
-                height={height ? Number(height) : 0}
-                sizes="100vw"
-                className="z-10 m-0 grow object-contain"
-                {...props}
-              />
-            </div>
-            <figcaption className="mt-2 text-sm text-gray-500">{title}</figcaption>
-          </figure>
-        ) : (
-          <div className="relative my-10 h-[30rem] w-full overflow-hidden rounded-md bg-primary">
-            <div
-              className="absolute inset-0 bg-cover bg-center blur-md filter"
-              style={{
-                backgroundImage: `url(${src})`,
-              }}
-            />
-            <Image
-              className="absolute m-0 h-full w-full rounded-sm object-contain"
-              alt={alt || ""}
-              src={src || ""}
-              width={width ? Number(width) : 0}
-              height={height ? Number(height) : 0}
-              sizes="100vw"
-              {...props}
-            />
-          </div>
-        )}
-      </>
-    ),
+    img: ({ alt = "", title, src = "", width, height, ...props }) => {
+      const imgElement = (
+        <div className="bg-primary relative flex w-full justify-center overflow-hidden rounded-md">
+          <div
+            className="absolute inset-0 z-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${src})` }}
+          />
+          <div className="absolute inset-0 z-10 backdrop-blur-xl" />
+          <Image
+            src={src}
+            alt={alt}
+            width={width ? Number(width) : 0}
+            height={height ? Number(height) : 0}
+            sizes="100vw"
+            className="z-20 !m-0 h-auto max-h-[30rem] w-auto object-contain"
+            {...props}
+          />
+        </div>
+      )
+
+      return title ? (
+        <figure>
+          {imgElement}
+          <figcaption className="mt-2 text-sm text-gray-500">{title}</figcaption>
+        </figure>
+      ) : (
+        imgElement
+      )
+    },
     pre: ({ children, ...props }) => <CodeBlock {...props}>{children}</CodeBlock>,
     Info: ({ children, ...props }) => <Information {...props}>{children}</Information>,
     Link: Link,
