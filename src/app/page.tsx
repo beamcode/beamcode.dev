@@ -128,8 +128,8 @@ export default function Page() {
         </div>
 
         <div className="flex flex-col gap-3">
-          <h1 className="flex items-center gap-2 text-xl">
-            <Disc />
+          <h1 className="flex items-center gap-2 text-lg">
+            <Disc size={18} className="mt-0.5 text-green-500" />
             my live spotify status
           </h1>
           <SpotifyWidget />

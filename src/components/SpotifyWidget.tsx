@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { twMerge } from "tailwind-merge"
 import Image from "next/image"
 import Link from "next/link"
@@ -22,6 +22,9 @@ export default function SpotifyWidget({ className }: { className?: string }) {
   const [failedAttempts, setFailedAttempts] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
   const [isInitialLoad, setIsInitialLoad] = useState(true)
+  const [currentProgress, setCurrentProgress] = useState(0)
+  const progressInterval = useRef<NodeJS.Timeout | null>(null)
+  const lastUpdateTime = useRef<number>(0)
 
   const fetchData = async () => {
     try {
@@ -29,6 +32,13 @@ export default function SpotifyWidget({ className }: { className?: string }) {
       const res = await fetch("/api/spotify/nowplaying")
       const json = await res.json()
       setData(json)
+
+      // Sync the current progress with the API data
+      if (json.isPlaying) {
+        setCurrentProgress(json.progressMs)
+        lastUpdateTime.current = Date.now()
+      }
+
       setFailedAttempts(0)
     } catch (error) {
       console.error("Error fetching data:", error)
@@ -46,6 +56,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`
   }
 
+  // Effect for API data fetching
   useEffect(() => {
     const interval = setInterval(() => {
       if (failedAttempts < 3) {
@@ -56,6 +67,52 @@ export default function SpotifyWidget({ className }: { className?: string }) {
     }, 2000)
     return () => clearInterval(interval)
   }, [failedAttempts])
+
+  // Effect for progress bar ticking
+  useEffect(() => {
+    if (data?.isPlaying) {
+      // Clear any existing interval
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current)
+      }
+
+      // Set up the interval to update progress every 100ms
+      progressInterval.current = setInterval(() => {
+        const now = Date.now()
+        const timePassed = now - lastUpdateTime.current
+        lastUpdateTime.current = now
+
+        setCurrentProgress((prev) => {
+          // Calculate new progress
+          const newProgress = prev + timePassed
+
+          // Reset if we've reached the song duration
+          if (newProgress >= data.durationMs) {
+            return data.durationMs
+          }
+
+          return newProgress
+        })
+      }, 100)
+    } else {
+      // Clear the interval when not playing
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current)
+        progressInterval.current = null
+      }
+    }
+
+    // Cleanup on unmount
+    return () => {
+      if (progressInterval.current) {
+        clearInterval(progressInterval.current)
+        progressInterval.current = null
+      }
+    }
+  }, [data])
+
+  // Calculate the progress percentage
+  const progressPercentage = data?.isPlaying ? (currentProgress / (data?.durationMs || 1)) * 100 : 0
 
   return (
     <>
@@ -71,16 +128,14 @@ export default function SpotifyWidget({ className }: { className?: string }) {
         >
           {/* Album Image */}
           <div className="aspect-square size-24 rounded-md bg-gray-200 dark:bg-gray-600">
-            <a href={data.songUrl} target="_blank" rel="noopener noreferrer">
-              <Image
-                className="size-full rounded-md object-contain"
-                src={data.albumImageUrl}
-                alt="Album art"
-                sizes="100vw"
-                width={0}
-                height={0}
-              />
-            </a>
+            <Image
+              className="size-full rounded-md object-contain"
+              src={data.albumImageUrl}
+              alt="Album art"
+              sizes="100vw"
+              width={0}
+              height={0}
+            />
           </div>
 
           {/* Song Info */}
@@ -91,12 +146,12 @@ export default function SpotifyWidget({ className }: { className?: string }) {
                 <p className="text-base text-gray-500 dark:text-gray-400">{data.artist}</p>
               </div>
               <div className="flex h-fit items-center gap-2">
-                <span className="text-xs text-gray-400">{formatTime(data.progressMs)}</span>
+                <span className="text-xs text-gray-400">{formatTime(currentProgress)}</span>
                 <div className="h-1.5 w-full gap-1 rounded-full bg-gray-300 dark:bg-gray-700">
                   <div
                     className="h-full rounded-full bg-gray-700 transition-all dark:bg-gray-300"
                     style={{
-                      width: `${(data.progressMs / data.durationMs) * 100}%`,
+                      width: `${progressPercentage}%`,
                     }}
                   />
                 </div>
@@ -106,7 +161,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
           </div>
 
           {/* Spotify Logo and Bars */}
-          <div className="flex max-w-6 flex-col items-center justify-between">
+          <div className="flex max-w-5 flex-col items-center justify-between">
             <Image
               src="/images/spotify.png"
               alt="Spotify logo"
