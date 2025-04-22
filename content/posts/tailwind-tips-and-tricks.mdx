@@ -12,9 +12,7 @@ tags:
 ### Apply a style to all child elements regardless of depth:
 
 ```html
-<div class="**:bg-gray-300">
-    ...
-</div>
+<div class="**:bg-gray-300">...</div>
 
 <div class="[&_p]:text-red-500">
   <p>This paragraph will be red.</p>
@@ -41,35 +39,27 @@ tags:
 ```
 
 ### Targeting Specific Attributes
-  
+
 ```html
-<div class="data-[active='true']:bg-green-500">
-  This element is styled if it has `data-active="true"`.
-</div>
+<div class="data-[active='true']:bg-green-500">This element is styled if it has `data-active="true"`.</div>
 ```
 
 ### Apply any css with arbitrary brackets:
-    
+
 ```html
-<div class="[display:flex]">
-  ...
-</div>
+<div class="[display:flex]">...</div>
 
-<div class="[&::before]:content-['🔥'] [&::before]:mr-2">
-  Custom content with a flame emoji
-</div>
+<div class="[&::before]:mr-2 [&::before]:content-['🔥']">Custom content with a flame emoji</div>
 
-<div class="[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:bg-blue-500 [&::-webkit-scrollbar-thumb]:rounded-md">
+<div class="[&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-blue-500">
   Custom scrollbar example
 </div>
 
-<div class="[clip-path:polygon(50%_0%,_100%_100%,_0%_100%)] bg-red-500 w-32 h-32">
-  Custom clipped shape
-</div>
+<div class="h-32 w-32 bg-red-500 [clip-path:polygon(50%_0%,_100%_100%,_0%_100%)]">Custom clipped shape</div>
 ```
 
 ### Combining State and Custom Selectors:
-  
+
 ```html
 <button class="[&>span]:hover:text-green-500">
   <span>Hover over me!</span>
@@ -83,23 +73,24 @@ tags:
 ### Target pseudo-elements like ::after or ::before for custom styles:
 
 ```html
-<div class="[&::after]:content-['→'] [&::after]:ml-2">
-  Navigate
-</div>
+<div class="[&::after]:ml-2 [&::after]:content-['→']">Navigate</div>
 ```
 
 ### Custom Keyframes and Animation
 
 ```html
-<div class="animate-[wiggle_1s_ease-in-out_infinite]">
-  Wiggling element!
-</div>
+<div class="animate-[wiggle_1s_ease-in-out_infinite]">Wiggling element!</div>
 ```
 
 ```css
 @keyframes wiggle {
-  0%, 100% { transform: rotate(-3deg); }
-  50% { transform: rotate(3deg); }
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
 }
 ```
 
@@ -116,16 +107,14 @@ tags:
 ### CSS Variables with Arbitrary Values
 
 ```html
-<div style="--main-color: #00f;" class="bg-[var(--main-color)]">
-  The background color comes from a custom variable.
-</div>
+<div style="--main-color: #00f;" class="bg-[var(--main-color)]">The background color comes from a custom variable.</div>
 ```
 
 ### Advanced Pseudo-Classes like :focus-within, :first-of-type, :last-child, :has, :not, :is, :where, :matches
 
 ```html
 <!-- Focus within -->
-<div class="focus-within:bg-blue-500 p-4">
+<div class="p-4 focus-within:bg-blue-500">
   <input type="text" placeholder="Focus on me!" />
 </div>
 
@@ -142,45 +131,30 @@ tags:
 </div>
 
 <!-- Has -->
-<div class="[&:has(p)]:bg-gray-300 p-4">
+<div class="p-4 [&:has(p)]:bg-gray-300">
   <p>This div has a paragraph inside (gray background).</p>
 </div>
 
 <!-- Not -->
-<div class="[&:not(p)]:bg-gray-300 p-4">
-  This div does not have a paragraph inside (gray background).
-</div>
+<div class="p-4 [&:not(p)]:bg-gray-300">This div does not have a paragraph inside (gray background).</div>
 
 <!-- Is -->
-<p class="[&:is(p)]:bg-gray-300 p-4">
-  This paragraph has a gray background because it's a paragraph.
-</p>
+<p class="p-4 [&:is(p)]:bg-gray-300">This paragraph has a gray background because it's a paragraph.</p>
 
 <!-- Where -->
-<p class="[&:where(p)]:bg-gray-300 p-4">
-  This paragraph has a gray background because it's matched with `where`.
-</p>
+<p class="p-4 [&:where(p)]:bg-gray-300">This paragraph has a gray background because it's matched with `where`.</p>
 
 <!-- Matches -->
-<p class="[&:matches(p)]:bg-gray-300 p-4">
-  This paragraph has a gray background because it's matched with `matches`.
-</p>
+<p class="p-4 [&:matches(p)]:bg-gray-300">This paragraph has a gray background because it's matched with `matches`.</p>
 
 <!-- Combine not -->
-<div class="[&:not(p):not(div)]:bg-gray-300 p-4">
-  This is neither a paragraph nor a div (gray background).
-</div>
+<div class="p-4 [&:not(p):not(div)]:bg-gray-300">This is neither a paragraph nor a div (gray background).</div>
 
 <!-- Combine is -->
-<div class="[&:is(p):is(div)]:bg-gray-300 p-4">
-  This is either a paragraph or a div (gray background).
-</div>
+<div class="p-4 [&:is(p):is(div)]:bg-gray-300">This is either a paragraph or a div (gray background).</div>
 
 <!-- Combine where -->
-<div class="[&:where(p):where(div)]:bg-gray-300 p-4">
-  This is either a paragraph or a div (gray background).
-</div>
-
+<div class="p-4 [&:where(p):where(div)]:bg-gray-300">This is either a paragraph or a div (gray background).</div>
 ```
 
 ### Target Specific Sibling Elements with +, ~, and >

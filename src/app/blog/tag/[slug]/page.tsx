@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   return (
     <div>
       <div className="mb-8">
-        <h1 className="mb-2 animate-in">
+        <h1 className="animate-in mb-2">
           {posts.length} {posts.length == 1 ? "post" : "posts"} tagged with
           <span className="font-bold">{` "${slug}"`}</span>
         </h1>

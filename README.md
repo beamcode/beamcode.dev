@@ -27,5 +27,4 @@ npm run dev
 
 ## TODO
 
-Make a codepen for ui stuff
-Passthrough opacity to custom colors
+Make a codepen for ui stuff Passthrough opacity to custom colors

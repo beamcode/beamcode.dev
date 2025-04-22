@@ -25,24 +25,24 @@ export default function MacTerminal() {
   function checkCommands() {
     var toAdd = []
 
-    toAdd.push(<span className="break-all pb-1">Beam:Devprojects beam$ {command}</span>)
+    toAdd.push(<span className="pb-1 break-all">Beam:Devprojects beam$ {command}</span>)
     if (command === "clear" || command === "cl") {
       setHistory([])
       setCommand("")
       setCleared(true)
       return
-    } else if (command === "whoami") toAdd.push(<span className="break-all pb-1">carrots</span>)
+    } else if (command === "whoami") toAdd.push(<span className="pb-1 break-all">carrots</span>)
     else if (command === "mathieu")
-      toAdd.push(<span className="break-all pb-1">Mathieu suce des gros chibre</span>)
+      toAdd.push(<span className="pb-1 break-all">Mathieu suce des gros chibre</span>)
     else if (command.indexOf("cd ", 0) === 0 || command === "cd")
-      toAdd.push(<span className="break-all pb-1">error: this thing is still in dev</span>)
+      toAdd.push(<span className="pb-1 break-all">error: this thing is still in dev</span>)
     else if (command === "ls") {
       toAdd.push(
-        <span className="whitespace-pre break-all pb-1">secret_stuff archive.zip docs</span>
+        <span className="pb-1 break-all whitespace-pre">secret_stuff archive.zip docs</span>
       )
-      toAdd.push(<span className="whitespace-pre break-all pb-1">pics .ssh</span>)
+      toAdd.push(<span className="pb-1 break-all whitespace-pre">pics .ssh</span>)
     } else if (command && command.trim().length) {
-      toAdd.push(<span className="break-all pb-1">zsh: command not found: {command}</span>)
+      toAdd.push(<span className="pb-1 break-all">zsh: command not found: {command}</span>)
     }
     // console.log(command);
     setCommand("")
@@ -118,10 +118,10 @@ export default function MacTerminal() {
             </div>
           </div>
 
-          <div className="relative flex grow overflow-y-scroll rounded-b-lg bg-[#242423] bg-opacity-70 subpixel-antialiased shadow-md dark:bg-[black]">
+          <div className="bg-opacity-70 relative flex grow overflow-y-scroll rounded-b-lg bg-[#242423] subpixel-antialiased shadow-md dark:bg-[black]">
             <div className="absolute flex h-fit w-full flex-col-reverse overflow-y-scroll p-1 font-mono text-xs text-green-200">
               <div className="flex shrink">
-                <span className="whitespace-pre pb-1">Beam:Devprojects beam$ </span>
+                <span className="pb-1 whitespace-pre">Beam:Devprojects beam$ </span>
                 <input
                   className="w-full resize-none bg-transparent focus:outline-hidden"
                   placeholder=""

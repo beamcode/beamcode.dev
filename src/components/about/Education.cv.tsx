@@ -29,7 +29,7 @@ const educationData = [
 export default function EducationSection() {
   return (
     <div className="flex w-full flex-col gap-6 md:flex-row">
-      <div className="h-fit w-full rounded-xs bg-primary px-2 md:w-32">
+      <div className="bg-primary h-fit w-full rounded-xs px-2 md:w-32">
         <h1 className="text-xl">Education</h1>
       </div>
 
@@ -39,10 +39,10 @@ export default function EducationSection() {
             <h3 className="flex w-fit flex-wrap items-center text-lg font-semibold">
               {education.institution}
             </h3>
-            <time className="mb-2 block w-fit text-sm font-normal leading-none text-primary dark:text-stone-400">
+            <time className="text-primary mb-2 block w-fit text-sm leading-none font-normal dark:text-stone-400">
               {education.date}
             </time>
-            <div className="text-base font-normal text-secondary">
+            <div className="text-secondary text-base font-normal">
               {Array.isArray(education.description) ? (
                 <ul>
                   {education.description.map((desc, i) => (

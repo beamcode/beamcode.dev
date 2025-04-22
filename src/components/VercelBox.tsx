@@ -20,14 +20,14 @@ export default function VercelBox({
   return (
     <div className="relative">
       {/* Top Left */}
-      <span className="absolute z-10 h-px w-2 -translate-x-[calc(50%-0.5px)] bg-tertiary" />
-      <span className="absolute z-10 h-2 w-px -translate-y-[calc(50%-0.5px)] bg-tertiary" />
+      <span className="bg-tertiary absolute z-10 h-px w-2 -translate-x-[calc(50%-0.5px)]" />
+      <span className="bg-tertiary absolute z-10 h-2 w-px -translate-y-[calc(50%-0.5px)]" />
       {/* Top Right */}
       {/* <span className="absolute right-0 z-20 translate-x-[calc(50%-0.5px)] w-2 h-px bg-tertiary" />
       <span className="absolute right-0 z-20 -translate-y-[calc(50%-0.5px)] h-2 w-px bg-tertiary" /> */}
       {/* Bottom Left */}
-      <span className="absolute bottom-0 right-0 z-10 h-px w-2 translate-x-[calc(50%-0.5px)] bg-tertiary" />
-      <span className="absolute bottom-0 right-0 z-10 h-2 w-px translate-y-[calc(50%-0.5px)] bg-tertiary" />
+      <span className="bg-tertiary absolute right-0 bottom-0 z-10 h-px w-2 translate-x-[calc(50%-0.5px)]" />
+      <span className="bg-tertiary absolute right-0 bottom-0 z-10 h-2 w-px translate-y-[calc(50%-0.5px)]" />
       {/* Bottom Right */}
       {/* <span className="absolute bottom-0 z-20 -translate-x-[calc(50%-0.5px)] w-2 h-px bg-tertiary" />
       <span className="absolute bottom-0 z-20 translate-y-[calc(50%-0.5px)] h-2 w-px bg-tertiary" /> */}

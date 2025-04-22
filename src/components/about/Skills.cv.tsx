@@ -87,7 +87,7 @@ export default function SkillsSection() {
 
   return (
     <div className="flex w-full flex-col gap-6 md:flex-row">
-      <div className="h-fit w-full rounded-xs bg-primary px-2 md:w-32">
+      <div className="bg-primary h-fit w-full rounded-xs px-2 md:w-32">
         <h1 className="text-xl">Skills</h1>
       </div>
 
@@ -103,7 +103,7 @@ export default function SkillsSection() {
             <h3 className="flex items-center text-lg font-semibold">React/React Native</h3>
           </div>
 
-          <p className="text-base font-normal text-secondary">
+          <p className="text-secondary text-base font-normal">
             Development of various projects including responsive web-apps (dashboards, landing
             pages) and mobile apps using the React library.
           </p>
@@ -115,7 +115,7 @@ export default function SkillsSection() {
             <Cpp width={20} />
           </div>
 
-          <p className="text-base font-normal text-secondary">
+          <p className="text-secondary text-base font-normal">
             3 years of C and C++ development through various projects including algorithms and game
             development.
           </p>
@@ -123,9 +123,9 @@ export default function SkillsSection() {
 
         <li>
           <div className="mb-1 flex flex-col gap-1">
-            <h3 className="flex items-center whitespace-pre text-lg font-semibold">Languages</h3>
+            <h3 className="flex items-center text-lg font-semibold whitespace-pre">Languages</h3>
 
-            <div className="flex gap-1 text-base font-normal text-secondary">
+            <div className="text-secondary flex gap-1 text-base font-normal">
               <p>Bilingual proficiency in</p>
 
               <h3 className="font-semibold text-blue-500">French</h3>
@@ -170,7 +170,7 @@ export default function SkillsSection() {
               target="_blank"
               rel="noopener noreferrer"
               href={language.url}
-              className="group inline-flex cursor-pointer items-center rounded-[4px] bg-primary px-1.5 py-0.5 transition-all duration-300 hover:bg-secondary"
+              className="group bg-primary hover:bg-secondary inline-flex cursor-pointer items-center rounded-[4px] px-1.5 py-0.5 transition-all duration-300"
             >
               <span className="text-md mr-2 flex font-normal">{language.name}</span>
               {language.component}

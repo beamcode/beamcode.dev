@@ -24,7 +24,7 @@ export default function Tags({
             key={tag}
             className={twMerge(
               commonClasses,
-              "flex flex-nowrap items-center gap-1 font-medium transition-transform duration-300 hover:scale-105 hover:bg-accent-secondary",
+              "hover:bg-accent-secondary flex flex-nowrap items-center gap-1 font-medium transition-transform duration-300 hover:scale-105",
               className
             )}
           >

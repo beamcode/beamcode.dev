@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   if (!post) return notFound()
 
   return (
-    <div className="relative flex animate-in flex-col">
+    <div className="animate-in relative flex flex-col">
       <PostHeader post={post} />
       <Post>{post.body}</Post>
 

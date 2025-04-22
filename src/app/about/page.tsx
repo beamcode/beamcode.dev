@@ -48,7 +48,7 @@ function ImageGrid({ indexStart }: { indexStart: number }) {
       {imageData.map((image, index) => (
         <div
           key={index}
-          className={`${image.className} relative rounded-lg transition-all duration-300 hover:z-50 hover:scale-110 hover:cursor-pointer hover:opacity-100! group-hover:opacity-70`}
+          className={`${image.className} relative rounded-lg transition-all duration-300 group-hover:opacity-70 hover:z-50 hover:scale-110 hover:cursor-pointer hover:opacity-100!`}
           style={{ "--index": index + indexStart } as React.CSSProperties}
         >
           <Image
@@ -56,7 +56,7 @@ function ImageGrid({ indexStart }: { indexStart: number }) {
             alt={image.alt}
             fetchPriority="high"
             decoding="async"
-            className={`absolute size-full animate-in rounded-md bg-primary object-cover ${
+            className={`animate-in bg-primary absolute size-full rounded-md object-cover ${
               image.objectPosition || ""
             }`}
             width={0}
@@ -88,11 +88,11 @@ function ContactButton() {
   }
 
   return (
-    <section className="flex flex-wrap justify-between gap-5 text-primary">
+    <section className="text-primary flex flex-wrap justify-between gap-5">
       <ul className="animated-list flex flex-wrap gap-2">
         <li className="transition-opacity">
           <button
-            className={`flex transform items-center gap-2 rounded-md bg-primary px-4 py-[3px] transition-all duration-300 ease-in-out hover:bg-secondary ${
+            className={`bg-primary hover:bg-secondary flex transform items-center gap-2 rounded-md px-4 py-[3px] transition-all duration-300 ease-in-out ${
               emailText === "Copied!" ? "bg-green-300 dark:bg-green-500" : "bg-primary"
             }`}
             onClick={() => handleCopyEmail()}
@@ -102,7 +102,7 @@ function ContactButton() {
         </li>
         <li>
           <Link
-            className="flex transform items-center gap-2 rounded-md bg-primary py-[3px] pl-4 pr-3 transition-all duration-300 ease-in-out hover:bg-secondary"
+            className="bg-primary hover:bg-secondary flex transform items-center gap-2 rounded-md py-[3px] pr-3 pl-4 transition-all duration-300 ease-in-out"
             target="_blank"
             href="https://www.linkedin.com/in/samuel-palmer1/"
           >
@@ -111,7 +111,7 @@ function ContactButton() {
         </li>
         <li className="transition-opacity">
           <Link
-            className="flex transform items-center gap-2 rounded-md bg-primary py-[3px] pl-4 pr-3 transition-all duration-300 ease-in-out hover:bg-secondary"
+            className="bg-primary hover:bg-secondary flex transform items-center gap-2 rounded-md py-[3px] pr-3 pl-4 transition-all duration-300 ease-in-out"
             target="_blank"
             href="https://github.com/beamcode"
           >
@@ -127,22 +127,22 @@ export default function Page() {
   return (
     <div className="space-y-16">
       <div
-        className="flex w-full animate-in flex-col gap-6 md:flex-row"
+        className="animate-in flex w-full flex-col gap-6 md:flex-row"
         style={{ "--index": 1 } as React.CSSProperties}
       >
-        <div className="h-fit w-full rounded-xs bg-primary px-2 md:w-32">
+        <div className="bg-primary h-fit w-full rounded-xs px-2 md:w-32">
           <h1 className="text-xl">Whoami</h1>
         </div>
 
         <div className="flex-1 space-y-4">
-          <p className="font-semibold text-primary">
+          <p className="text-primary font-semibold">
             {"Hi there! I'm "}
             <span className="bg-linear-to-r from-red-400 to-yellow-600 bg-clip-text font-extrabold text-transparent">
               Sam
             </span>
-            {", a software engineer and student passionate about various tech fields."}
+            {", a software engineer and  passionate student about various tech fields."}
           </p>
-          <p className="font-semibold text-primary">
+          <p className="text-primary font-semibold">
             {
               "I'm currently in my fifth year at Epitech Paris finalizing my masters and working on BetterVoxel."
             }

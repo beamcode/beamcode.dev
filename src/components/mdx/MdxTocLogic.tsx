@@ -67,7 +67,7 @@ export default function MdxTocLogic({ content }: { content: any }) {
   }, [tocData])
 
   return (
-    <div className="flex flex-col gap-3 border-l border-primary">
+    <div className="border-primary flex flex-col gap-3 border-l">
       {tocData.map((heading) => (
         <Link
           key={heading.id}

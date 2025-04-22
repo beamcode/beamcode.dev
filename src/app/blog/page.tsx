@@ -6,13 +6,13 @@ export default async function Page() {
 
   return (
     <div>
-      <div className="mb-8 flex animate-in items-center gap-2">
+      <div className="animate-in mb-8 flex items-center gap-2">
         <h1 className="text-2xl font-medium">read my blog</h1>
         <p className="text-secondary">({posts.length} posts)</p>
       </div>
 
       <div
-        className="grid animate-in grid-cols-1 gap-8 min-[480px]:grid-cols-2 sm:grid-cols-2"
+        className="animate-in grid grid-cols-1 gap-8 min-[480px]:grid-cols-2 sm:grid-cols-2"
         style={{ "--index": 1 } as React.CSSProperties}
       >
         {posts

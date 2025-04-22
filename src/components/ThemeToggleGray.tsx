@@ -18,14 +18,14 @@ export default function ThemeToggleGray() {
 
   return (
     <div
-      className="h-8 w-12 shrink-0 rounded-full bg-primary p-1"
+      className="bg-primary h-8 w-12 shrink-0 rounded-full p-1"
       onClick={() => {
         toggleTheme()
       }}
       aria-label="Toggle Dark Mode"
       role="button"
     >
-      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-default duration-[250ms] ease-in-out dark:translate-x-4">
+      <div className="bg-default flex h-6 w-6 items-center justify-center rounded-full duration-[250ms] ease-in-out dark:translate-x-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

@@ -34,7 +34,7 @@ export default function NavBarFramerMotion() {
             {link.href === path && (
               <motion.div
                 layoutId="underline"
-                className="absolute inset-0 -z-20 rounded-full bg-primary"
+                className="bg-primary absolute inset-0 -z-20 rounded-full"
                 transition={{ duration: 0.48 }}
               />
             )}
