@@ -39,7 +39,7 @@
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animated": "^2.0.0",
     "three": "^0.175.0",
-    "three-stdlib": "^2.35.15",
+    "three-stdlib": "^2.35.16",
     "vanta": "^0.5.24"
   },
   "devDependencies": {
