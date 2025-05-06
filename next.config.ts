@@ -1,11 +1,11 @@
 import withMDX from "@next/mdx"
+import type { NextConfig } from "next"
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const baseConfig: NextConfig = {
   transpilePackages: ["next-mdx-remote"],
   pageExtensions: ["js", "jsx", "ts", "tsx", "mdx"],
   experimental: {
-    mdxRs: false,
+    mdxRs: true,
   },
   env: {
     NEXT_TELEMETRY_DISABLED: "1",
@@ -25,4 +25,4 @@ const mdxConfig = {
   extension: /\.mdx?$/,
 }
 
-export default withMDX(mdxConfig)(nextConfig)
+export default withMDX(mdxConfig)(baseConfig)

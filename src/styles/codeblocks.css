@@ -1,4 +1,4 @@
-@reference "./global.css";
+@import "./global.css";
 
 code[data-line-numbers] {
   counter-reset: line;
