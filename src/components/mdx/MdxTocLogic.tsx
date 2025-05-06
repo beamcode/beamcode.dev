@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import Link from "next/link"
 
 type Heading = {
@@ -9,86 +9,126 @@ type Heading = {
   depth: number
 }
 
-function extractTOC(content: any): Heading[] {
+type MdxTocProps = {
+  content: any
+}
+
+/**
+ * Custom hook to track which heading is currently visible in the viewport
+ */
+function useActiveHeading(headings: Heading[]) {
+  const [activeId, setActiveId] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (headings.length === 0) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Get the first entry that is intersecting
+        const visibleEntry = entries.find((entry) => entry.isIntersecting)
+        if (visibleEntry) {
+          setActiveId(visibleEntry.target.id)
+        }
+      },
+      { rootMargin: "0px 0px -80% 0px" }
+    )
+
+    // Observe all heading elements
+    const elements = headings
+      .map((heading) => document.getElementById(heading.id))
+      .filter(Boolean) as HTMLElement[]
+
+    elements.forEach((element) => observer.observe(element))
+
+    return () => {
+      elements.forEach((element) => observer.unobserve(element))
+    }
+  }, [headings])
+
+  return activeId
+}
+
+/**
+ * Extract headings from MDX content
+ */
+function extractHeadings(content: any): Heading[] {
   const headings: Heading[] = []
 
-  function traverse(node: any) {
-    if (node.type === "h1" || node.type === "h2" || node.type === "h3" || node.type === "h4") {
+  const traverseNode = (node: any) => {
+    // Check if the node is a heading (h1-h6)
+    if (
+      typeof node.type === "string" &&
+      (node.type === "h1" ||
+        node.type === "h2" ||
+        node.type === "h3" ||
+        node.type === "h4" ||
+        node.type === "h5" ||
+        node.type === "h6")
+    ) {
       headings.push({
         id: node.props.id,
         text: node.props.children,
         depth: parseInt(node.type.substring(1)),
       })
     }
-    if (node.props && node.props.children) {
+
+    // Check children recursively
+    if (node.props?.children) {
       if (Array.isArray(node.props.children)) {
-        node.props.children.forEach(traverse)
+        node.props.children.forEach(traverseNode)
       } else {
-        traverse(node.props.children)
+        traverseNode(node.props.children)
       }
     }
   }
 
-  content.forEach(traverse)
+  if (Array.isArray(content)) {
+    content.forEach(traverseNode)
+  }
+
   return headings
 }
 
-export default function MdxTocLogic({ content }: { content: any }) {
-  const tocData: Heading[] = extractTOC(content)
-  const [currentHeading, setCurrentHeading] = useState<string | null>(null)
+/**
+ * Table of Contents component for MDX content
+ */
+export default function MdxTocLogic({ content }: MdxTocProps) {
+  const headings = extractHeadings(content)
+  const activeHeadingId = useActiveHeading(headings)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setCurrentHeading(entry.target.id)
-          }
-        })
-      },
-      { rootMargin: "0px 0px -80% 0px" } // Adjust the rootMargin to trigger earlier or later
-    )
+  // Calculate the minimum heading depth for proper indentation
+  const minDepth = headings.length > 0 ? Math.min(...headings.map((heading) => heading.depth)) : 1
 
-    tocData.forEach((heading) => {
-      const element = document.getElementById(heading.id)
-      if (element) {
-        observer.observe(element)
-      }
-    })
-
-    return () => {
-      tocData.forEach((heading) => {
-        const element = document.getElementById(heading.id)
-        if (element) {
-          observer.unobserve(element)
-        }
-      })
+  const handleScrollToHeading = useCallback((e: React.MouseEvent, id: string) => {
+    e.preventDefault()
+    const target = document.getElementById(id)
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "start" })
     }
-  }, [tocData])
+  }, [])
+
+  if (headings.length === 0) {
+    return null
+  }
 
   return (
-    <div className="border-primary flex flex-col gap-3 border-l">
-      {tocData.map((heading) => (
+    <nav aria-label="Table of contents" className="border-primary flex flex-col gap-2 border-l">
+      {headings.map((heading) => (
         <Link
           key={heading.id}
-          style={{ marginLeft: `${heading.depth - 1}rem` }}
           href={`#${heading.id}`}
-          onClick={(e) => {
-            e.preventDefault()
-            const target = document.getElementById(heading.id)
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth", block: "start" })
-            }
-          }}
+          style={{ paddingLeft: `${(heading.depth - minDepth + 1) * 0.75}rem` }}
+          onClick={(e) => handleScrollToHeading(e, heading.id)}
           className={`block w-fit text-sm font-normal no-underline transition-colors ${
-            currentHeading === heading.id
+            activeHeadingId === heading.id
               ? "text-accent-primary"
               : "text-secondary hover:text-accent-primary"
           }`}
+          aria-current={activeHeadingId === heading.id ? "location" : undefined}
         >
           {heading.text}
         </Link>
       ))}
-    </div>
+    </nav>
   )
 }

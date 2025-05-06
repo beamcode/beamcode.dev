@@ -1,5 +1,5 @@
+import { cn } from "@/utils/utils"
 import Link from "next/link"
-import { twMerge } from "tailwind-merge"
 
 export default function Tags({
   tags,
@@ -16,16 +16,16 @@ export default function Tags({
   const commonClasses = "h-fit text-black bg-accent-primary px-2 rounded-md text-xs transition-none"
 
   return (
-    <div className={twMerge("flex flex-wrap gap-1.5")}>
+    <div className={cn("flex flex-wrap gap-1.5", className)}>
       {tags.map((tag) =>
         clickable ? (
           <Link
             href={`${path}/${tag.toLowerCase()}`}
             key={tag}
-            className={twMerge(
+            className={cn(
               commonClasses,
               "hover:bg-accent-secondary flex flex-nowrap items-center gap-1 font-medium transition-transform duration-300 hover:scale-105",
-              className
+              tagClassName
             )}
           >
             {tag}
@@ -44,7 +44,7 @@ export default function Tags({
             </svg>
           </Link>
         ) : (
-          <span key={tag} className={twMerge(commonClasses, className)}>
+          <span key={tag} className={cn(commonClasses, tagClassName)}>
             {tag}
           </span>
         )

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react"
 import { useThree } from "@react-three/fiber"
 import { GridHelper } from "three"
 import { OrbitControls } from "@react-three/drei"
-import Model from "./Model"
+import Model from "@/components/3D/Model"
 
 interface SceneProps {
   path: string

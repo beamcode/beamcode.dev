@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { twMerge } from "tailwind-merge"
+import { cn } from "@/utils/utils"
 import Image from "next/image"
 import Link from "next/link"
 import MusicBars from "./musicBars/MusicBars"
@@ -121,7 +121,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
           href={data.songUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className={twMerge(
+          className={cn(
             "dark:border-opacity-10 group flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-gray-50 p-3 transition-all hover:scale-[1.02] dark:border-zinc-800 dark:bg-zinc-900",
             className
           )}
@@ -176,7 +176,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
         </Link>
       ) : (
         <div
-          className={twMerge(
+          className={cn(
             "dark:border-opacity-10 flex w-full min-w-fit justify-between gap-4 overflow-hidden rounded-xl border border-zinc-200 bg-gray-50 p-3 dark:border-zinc-800 dark:bg-zinc-900",
             className
           )}

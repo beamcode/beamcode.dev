@@ -1,9 +1,9 @@
 import { compileMDX } from "next-mdx-remote/rsc"
-import { useMDXComponents } from "./MdxComponents"
+import { useMDXComponents } from "@/components/mdx/MdxComponents"
 import { Suspense } from "react"
-import { twMerge } from "tailwind-merge"
+import { cn } from "@/utils/utils"
 import rehypeSlug from "rehype-slug"
-import MdxTocLogic from "./MdxTocLogic"
+import MdxTocLogic from "@/components/mdx/MdxTocLogic"
 
 export default function MdxToc({
   children,
@@ -14,7 +14,7 @@ export default function MdxToc({
 }) {
   const Markdown = useMDXComponents({})
 
-  const articleClassNames = twMerge(
+  const articleClassNames = cn(
     "prose dark:prose-invert",
     enableMaxWidth ? "lg:max-w-prose" : "max-w-none"
   )

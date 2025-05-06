@@ -39,19 +39,29 @@ export default function SkillsSection() {
       url: "https://tailwindcss.com/",
     },
     {
-      name: "NodeJS",
-      component: <Nodejs width={size} key="nodejs" className="" />,
-      url: "https://nodejs.org/",
-    },
-    {
       name: "ExpressJS",
       component: <Expressjs width={size} key="expressjs" className="fill-default-svg" />,
       url: "https://expressjs.com/",
     },
     {
+      name: "NodeJS",
+      component: <Nodejs width={size} key="nodejs" className="" />,
+      url: "https://nodejs.org/",
+    },
+    {
       name: "Python",
       component: <Python width={size} key="python" className="" />,
       url: "https://www.python.org/",
+    },
+    {
+      name: "Arduino",
+      component: <Arduino width={size} key="arduino" className="" />,
+      url: "https://www.arduino.cc/",
+    },
+    {
+      name: "macOS",
+      component: <Macos width={size} key="macos" className="fill-default-svg" />,
+      url: "https://www.apple.com/macos/",
     },
     {
       name: "Unix",
@@ -62,16 +72,6 @@ export default function SkillsSection() {
       name: "Linux",
       component: <Linux width={size} key="linux" className="fill-default-svg" />,
       url: "https://www.linux.org/",
-    },
-    {
-      name: "macOS",
-      component: <Macos width={size} key="macos" className="fill-default-svg" />,
-      url: "https://www.apple.com/macos/",
-    },
-    {
-      name: "Arduino",
-      component: <Arduino width={size} key="arduino" className="" />,
-      url: "https://www.arduino.cc/",
     },
     {
       name: "C",

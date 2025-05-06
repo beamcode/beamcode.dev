@@ -1,10 +1,6 @@
-"use client"
-
 import NavBar from "./NavBar"
-import Link from "next/link"
-import Image from "next/image"
 import ThemeSelector from "@/components/ThemeSelector"
-import NavBarFramerMotion from "./NavBarFramerMotion"
+// import NavBarFramerMotion from "./NavBarFramerMotion"
 // import ThemeToggle from "./ThemeToggle";
 // import ThemeButtonEmoji from "./ThemeButtonEmoji";
 // import ThemeButton from "./ThemeButton";

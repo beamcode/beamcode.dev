@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { usePathname } from "next/navigation"
-import { twMerge } from "tailwind-merge"
+import { cn } from "@/utils/utils"
 
 interface LinkItem {
   label: string
@@ -24,7 +24,7 @@ export default function NavBarFramerMotion() {
       {links.map((link) => (
         <li key={link.href} className="flex">
           <Link
-            className={twMerge(
+            className={cn(
               "relative cursor-pointer rounded-full px-4 py-[6.5px] text-sm transition-colors",
               path === link.href ? "text-primary" : "text-secondary hover:text-primary"
             )}

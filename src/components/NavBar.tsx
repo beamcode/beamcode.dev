@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useRef, useEffect, useState, useLayoutEffect } from "react"
-import { twMerge } from "tailwind-merge"
+import { cn } from "@/utils/utils"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
 
@@ -86,7 +86,7 @@ export default function NavBar() {
           >
             <Link
               href={link.href}
-              className={twMerge(
+              className={cn(
                 "cursor-pointer rounded-full px-4 py-[6.5px] transition-colors",
                 currentPath === link.href ? "text-primary" : "text-secondary hover:text-primary"
               )}

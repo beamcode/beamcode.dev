@@ -1,10 +1,9 @@
+import React from "react"
 import { MDXComponents } from "mdx/types"
 import Link from "next/link"
 import Image from "next/image"
-import Information from "./MdxComponents/Information"
-import CodeBlock from "./MdxComponents/CodeBlock"
-import React from "react"
-import heading from "./MdxComponents/Anchors"
+import Information from "@/components/mdx/MdxComponents/Information"
+import CodeBlock from "@/components/mdx/MdxComponents/CodeBlock"
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -25,12 +24,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </p>
     ),
-    h1: heading("h1"),
-    h2: heading("h2"),
-    h3: heading("h3"),
-    h4: heading("h4"),
-    h5: heading("h5"),
-    h6: heading("h6"),
     img: ({ alt = "", title, src = "", width, height, ...props }) => {
       const imgElement = (
         <div className="bg-primary relative flex w-full justify-center overflow-hidden rounded-md">

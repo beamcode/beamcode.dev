@@ -2,7 +2,7 @@
 
 import React from "react"
 import { Canvas } from "@react-three/fiber"
-import Scene from "./Scene"
+import Scene from "@/components/3D/Scene"
 
 export default function MainCanvas() {
   return (

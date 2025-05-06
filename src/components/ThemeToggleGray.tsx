@@ -13,7 +13,7 @@ export default function ThemeToggleGray() {
 
   function toggleTheme() {
     if (!mounted) return
-    setTheme(theme === "light" ? "cyberpunk" : "light")
+    setTheme(theme === "light" ? "terminal" : "light")
   }
 
   return (

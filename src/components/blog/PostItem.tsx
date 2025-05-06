@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { formatDate } from "@/utils/formatDate"
-import { timeSince } from "@/utils/timeSince"
 import { Post } from "@/types/mdxblog"
-import Tags from "./Tags"
+import Tags from "@/components/blog/Tags"
 import Image from "next/image"
 
 export default function PostItem({ post, index = 0 }: { post: Post; index?: number }) {

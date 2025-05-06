@@ -1,5 +1,6 @@
 import PostItem from "@/components/blog/PostItem"
 import { getPostsAvailableTags, getPosts } from "@/utils/getPosts"
+import Tags from "@/components/blog/Tags"
 
 export async function generateStaticParams() {
   const tags = await getPostsAvailableTags()
@@ -11,30 +12,32 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   const decodedTag = decodeURIComponent(slug).toLowerCase()
 
   const posts = await getPosts()
-  const filteredPosts = posts.filter((post) =>
-    post.tags.some((tag) => tag.toLowerCase() === decodedTag)
+  const filteredPosts = posts.filter(({ tags }) =>
+    tags.map((tag) => tag.toLowerCase()).includes(decodedTag)
   )
-  // same as above but diffrent way lol
-  // const filteredPosts = posts.filter((post) => post.tags.includes(decodedTag))
 
   const uniqueTags = Array.from(new Set(posts.flatMap((post) => post.tags)))
 
   return (
-    <div>
-      <div className="mb-8">
-        <h1 className="animate-in mb-2">
+    <>
+      <div className="mb-8 space-y-4">
+        <h1 className="animate-in">
           {posts.length} {posts.length == 1 ? "post" : "posts"} tagged with
           <span className="font-bold">{` "${slug}"`}</span>
         </h1>
+        <Tags tags={uniqueTags} clickable className="gap-2" />
       </div>
 
-      <div className="animate-in space-y-10" style={{ "--index": 2 } as React.CSSProperties}>
-        {posts
+      <div
+        className="animate-in grid grid-cols-1 gap-8 min-[480px]:grid-cols-2 sm:grid-cols-2"
+        style={{ "--index": 1 } as React.CSSProperties}
+      >
+        {filteredPosts
           .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
           .map((post, index) => (
             <PostItem key={post.slug} post={post} index={index + 2} />
           ))}
       </div>
-    </div>
+    </>
   )
 }

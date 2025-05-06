@@ -4,6 +4,7 @@ import rehypePrettyCode from "rehype-pretty-code"
 import remarkGfm from "remark-gfm"
 import rehypeSlug from "rehype-slug"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
+import rehypeUnwrapImages from "rehype-unwrap-images"
 
 const classes = {
   title: `bg-zinc-700 text-gray-300 text-sm pl-3 py-2 rounded-t-md`,
@@ -47,7 +48,7 @@ export function MDX({ children }: { children: string }) {
         source={children}
         options={{
           mdxOptions: {
-            rehypePlugins: [[rehypePrettyCode, options], rehypeSlug],
+            rehypePlugins: [[rehypePrettyCode, options], rehypeSlug, rehypeUnwrapImages],
             remarkPlugins: [remarkGfm],
           },
           // scope: customData

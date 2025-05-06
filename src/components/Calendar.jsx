@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react"
 import moment from "moment"
-import { FaArrowRight } from "react-icons/fa6"
-import { FaArrowLeft } from "react-icons/fa6"
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa6"
 
 export const getSpecificDate = (month, dayOfMonth, year) => {
   return moment(`${month}-${dayOfMonth}-${year}`, "MM-DD-YYYY").toDate()

@@ -1,7 +1,7 @@
 import { Post } from "@/types/mdxblog"
 import { formatDate } from "@/utils/formatDate"
 import { timeSince } from "@/utils/timeSince"
-import Tags from "../blog/Tags"
+import Tags from "@/components/blog/Tags"
 import Image from "next/image"
 
 export default function PostHeader({ post }: { post: Post }) {
