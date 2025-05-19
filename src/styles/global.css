@@ -2,31 +2,110 @@
 @import "tailwindcss-animated";
 @plugin "@tailwindcss/typography";
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
+@custom-variant dark (&:where(.dark, .dark *));
 
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* ────────────────────────────────────*/
+/*  Design‑tokens (generate utilities) */
+/*  NOTE: must include `inline`        */
+/* ────────────────────────────────────*/
+@theme inline {
+  /* fonts */
+  --font-default: var(--default-font);
+
+  /* backgrounds */
+  --color-default-bg: var(--default-bg);
+  --color-primary-bg: var(--primary-bg);
+  --color-secondary-bg: var(--secondary-bg);
+  --color-tertiary-bg: var(--tertiary-bg);
+
+  /* text */
+  --color-primary-text: var(--primary-text);
+  --color-secondary-text: var(--secondary-text);
+  --color-tertiary-text: var(--tertiary-text);
+
+  /* border */
+  --color-primary-border: var(--primary-border);
+  --color-secondary-border: var(--secondary-border);
+  --color-tertiary-border: var(--tertiary-border);
+
+  /* fill */
+  --color-primary-fill: var(--primary-fill);
+  --color-secondary-fill: var(--secondary-fill);
+  --color-tertiary-fill: var(--tertiary-fill);
+
+  /* accent */
+  --color-primary-accent: var(--primary-accent);
+  --color-secondary-accent: var(--secondary-accent);
+  --color-tertiary-accent: var(--tertiary-accent);
+
+  /* misc */
+  --color-default-svg: var(--default-svg);
+  --default-font: var(--default-font);
+}
+
+/* ────────────────────────────────────*/
+/*  Default (light) — :root fallback   */
+/* ────────────────────────────────────*/
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  :root {
+    --default-bg: #ffffff;
+    --primary-bg: #f4f4f4;
+    --secondary-bg: #e4e4e4;
+    --tertiary-bg: #d9d9d9;
+
+    --primary-text: #000000;
+    --secondary-text: gray;
+    --tertiary-text: #9e9e9e;
+
+    --primary-border: #dadada;
+    --secondary-border: #4c4c4c;
+    --tertiary-border: #313131;
+
+    --primary-fill: #f4f4f4;
+    --secondary-fill: #e4e4e4;
+    --tertiary-fill: #d9d9d9;
+
+    --primary-accent: #f9b916;
+    --secondary-accent: #e3a814;
+    --tertiary-accent: #c6920f;
+
+    --default-svg: #000000;
+    --default-font: sans-serif;
   }
-}
 
-@utility text-balance {
-  text-wrap: balance;
-}
+  /* ────────────────────────────────────*/
+  /*  Dark                              */
+  /* ────────────────────────────────────*/
+  .dark {
+    --default-bg: #1f1f1f;
+    --primary-bg: #303030;
+    --secondary-bg: #727272;
+    --tertiary-bg: #888888;
 
-@layer utilities {
+    --primary-text: #ffffff;
+    --secondary-text: #cbd5e1;
+    --tertiary-text: #9e9e9e;
+
+    --primary-border: #4b4b4b;
+    --secondary-border: #cccccc;
+    --tertiary-border: #9e9e9e;
+
+    --primary-fill: #252525;
+    --secondary-fill: #353535;
+    --tertiary-fill: #757575;
+
+    --primary-accent: #fb8a39;
+    --secondary-accent: #cb6b27;
+    --tertiary-accent: #a04a0d;
+
+    --default-svg: #ffffff;
+    --default-font: sans-serif;
+  }
+
+  /* ────────────────────────────────────*/
+  /*  Terminal (green‑on‑black)          */
+  /* ────────────────────────────────────*/
   .terminal {
-    --test: 25, 5, 0;
     --default-bg: #000000;
     --primary-bg: #171717;
     --secondary-bg: #353535;
@@ -48,89 +127,45 @@
     --secondary-accent: #b12d9e;
     --tertiary-accent: #5b144e;
 
-    --default-svg: white;
+    --default-svg: #ffffff;
     --default-font: "OCR-A", sans-serif;
-  }
-
-  .light {
-    --default-bg: #ffffff;
-    --primary-bg: #f4f4f4;
-    --secondary-bg: #e4e4e4;
-    --tertiary-bg: #d9d9d9;
-
-    --primary-text: black;
-    --secondary-text: gray;
-    --tertiary-text: #9e9e9e;
-
-    --primary-border: #dadada;
-    --secondary-border: #4c4c4c;
-    --tertiary-border: #313131;
-
-    --primary-fill: #f4f4f4;
-    --secondary-fill: #e4e4e4;
-    --tertiary-fill: #d9d9d9;
-
-    --primary-accent: #f9b916;
-    --secondary-accent: #e3a814;
-    --tertiary-accent: #c6920f;
-
-    --default-svg: black;
-    --default-font: sans-serif;
-  }
-
-  .dark {
-    --default-bg: #1f1f1f;
-    --primary-bg: #303030;
-    --secondary-bg: #727272;
-    --tertiary-bg: #888888;
-
-    --primary-text: white;
-    --secondary-text: #cbd5e1;
-    --tertiary-text: #9e9e9e;
-
-    --primary-border: #4b4b4b;
-    --secondary-border: #cccccc;
-    --tertiary-border: #9e9e9e;
-
-    --primary-fill: #252525;
-    --secondary-fill: #353535;
-    --tertiary-fill: #757575;
-
-    --primary-accent: #fb8a39;
-    --secondary-accent: #cb6b27;
-    --tertiary-accent: #a04a0d;
-
-    --default-svg: white;
-    --default-font: sans-serif;
-  }
-
-  body::-webkit-scrollbar {
-    width: 0; /* Width of the scrollbar */
-  }
-
-  .animate-in {
-    animation-delay: calc(var(--index) * 130ms);
   }
 }
 
+/* ────────────────────────────────────*/
+/*  Base element tweaks (theme‑agnostic)*/
+/* ────────────────────────────────────*/
 html {
-  @apply bg-default font-sans antialiased;
+  @apply font-sans antialiased;
+}
+
+body {
+  background-color: var(--color-default-bg);
 }
 
 button {
   @apply cursor-pointer;
 }
 
-@font-face {
-  font-family: "MegaMan";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/fonts/Mega_Man_10.ttf") format("truetype");
+/* Custom utility */
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0;
 }
 
+.animate-in {
+  animation-delay: calc(var(--index) * 130ms);
+}
+
+/* Fonts */
 @font-face {
-  font-family: "OCR-A";
+  font-family: "MegaMan";
+  src: url("/fonts/Mega_Man_10.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+}
+@font-face {
+  font-family: "OCR-A";
   src: url("/fonts/OCR-A_BT.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
 }

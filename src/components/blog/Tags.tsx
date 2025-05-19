@@ -13,7 +13,7 @@ export default function Tags({
   tagClassName?: string
 }) {
   const path = "/blog/tag"
-  const commonClasses = "h-fit text-black bg-accent-primary px-2 rounded-md text-xs transition-none"
+  const commonClasses = "h-fit text-black bg-primary-accent px-2 rounded-md text-xs transition-none"
 
   return (
     <div className={cn("flex flex-wrap gap-1.5", className)}>
@@ -24,7 +24,7 @@ export default function Tags({
             key={tag}
             className={cn(
               commonClasses,
-              "hover:bg-accent-secondary flex flex-nowrap items-center gap-1 font-medium transition-transform duration-300 hover:scale-105",
+              "hover:bg-secondary-accent flex flex-nowrap items-center gap-1 font-medium transition-transform duration-300 hover:scale-105",
               tagClassName
             )}
           >

@@ -71,7 +71,7 @@ export default function NavBar() {
       <div
         ref={markerRef}
         id="indicator"
-        className="bg-primary absolute rounded-full transition-all duration-500 will-change-auto"
+        className="bg-primary-bg absolute rounded-full transition-all duration-500 will-change-auto"
       />
 
       <ul className="flex list-none flex-wrap gap-1.5 sm:justify-center">

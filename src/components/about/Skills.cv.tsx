@@ -87,7 +87,7 @@ export default function SkillsSection() {
 
   return (
     <div className="flex w-full flex-col gap-6 md:flex-row">
-      <div className="bg-primary h-fit w-full rounded-xs px-2 md:w-32">
+      <div className="bg-primary-bg h-fit w-full rounded-xs px-2 md:w-32">
         <h1 className="text-xl">Skills</h1>
       </div>
 
@@ -170,7 +170,7 @@ export default function SkillsSection() {
               target="_blank"
               rel="noopener noreferrer"
               href={language.url}
-              className="group bg-primary hover:bg-secondary inline-flex cursor-pointer items-center rounded-[4px] px-1.5 py-0.5 transition-all duration-300"
+              className="group bg-primary-bg hover:bg-secondary inline-flex cursor-pointer items-center rounded-[4px] px-1.5 py-0.5 transition-all duration-300"
             >
               <span className="text-md mr-2 flex font-normal">{language.name}</span>
               {language.component}

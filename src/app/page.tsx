@@ -59,7 +59,7 @@ function ProjectCard({
   }
 }) {
   return (
-    <section className="bg-primary flex h-full w-full flex-col-reverse gap-2 overflow-hidden rounded-md p-1.5 sm:gap-4">
+    <section className="bg-primary-bg flex h-full w-full flex-col-reverse gap-2 overflow-hidden rounded-md p-1.5 sm:gap-4">
       <div className="flex flex-1 flex-col justify-between space-y-3 p-2 sm:pt-0">
         <div className="flex w-full flex-wrap items-center justify-between">
           <h1 className="text-lg break-all">{title}</h1>
@@ -93,7 +93,7 @@ function ProjectCard({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="bg-accent-primary h-fit rounded-full px-2 whitespace-nowrap text-black"
+              className="bg-primary-accent h-fit rounded-full px-2 whitespace-nowrap text-black"
             >
               {tech}
             </span>

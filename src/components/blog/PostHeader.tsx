@@ -15,7 +15,7 @@ export default function PostHeader({ post }: { post: Post }) {
           </span>
         </div>
 
-        <p className="text-primary text-sm">{post.description}</p>
+        <p className="text-primary-text text-sm">{post.description}</p>
 
         <div className="flex gap-2 text-sm">
           <Tags tags={post.tags} clickable className="text-xs" />

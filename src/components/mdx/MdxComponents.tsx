@@ -19,14 +19,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     p: ({ children, ...props }) => (
       <p
         {...props}
-        className="[&_strong]:bg-primary [&_strong]:text-accent-primary rounded-md [&_strong]:rounded-[0.25rem] [&_strong]:px-1 [&_strong]:py-0.5"
+        className="[&_strong]:bg-primary-bg [&_strong]:text-primary-accent rounded-md [&_strong]:rounded-[0.25rem] [&_strong]:px-1 [&_strong]:py-0.5"
       >
         {children}
       </p>
     ),
     img: ({ alt = "", title, src = "", width, height, ...props }) => {
       const imgElement = (
-        <div className="bg-primary relative flex w-full justify-center overflow-hidden rounded-md">
+        <div className="bg-primary-bg relative flex w-full justify-center overflow-hidden rounded-md">
           <div
             className="absolute inset-0 z-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${src})` }}

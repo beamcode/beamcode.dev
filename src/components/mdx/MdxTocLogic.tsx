@@ -112,7 +112,10 @@ export default function MdxTocLogic({ content }: MdxTocProps) {
   }
 
   return (
-    <nav aria-label="Table of contents" className="border-primary flex flex-col gap-2 border-l">
+    <nav
+      aria-label="Table of contents"
+      className="border-primary-border flex flex-col gap-2 border-l"
+    >
       {headings.map((heading) => (
         <Link
           key={heading.id}
@@ -121,8 +124,8 @@ export default function MdxTocLogic({ content }: MdxTocProps) {
           onClick={(e) => handleScrollToHeading(e, heading.id)}
           className={`block w-fit text-sm font-normal no-underline transition-colors ${
             activeHeadingId === heading.id
-              ? "text-accent-primary"
-              : "text-secondary hover:text-accent-primary"
+              ? "text-primary-accent"
+              : "text-secondary hover:text-primary-accent"
           }`}
           aria-current={activeHeadingId === heading.id ? "location" : undefined}
         >
