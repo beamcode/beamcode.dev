@@ -11,6 +11,7 @@ import AnimBg from "@/components/VantaBackground"
 import ThemeSelector from "@/components/ThemeSelector"
 import ThemeToggleGray from "@/components/ThemeToggleGray"
 import Calendar from "@/components/Calendar"
+import BrandCarousel from "@/components/BrandCarousel"
 
 export default function Page() {
   return (
@@ -37,6 +38,7 @@ export default function Page() {
       </VercelBox>
 
       <Calendar />
+      <BrandCarousel />
     </div>
   )
 }
