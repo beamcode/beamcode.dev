@@ -6,7 +6,6 @@ import Image from "next/image"
 import Link from "next/link"
 import MusicBars from "./musicBars/MusicBars"
 import { SquareArrowOutUpRight } from "lucide-react"
-import { useTheme } from "next-themes"
 
 interface SpotifyData {
   isPlaying: boolean
@@ -26,14 +25,6 @@ export default function SpotifyWidget({ className }: { className?: string }) {
   const [currentProgress, setCurrentProgress] = useState(0)
   const progressInterval = useRef<NodeJS.Timeout | null>(null)
   const lastUpdateTime = useRef<number>(0)
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const isDarkMode = mounted && (theme === "dark" || theme === "terminal")
 
   const fetchData = async () => {
     try {
@@ -123,8 +114,7 @@ export default function SpotifyWidget({ className }: { className?: string }) {
   // Calculate the progress percentage
   const progressPercentage = data?.isPlaying ? (currentProgress / (data?.durationMs || 1)) * 100 : 0
 
-  // Wrap the content in a div with dark class if dark mode is active
-  const content = (
+  return (
     <>
       {data?.isPlaying ? (
         <Link
@@ -233,9 +223,4 @@ export default function SpotifyWidget({ className }: { className?: string }) {
       )}
     </>
   )
-
-  // Return content wrapped with dark class when in dark mode
-  if (!mounted) return content // Return early during SSR to avoid hydration issues
-
-  return isDarkMode ? <div className="dark">{content}</div> : content
 }

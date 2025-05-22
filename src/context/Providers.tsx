@@ -15,7 +15,12 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <ThemeProvider attribute="class" enableSystem themes={["light", "dark", "terminal"]}>
+    <ThemeProvider
+      attribute="class"
+      value={{ light: "light", dark: "dark", terminal: "terminal" }}
+      enableSystem
+      themes={["light", "dark", "terminal"]}
+    >
       {children}
     </ThemeProvider>
   )

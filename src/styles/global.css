@@ -2,13 +2,14 @@
 @import "tailwindcss-animated";
 @plugin "@tailwindcss/typography";
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* This variant defines what activates dark mode classes */
+@custom-variant dark (&:where(.dark, .dark *, .terminal, .terminal *));
 
 /* ────────────────────────────────────*/
 /*  Design‑tokens (generate utilities) */
 /*  NOTE: must include `inline`        */
 /* ────────────────────────────────────*/
-@theme inline {
+@theme {
   /* fonts */
   --font-default: var(--default-font);
 
@@ -129,6 +130,9 @@
 
     --default-svg: #ffffff;
     --default-font: "OCR-A", sans-serif;
+
+    /* Explicitly set dark mode for terminal theme */
+    color-scheme: dark;
   }
 }
 
