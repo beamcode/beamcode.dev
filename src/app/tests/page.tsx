@@ -1,15 +1,16 @@
-import VercelBox from "@/components/VercelBox"
+import "@/styles/3dcube.css"
 
 export default function Page({}) {
   return (
-    <VercelBox
-      marginTopLeft={[10, 10]}
-      marginTopRight={[60, 10]}
-      marginBottomLeft={[10, 10]}
-      marginBottomRight={[30, 10]}
-      colorClass="bg-secondary"
-    >
-      <h1 className="mx-1 text-lg break-all">test</h1>
-    </VercelBox>
+    <div className="scene mx-auto my-20">
+      <div className="cube">
+        <div className="face front"></div>
+        <div className="face back"></div>
+        <div className="face left"></div>
+        <div className="face right"></div>
+        <div className="face top"></div>
+        <div className="face bottom"></div>
+      </div>
+    </div>
   )
 }
