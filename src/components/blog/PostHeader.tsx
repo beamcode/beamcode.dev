@@ -9,7 +9,7 @@ export default function PostHeader({ post }: { post: Post }) {
     <div className="mb-10 md:mb-20">
       <h1 className="mb-3 text-3xl font-semibold">{post.title}</h1>
 
-      <div className="mb-4 flex items-center justify-between">
+      <div className="mb-4 flex flex-wrap items-center justify-between gap-4">
         <span className="text-secondary text-sm">
           {formatDate(post.date)} ({timeSince(post.date)})
         </span>
