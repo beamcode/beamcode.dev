@@ -11,13 +11,13 @@ export default function PostItem({ post, index = 0 }: { post: Post; index?: numb
       className="group animate-in bg-primary-bg flex cursor-pointer flex-col space-y-2 rounded-md p-1 transition-all"
       style={{ "--index": index } as React.CSSProperties}
     >
-      <div className="relative flex h-28 w-full shrink-0 overflow-hidden rounded-md">
+      <div className="bg-tertiary-bg relative flex h-28 w-full shrink-0 grow overflow-hidden rounded-md">
         <Image
           src={post.thumbnail}
           alt={post.title}
           width={0}
           height={0}
-          className="bg-secondary absolute inset-0 size-full object-cover transition duration-300 group-hover:scale-105"
+          className="absolute inset-0 size-full object-cover transition duration-300 group-hover:scale-105"
           sizes="100vw"
         />
       </div>
