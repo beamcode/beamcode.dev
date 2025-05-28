@@ -35,10 +35,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
           <Image
             src={src}
             alt={alt}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEtAI8QfWZVQAAAABJRU5ErkJggg=="
             width={width ? Number(width) : 0}
             height={height ? Number(height) : 0}
             sizes="100vw"
-            className="z-20 !m-0 h-auto max-h-[30rem] w-auto object-contain"
+            className="z-20 !m-0 h-auto max-h-[30rem] min-h-[30rem] w-auto object-contain"
             {...props}
           />
         </div>
